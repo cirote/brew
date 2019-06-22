@@ -10,8 +10,8 @@ class CreateLupulosTable extends Migration
     {
         Schema::create('lupulos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('variedad');
-            $table->integer('aa');
+            $table->string('variedad')->unique();
+            $table->decimal('aa');
             $table->timestamps();
         });
     }

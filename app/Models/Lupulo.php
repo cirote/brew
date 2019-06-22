@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lupulo extends Model
 {
-	public function getAAAttribute($value)
-	{
-		return ($value / 100);
-	}
+    public static function byNombre($nombre)
+    {
+        return static::where('variedad', $nombre)->first();
+    }
 }
