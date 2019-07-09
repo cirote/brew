@@ -3,32 +3,39 @@
 use App\Models\{Lupulo, Malta, Receta};
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use JBZoo\SimpleTypes\Config\Config;
+use JBZoo\SimpleTypes\Type\Weight;
+use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
 
 class LotesTableSeeder extends Seeder
 {
     public function run()
     {
+        Config::registerDefault('weight', new ConfigWeight());
+
         $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 6, 8),
             'receta' => 'Cerveza de Trigo Belga',
-            'maltas' => [[
-                'nombre' => 'Pale 2-Row',
-                'cantidad' => 6100,
-                'unidad' => 'gr'
-            ], [
-                'nombre' => 'Castle Crystal',
-                'cantidad' => 500,
-                'unidad' => 'gr'
-            ]],
-            'lupulos' => [[
-                'nombre' => 'Magnum',
-                'cantidad' => 23.6,
-                'momento' => -75
-            ], [
-                'nombre' => 'Styrian Golding',
-                'cantidad' => 23.6,
-                'momento' => -5
-            ]],
+            'macerado' => [
+                'maltas' => [[
+                    'nombre' => 'Pale 2-Row',
+                    'cantidad' => 6100
+                ], [
+                    'nombre' => 'Castle Crystal',
+                    'cantidad' => 500
+                ]],
+            ],
+            'hervido' => [
+                'lupulos' => [[
+                    'nombre' => 'Magnum',
+                    'cantidad' => new Weight('23.6 kg'),
+                    'momento' => -75
+                ], [
+                    'nombre' => 'Styrian Golding',
+                    'cantidad' => new Weight('23.6 lb'),
+                    'momento' => -5
+                ]],
+            ],
             'envasado' => [
                 'fecha' => Carbon::create(2019, 6, 20),
                 'resultado' => [
@@ -56,10 +63,10 @@ class LotesTableSeeder extends Seeder
                 'maltas' => [
                     [
                         'nombre' => 'Pale 2-Row',
-                        'gramos' => 6100
+                        'cantidad' => 6100
                     ], [
                         'nombre' => 'Castle Crystal',
-                        'gramos' => 500
+                        'cantidad' => 500
                     ]
                 ],
                 'agua' => [
@@ -94,21 +101,21 @@ class LotesTableSeeder extends Seeder
                 'lupulos' => [
                     [
                         'nombre' => 'Magnum',
-                        'cantidad' => 14.88,
-                        'minutos' => -60
+                        'cantidad' => new Weight('14.88 gr'),
+                        'momento' => -60
                     ], [
                         'nombre' => 'Perle',
-                        'cantidad' => 14.90,
-                        'minutos' => -30
+                        'cantidad' => new Weight('14.90 gr'),
+                        'momento' => -30
                     ], [
                         'nombre' => 'Cascade',
-                        'cantidad' => 14.72,
-                        'minutos' => -10
+                        'cantidad' => new Weight('14.72 gr'),
+                        'momento' => -10
                     ], [
                         'nombre' => 'Cascade',
-                        'cantidad' => 29.48,
+                        'cantidad' => new Weight('29.48 gr'),
                         'unidad' => 'oz',
-                        'minutos' => 0
+                        'momento' => 0
                     ]
                 ],
             ],
@@ -123,7 +130,7 @@ class LotesTableSeeder extends Seeder
                         [
                             'nombre' => 'Cascade',
                             'cantidad' => 29.48,
-                            'dias' => 4
+                            'fecha' => Carbon::create(2019, 6, 25,21),
                         ]
                     ],
                 ]
@@ -138,11 +145,11 @@ class LotesTableSeeder extends Seeder
                 'brewed_at' => $receta['brewed_at']
             ]);
 
-        foreach ($receta['maltas'] as $malta)
+        foreach ($receta['macerado']['maltas'] as $malta)
             $r->maltas()
                 ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
 
-        foreach ($receta['lupulos'] as $lupulo)
+        foreach ($receta['hervido']['lupulos'] as $lupulo)
             $r->lupulos()
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'cantidad' => $lupulo['cantidad'],
