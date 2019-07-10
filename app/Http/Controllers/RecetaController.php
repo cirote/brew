@@ -14,7 +14,8 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        //
+        return view('recetas.index')
+            ->with('recetas', Receta::all());
     }
 
     /**
