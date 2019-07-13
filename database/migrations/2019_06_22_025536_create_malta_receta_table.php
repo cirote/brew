@@ -12,7 +12,7 @@ class CreateMaltaRecetaTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('malta_id')->index()->foreign();
             $table->unsignedBigInteger('receta_id')->index()->foreign();
-            $table->decimal('cantidad');
+            $table->string('cantidad');
         });
     }
 

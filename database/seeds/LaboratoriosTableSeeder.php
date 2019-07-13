@@ -10,5 +10,9 @@ class LaboratoriosTableSeeder extends Seeder
         Laboratorio::create([
             'nombre' => "Mangrove Jack's"
         ]);
+
+        Laboratorio::create([
+            'nombre' => "Fermentis, by Lesaffre"
+        ]);
     }
 }

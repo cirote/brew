@@ -11,6 +11,9 @@ class CreateRecetasTable extends Migration
         Schema::create('recetas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->index();
+            $table->string('alias')->nullable();
+            $table->string('link')->nullable();
+            $table->string('tamano');
             $table->timestamps();
         });
     }

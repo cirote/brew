@@ -12,7 +12,7 @@ class CreateLoteMaltaTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('lote_id')->index()->foreign();
             $table->unsignedBigInteger('malta_id')->index()->foreign();
-            $table->decimal('cantidad');
+            $table->string('cantidad');
         });
     }
 

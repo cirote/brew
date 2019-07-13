@@ -12,8 +12,9 @@ class CreateLupuloRecetaTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('lupulo_id')->index()->foreign();
             $table->unsignedBigInteger('receta_id')->index()->foreign();
-            $table->decimal('cantidad');
-            $table->integer('momento');
+            $table->string('cantidad');
+            $table->string('uso')->default('hervido');
+            $table->string('momento');
         });
     }
 

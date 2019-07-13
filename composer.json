@@ -13,6 +13,7 @@
         "jbzoo/simpletypes": "^1.4",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-blade-x": "^2.2",
         "spatie/laravel-translatable": "^4.1"
     },
     "require-dev": {

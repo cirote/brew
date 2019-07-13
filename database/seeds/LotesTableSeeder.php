@@ -4,6 +4,8 @@ use App\Models\{Lupulo, Malta, Receta};
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use JBZoo\SimpleTypes\Config\Config;
+use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
+use JBZoo\SimpleTypes\Type\Volume;
 use JBZoo\SimpleTypes\Type\Weight;
 use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
 
@@ -12,6 +14,71 @@ class LotesTableSeeder extends Seeder
     public function run()
     {
         Config::registerDefault('weight', new ConfigWeight());
+
+        Config::registerDefault('volume', new ConfigVolume());
+
+        $this->agregarLote([
+            'brewed_at' => Carbon::create(2019, 7, 13),
+            'receta' => 'Cerveza Belga Stout',
+            'macerado' => [
+                'maltas' => [
+                    [
+                        'nombre' => 'Château Pilsen 2RS',
+                        'cantidad' => new Weight('5.7 kg'),
+                    ], [
+                        'nombre' => 'Château Cara Gold',
+                        'cantidad' => new Weight('450 g'),
+                    ], [
+                        'nombre' => 'Château Chocolat',
+                        'cantidad' => new Weight('740 g'),
+                    ], [
+                        'nombre' => 'Château Black',
+                        'cantidad' => new Weight('150 g'),
+                    ], [
+                        'nombre' => 'Château Special B',
+                        'cantidad' => new Weight('90 g'),
+                    ]
+                ],
+                'volumen_vivo' => new Volume('31 l'),
+                'volumen_total' => new Volume('34 l'),
+                'volumen_post_hervido_calculado' => new Volume('28.07 l'),
+                'gravedad_pre_hervido' => 1.050,
+                'temperatura_medicion' => 78.5,
+                'gravedad_inicial_calculada' => 1.061
+
+            ],
+            'hervido' => [
+                'lupulos' => [[
+                    'nombre' => 'Columbus',
+                    'cantidad' => new Weight('27.73 g'),
+                    'minutos_antes_de_finalizar_hervor' => 70
+                ], [
+                    'nombre' => 'Saaz',
+                    'cantidad' => new Weight('6.86'),
+                    'minutos_antes_de_finalizar_hervor' => 10
+                ]],
+                'volumen_en_el_fermentador' => new Volume('26 l'),
+                'volumen_total' => new Volume('27.5 l'),
+            ],
+            'envasado' => [
+                'fecha' => Carbon::create(2019, 7, 20),
+                'resultado' => [
+                    [
+                        'envase' => 'botella',
+                        'volumen' => 330,
+                        'cantidad' => 5
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => 500,
+                        'cantidad' => 39
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => 710,
+                        'cantidad' => 5
+                    ]
+                ]
+            ]
+        ]);
 
         $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 6, 8),
@@ -134,6 +201,20 @@ class LotesTableSeeder extends Seeder
                         ]
                     ],
                 ]
+            ],
+            'envasado' => [
+                'fecha' => Carbon::create(2019, 7, 3),
+                'resultado' => [
+                    [
+                        'envase' => 'botella',
+                        'volumen' => 330,
+                        'cantidad' => 2
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => 500,
+                        'cantidad' => 43
+                    ]
+                ]
             ]
         ]);
     }
@@ -153,7 +234,7 @@ class LotesTableSeeder extends Seeder
             $r->lupulos()
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'cantidad' => $lupulo['cantidad'],
-                    'momento' => $lupulo['momento']
+                    'momento' => $lupulo['momento'] ?? 10
                 ]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receta;
+use App\fermentador;
 use Illuminate\Http\Request;
 
-class RecetaController extends Controller
+class FermentadorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        return view('recetas.index')
-            ->with('recetas', Receta::all());
+        //
     }
 
     /**
@@ -42,22 +41,21 @@ class RecetaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Receta  $receta
+     * @param  \App\fermentador  $fermentador
      * @return \Illuminate\Http\Response
      */
-    public function show(Receta $receta)
+    public function show(fermentador $fermentador)
     {
-        return view('recetas.show')
-            ->with('receta', $receta);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Receta  $receta
+     * @param  \App\fermentador  $fermentador
      * @return \Illuminate\Http\Response
      */
-    public function edit(Receta $receta)
+    public function edit(fermentador $fermentador)
     {
         //
     }
@@ -66,10 +64,10 @@ class RecetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Receta  $receta
+     * @param  \App\fermentador  $fermentador
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Receta $receta)
+    public function update(Request $request, fermentador $fermentador)
     {
         //
     }
@@ -77,18 +75,11 @@ class RecetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Receta  $receta
+     * @param  \App\fermentador  $fermentador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Receta $receta)
+    public function destroy(fermentador $fermentador)
     {
         //
     }
-
-    public function order(Receta $receta)
-    {
-        return view('recetas.order')
-            ->with('receta', $receta);
-    }
-
 }

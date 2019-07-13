@@ -17,5 +17,16 @@ class LevadurasTableSeeder extends Seeder
                 'floculacion_minima' => 4,
                 'tolerancia' => 11
             ]);
+
+        Laboratorio::byNombre("Fermentis, by Lesaffre")
+            ->levaduras()->create([
+                'nombre' => 'S-33',
+                'descripcion' => 'Safbrew S-33',
+                'atenuacion_maxima' => 85,
+                'atenuacion_minima' => 77,
+                'floculacion_maxima' => 5,
+                'floculacion_minima' => 4,
+                'tolerancia' => 11
+            ]);
     }
 }

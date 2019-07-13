@@ -13,7 +13,9 @@ class Receta extends Model
 
     public function maltas()
     {
-        return $this->belongsToMany(Malta::class);
+        return $this->belongsToMany(Malta::class)
+            ->using(MaltaRecetaPivot::class)
+            ->withPivot('cantidad');
     }
 
     public function lotes()
@@ -23,6 +25,8 @@ class Receta extends Model
 
     public function lupulos()
     {
-        return $this->belongsToMany(Lupulo::class);
+        return $this->belongsToMany(Lupulo::class)
+            ->using(LupuloRecetaPivot::class)
+            ->withPivot(['cantidad', 'uso']);
     }
 }

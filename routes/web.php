@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('recetas', 'RecetaController');
+Route::get('recetas/{receta}/order', 'RecetaController@order')->name('receta.order');
