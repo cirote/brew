@@ -1,9 +1,6 @@
 @extends('layouts.base')
 
 @section('main')
-    <div id="app" class="content">
-        <example-component></example-component>
-    </div>
     <div class="row">
         <div class="col-sm-6">
             <h1 class="display-3">Recetas</h1>
@@ -13,19 +10,31 @@
                 <tr>
                     <td>ID</td>
                     <td>Nombre</td>
-                    <td colspan=2>Actions</td>
+                    <td colspan=3>Tamano del lote</td>
+                    <td colspan=2>Acciones</td>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($recetas as $receta)
                     <tr>
                         <td>{{ $receta->id }}</td>
-                        <td>{{ $receta->nombre }}</td>
                         <td>
-                            <a href="{{ route('recetas.edit',$receta->id)}}" class="btn btn-primary">Edit</a>
+                            <a target="_blank" rel="noopener noreferrer" href="{{ $receta->link }}">{{ $receta->nombre }}</a>
                         </td>
                         <td>
-                            <form action="{{ route('recetas.destroy', $receta->id)}}" method="post">
+                            <a href="{{ route('recetas.order', ['receta' => $receta->id, 'volumen' => 20]) }}" class="btn btn-success">20</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('recetas.order', ['receta' => $receta->id, 'volumen' => 25]) }}" class="btn btn-success">25</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('recetas.order', ['receta' => $receta->id, 'volumen' => 30]) }}" class="btn btn-success">30</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('recetas.edit', $receta->id) }}" class="btn btn-primary">Edit</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('recetas.destroy', $receta->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>

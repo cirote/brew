@@ -18,6 +18,66 @@ class LotesTableSeeder extends Seeder
         Config::registerDefault('volume', new ConfigVolume());
 
         $this->agregarLote([
+            'brewed_at' => Carbon::create(2019, 7, 21),
+            'receta' => 'Cerveza de marzo',
+            'macerado' => [
+                'maltas' => [
+                    [
+                        'nombre' => 'Château Pilsen 2RS',
+                        'cantidad' => new Weight('3.5 kg'),
+                    ], [
+                        'nombre' => 'Château Cara Ruby',
+                        'cantidad' => new Weight('2.6 kg'),
+                    ], [
+                        'nombre' => 'Château Biscuit',
+                        'cantidad' => new Weight('599 g'),
+                    ], [
+                        'nombre' => 'CaraAmber',
+                        'cantidad' => new Weight('285 g'),
+                    ]
+                ],
+                'volumen_vivo' => new Volume('31 l'),
+                'volumen_total' => new Volume('34 l'),
+                'volumen_post_hervido_calculado' => new Volume('28.07 l'),
+                'gravedad_pre_hervido' => 1.050,
+                'temperatura_medicion' => 78.5,
+                'gravedad_inicial_calculada' => 1.061
+
+            ],
+            'hervido' => [
+                'lupulos' => [[
+                    'nombre' => 'Columbus',
+                    'cantidad' => new Weight('27.73 g'),
+                    'minutos_antes_de_finalizar_hervor' => 70
+                ], [
+                    'nombre' => 'Saaz',
+                    'cantidad' => new Weight('6.86'),
+                    'minutos_antes_de_finalizar_hervor' => 10
+                ]],
+                'volumen_en_el_fermentador' => new Volume('26 l'),
+                'volumen_total' => new Volume('27.5 l'),
+            ],
+            'envasado' => [
+                'fecha' => Carbon::create(2019, 7, 20),
+                'resultado' => [
+                    [
+                        'envase' => 'botella',
+                        'volumen' => 330,
+                        'cantidad' => 5
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => 500,
+                        'cantidad' => 39
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => 710,
+                        'cantidad' => 5
+                    ]
+                ]
+            ]
+        ]);
+
+        $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 7, 13),
             'receta' => 'Cerveza Belga Stout',
             'macerado' => [

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\{Lupulo, Malta, Receta};
+use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use JBZoo\SimpleTypes\Config\Config;
 use JBZoo\SimpleTypes\Type\Weight;
@@ -15,6 +16,47 @@ class RecetasTableSeeder extends Seeder
         Config::registerDefault('weight', new ConfigWeight());
 
         Config::registerDefault('volume', new ConfigVolume());
+
+        $this->agregarReceta([
+            'nombre' => 'Cerveza de marzo',
+            'alias' => 'Cerveza de primavera',
+            'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=273',
+            'tamano' => new Volume('100 l'),
+            'gravedad_original' => 1.057,
+            'alcohol' => [
+                'max' => 6,
+                'min' => 5.5
+            ],
+            'amargor' => [
+                'max' => 15,
+                'min' => 20
+            ],
+            'maltas' => [
+                [
+                    'nombre' => 'Château Pilsen 2RS',
+                    'cantidad' => new Weight('12 kg'),
+                ], [
+                    'nombre' => 'Château Cara Ruby',
+                    'cantidad' => new Weight('10 kg'),
+                ], [
+                    'nombre' => 'Château Biscuit',
+                    'cantidad' => new Weight('2 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre' => 'Saaz',
+                    'cantidad' => new Weight('25 g'),
+                    'uso' => 'amargor',
+                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,15)
+                ], [
+                    'nombre' => 'Magnum',
+                    'cantidad' => new Weight('50 g'),
+                    'uso' => 'aroma',
+                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105)
+                ]
+            ],
+        ]);
 
         $this->agregarReceta([
             'nombre' => 'Cerveza Belga Stout',
@@ -141,7 +183,7 @@ class RecetasTableSeeder extends Seeder
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'uso' => $lupulo['uso'] ?? 'hervido',
                     'cantidad' => $lupulo['cantidad'],
-                    'momento' => $lupulo['momento']
+                    'momento' => $lupulo['momento'] ?? $lupulo['minutos_desdpues_de_iniciar_el_hervor']
                 ]);
     }
 }

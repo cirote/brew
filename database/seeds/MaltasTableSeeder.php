@@ -12,6 +12,11 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Malta tipo pilsen'
             ]);
 
+        Malteria::byNombre('Weyermann')
+            ->maltas()->create([
+                'nombre' => 'CaraAmber'
+            ]);
+
         Malteria::byNombre('Castle Malting')
             ->maltas()->createMany([[
                 'nombre' => 'Château Pilsen 2RS'
@@ -19,6 +24,10 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Château Wheat Blanc'
             ], [
                 'nombre' => 'Château Cara Gold'
+            ], [
+                'nombre' => 'Château Cara Ruby'
+            ], [
+                'nombre' => 'Château Biscuit'
             ], [
                 'nombre' => 'Château Chocolat'
             ], [
