@@ -14,6 +14,7 @@ class CreateRecetasTable extends Migration
             $table->string('alias')->nullable();
             $table->string('link')->nullable();
             $table->string('tamano');
+            $table->string('gravedad_original');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
                 <h1 class="display-3">Receta de {{ $receta->nombre }}</h1>
             </div>
             <div class="box-body">
-                <p>Densidad Inicial: En construccion</p>
+                <h2>Densidad Inicial: {{ $receta->gravedadOriginal }}</h2>
             </div>
         </div>
     </div>

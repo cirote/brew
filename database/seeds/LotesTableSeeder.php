@@ -1,13 +1,18 @@
 <?php
 
 use App\Models\{Lupulo, Malta, Receta};
+use App\Types\Config\Density as ConfigDensity;
+use App\Types\Type\Density;
+use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 use JBZoo\SimpleTypes\Config\Config;
 use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
 use JBZoo\SimpleTypes\Type\Volume;
-use JBZoo\SimpleTypes\Type\Weight;
 use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
+use JBZoo\SimpleTypes\Type\Weight;
+use JBZoo\SimpleTypes\Config\Temp as ConfigTemperature;
+use JBZoo\SimpleTypes\Type\Temp as Temperature;
 
 class LotesTableSeeder extends Seeder
 {
@@ -16,6 +21,10 @@ class LotesTableSeeder extends Seeder
         Config::registerDefault('weight', new ConfigWeight());
 
         Config::registerDefault('volume', new ConfigVolume());
+
+        Config::registerDefault('density', new ConfigDensity());
+
+        Config::registerDefault('temp', new ConfigTemperature());
 
         $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 7, 21),
@@ -36,42 +45,33 @@ class LotesTableSeeder extends Seeder
                         'cantidad' => new Weight('285 g'),
                     ]
                 ],
-                'volumen_vivo' => new Volume('31 l'),
-                'volumen_total' => new Volume('34 l'),
-                'volumen_post_hervido_calculado' => new Volume('28.07 l'),
-                'gravedad_pre_hervido' => 1.050,
-                'temperatura_medicion' => 78.5,
-                'gravedad_inicial_calculada' => 1.061
-
+                'volumen_vivo' => new Volume('34 l'),
+                'volumen_post_hervido_calculado' => new Volume('25.57 l'),
+                'gravedad_pre_hervido' => new Density('1.043 sg'),
+                'temperatura_medicion' => new Temperature('78.5 C'),
+                'gravedad_inicial_calculada' => new Density('1.057 sg'),
             ],
             'hervido' => [
                 'lupulos' => [[
-                    'nombre' => 'Columbus',
-                    'cantidad' => new Weight('27.73 g'),
-                    'minutos_antes_de_finalizar_hervor' => 70
-                ], [
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('6.86'),
-                    'minutos_antes_de_finalizar_hervor' => 10
+                    'cantidad' => new Weight('7.28 g'),
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,20),
+                ], [
+                    'nombre' => 'Columbus',
+                    'cantidad' => new Weight('14.69'),
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105),
                 ]],
-                'volumen_en_el_fermentador' => new Volume('26 l'),
-                'volumen_total' => new Volume('27.5 l'),
+                'volumen_en_el_fermentador' => new Volume('25 l'),
             ],
             'envasado' => [
-                'fecha' => Carbon::create(2019, 7, 20),
-                'resultado' => [
-                    [
-                        'envase' => 'botella',
-                        'volumen' => 330,
-                        'cantidad' => 5
-                    ], [
-                        'envase' => 'botella',
-                        'volumen' => 500,
-                        'cantidad' => 39
-                    ], [
-                        'envase' => 'botella',
-                        'volumen' => 710,
-                        'cantidad' => 5
+                [
+                    'fecha' => Carbon::create(2019, 7, 21),
+                    'resultado' => [
+                        [
+                            'envase' => 'mosto',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 5
+                        ]
                     ]
                 ]
             ]
@@ -111,30 +111,38 @@ class LotesTableSeeder extends Seeder
                 'lupulos' => [[
                     'nombre' => 'Columbus',
                     'cantidad' => new Weight('27.73 g'),
-                    'minutos_antes_de_finalizar_hervor' => 70
+                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,70),
                 ], [
                     'nombre' => 'Saaz',
                     'cantidad' => new Weight('6.86'),
-                    'minutos_antes_de_finalizar_hervor' => 10
+                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,10),
                 ]],
                 'volumen_en_el_fermentador' => new Volume('26 l'),
                 'volumen_total' => new Volume('27.5 l'),
             ],
             'envasado' => [
-                'fecha' => Carbon::create(2019, 7, 20),
+                'fecha' => Carbon::create(2019, 7, 21),
                 'resultado' => [
                     [
                         'envase' => 'botella',
-                        'volumen' => 330,
-                        'cantidad' => 5
+                        'volumen' => new Volume('0.330 l'),
+                        'cantidad' => 1
                     ], [
                         'envase' => 'botella',
-                        'volumen' => 500,
-                        'cantidad' => 39
+                        'volumen' => new Volume('0.5 l'),
+                        'cantidad' => 25
                     ], [
                         'envase' => 'botella',
-                        'volumen' => 710,
+                        'volumen' => new Volume('0.6 l'),
+                        'cantidad' => 8
+                    ], [
+                        'envase' => 'botella',
+                        'volumen' => new Volume('0.710 l'),
                         'cantidad' => 5
+                    ], [
+                        'envase' => 'growler',
+                        'volumen' => new Volume('4.25 l'),
+                        'cantidad' => 1
                     ]
                 ]
             ]

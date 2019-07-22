@@ -91,4 +91,10 @@ class RecetaController extends Controller
             ->with('receta', $receta);
     }
 
+    public function volume(Receta $receta)
+    {
+        return view('lotes.volume')
+            ->with('receta', $receta);
+    }
+
 }

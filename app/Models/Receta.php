@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Types\Config\Density as ConfigDensity;
+use App\Types\Type\Density;
 use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
@@ -28,5 +30,15 @@ class Receta extends Model
         return $this->belongsToMany(Lupulo::class)
             ->using(LupuloRecetaPivot::class)
             ->withPivot(['cantidad', 'uso']);
+    }
+
+    public function getGravedadOriginalAttribute()
+    {
+        static $gravedad;
+
+        if (!$gravedad)
+            $gravedad = new Density($this->attributes['gravedad_original'], new ConfigDensity());
+
+        return $gravedad->convert('sg');
     }
 }

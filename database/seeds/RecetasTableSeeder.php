@@ -8,6 +8,8 @@ use JBZoo\SimpleTypes\Type\Weight;
 use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
 use JBZoo\SimpleTypes\Type\Volume;
 use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
+use App\Types\Type\Density;
+use App\Types\Config\Density as ConfigDensity;
 
 class RecetasTableSeeder extends Seeder
 {
@@ -17,12 +19,14 @@ class RecetasTableSeeder extends Seeder
 
         Config::registerDefault('volume', new ConfigVolume());
 
+        Config::registerDefault('Density', new ConfigDensity());
+
         $this->agregarReceta([
             'nombre' => 'Cerveza de marzo',
             'alias' => 'Cerveza de primavera',
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=273',
             'tamano' => new Volume('100 l'),
-            'gravedad_original' => 1.057,
+            'gravedad_original' => new Density('14 P'),
             'alcohol' => [
                 'max' => 6,
                 'min' => 5.5
@@ -171,7 +175,7 @@ class RecetasTableSeeder extends Seeder
             'alias' => $receta['alias'] ?? null,
             'link' => $receta['link'] ?? null,
             'tamano' => $receta['tamano'],
-
+            'gravedad_original' => $receta['gravedad_original'] ?? 0
         ]);
 
         foreach ($receta['maltas'] as $malta)

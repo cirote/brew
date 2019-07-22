@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::resource('recetas', 'RecetaController');
 Route::get('recetas/{receta}/order', 'RecetaController@order')->name('recetas.order');
-Route::get('recetas/{receta}/process', 'RecetaController@order')->name('recetas.process');
+Route::get('recetas/{receta}/process', 'RecetaController@process')->name('recetas.process');
+Route::get('recetas/{receta}/volume', 'RecetaController@volume')->name('recetas.volume');

@@ -18,7 +18,7 @@ class LupuloRecetaPivot extends Pivot
 
     public function getCantidadAjustadaAttribute()
     {
-        return $this->cantidad->division(100)->multiply(28.07);
+        return $this->cantidad->division(100)->multiply(29);
     }
 
     public function getEquivalenteAmargorAttribute()
