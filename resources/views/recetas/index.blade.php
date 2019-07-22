@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('main')
+@section('contenido')
     <div class="row">
         <div class="col-sm-6">
             <h1 class="display-3">Recetas</h1>
