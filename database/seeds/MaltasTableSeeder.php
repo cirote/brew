@@ -27,6 +27,8 @@ class MaltasTableSeeder extends Seeder
             ], [
                 'nombre' => 'Château Cara Ruby'
             ], [
+                'nombre' => 'Château Cara Blond'
+            ], [
                 'nombre' => 'Château Biscuit'
             ], [
                 'nombre' => 'Château Chocolat'
@@ -36,6 +38,10 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Château Special B'
             ], [
                 'nombre' => 'Castle Crystal'
+            ], [
+                'nombre' => 'Château Peated'
+            ], [
+                'nombre' => 'Château Rye Malt'
             ]]);
 
         Malteria::byNombre('American')

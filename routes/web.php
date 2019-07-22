@@ -19,3 +19,7 @@ Route::resource('recetas', 'RecetaController');
 Route::get('recetas/{receta}/order', 'RecetaController@order')->name('recetas.order');
 Route::get('recetas/{receta}/process', 'RecetaController@process')->name('recetas.process');
 Route::get('recetas/{receta}/volume', 'RecetaController@volume')->name('recetas.volume');
+Route::get('recetas/{receta}/lotes/{lote?}', 'RecetaController@lotes')->name('recetas.lotes');
+
+Route::resource('lotes', 'RecetaController');
+

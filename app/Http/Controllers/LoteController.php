@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lote;
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
 class LoteController extends Controller
@@ -82,4 +83,5 @@ class LoteController extends Controller
     {
         //
     }
+
 }

@@ -22,6 +22,39 @@ class RecetasTableSeeder extends Seeder
         Config::registerDefault('Density', new ConfigDensity());
 
         $this->agregarReceta([
+            'nombre' => 'Sahti',
+            'alias' => '',
+            'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=249',
+            'tamano' => new Volume('100 l'),
+            'gravedad_original' => new Density('17 P'),
+            'alcohol' => 7.5,
+            'amargor' => 13,
+            'maltas' => [
+                [
+                    'nombre' => 'Château Pilsen 2RS',
+                    'cantidad' => new Weight('17 kg'),
+                ], [
+                    'nombre' => 'Château Rye Malt',
+                    'cantidad' => new Weight('4 kg'),
+                ], [
+                    'nombre' => 'Château Peated',
+                    'cantidad' => new Weight('1 kg'),
+                ], [
+                    'nombre' => 'Château Cara Blond',
+                    'cantidad' => new Weight('1 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre' => 'Brewers Gold',
+                    'cantidad' => new Weight('110 g'),
+                    'uso' => 'amargor',
+                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
+                ]
+            ],
+        ]);
+
+        $this->agregarReceta([
             'nombre' => 'Cerveza de marzo',
             'alias' => 'Cerveza de primavera',
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=273',

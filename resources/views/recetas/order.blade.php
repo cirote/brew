@@ -1,5 +1,7 @@
 @extends('layouts.base')
 
+@section('colapsado', 'sidebar-collapse')
+
 @section('contenido')
 <br>
 

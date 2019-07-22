@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lote;
 use App\Models\Receta;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class RecetaController extends Controller
     public function index()
     {
         return view('recetas.index')
-            ->with('recetas', Receta::all());
+            ->with('recetas', Receta::orderBy('nombre')->get());
     }
 
     /**
@@ -97,4 +98,10 @@ class RecetaController extends Controller
             ->with('receta', $receta);
     }
 
+    public function lotes(Receta $receta, Lote $lote = null)
+    {
+        return view('recetas.lotes')
+            ->with('receta', $receta)
+            ->with('lote', $lote);
+    }
 }

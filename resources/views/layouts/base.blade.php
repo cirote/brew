@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{ config('app.name', 'MERCOSUR') }}</title>
+		<title>{{ config('app.name') }}</title>
 
 		<!-- Bootstrap -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -46,7 +46,7 @@
 
 				<!-- Logo -->
 				<a href="{{ url('/') }}" class="logo">
-					<span class="logo-mini">SIM</span>
+					<span class="logo-mini">RCP</span>
 					@yield('logo')
 				</a>
 
