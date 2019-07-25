@@ -1476,16 +1476,16 @@
         },
         {
             "name": "spatie/laravel-blade-x",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-blade-x.git",
-                "reference": "8bff94cef533dfcb07b8b2e9e75e3ee0a71052cc"
+                "reference": "ccf2847160b2ada0d84a21c3fd5c7e2c149a8976"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-blade-x/zipball/8bff94cef533dfcb07b8b2e9e75e3ee0a71052cc",
-                "reference": "8bff94cef533dfcb07b8b2e9e75e3ee0a71052cc",
+                "url": "https://api.github.com/repos/spatie/laravel-blade-x/zipball/ccf2847160b2ada0d84a21c3fd5c7e2c149a8976",
+                "reference": "ccf2847160b2ada0d84a21c3fd5c7e2c149a8976",
                 "shasum": ""
             },
             "require": {
@@ -1520,33 +1520,33 @@
             "authors": [
                 {
                     "name": "Sebastian De Deyne",
+                    "role": "Developer",
                     "email": "sebastian@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alex Vanderbist",
-                    "email": "alex@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
+                    "homepage": "https://spatie.be"
                 },
                 {
                     "name": "Brent Roose",
+                    "role": "Developer",
                     "email": "brent@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
+                    "homepage": "https://spatie.be"
                 },
                 {
                     "name": "Ruben Van Assche",
+                    "role": "Developer",
                     "email": "ruben@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
+                    "homepage": "https://spatie.be"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "role": "Developer",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be"
+                },
+                {
+                    "name": "Alex Vanderbist",
+                    "role": "Developer",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be"
                 }
             ],
             "description": "Supercharged Blade components",
@@ -1558,7 +1558,7 @@
                 "laravel-blade-x",
                 "spatie"
             ],
-            "time": "2019-07-01 09:51:13"
+            "time": "2019-07-25 11:28:06"
         },
         {
             "name": "spatie/laravel-translatable",
@@ -4074,16 +4074,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
+                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
-                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e899757bb3df5ff6e95089132f32cd59aac2220a",
+                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a",
                 "shasum": ""
             },
             "require": {
@@ -4096,7 +4096,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -4119,7 +4119,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2019-07-08 05:24:54"
+            "time": "2019-07-25 05:29:42"
         },
         {
             "name": "phpunit/phpunit",

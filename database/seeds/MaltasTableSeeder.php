@@ -9,7 +9,7 @@ class MaltasTableSeeder extends Seeder
     {
         Malteria::byNombre('Maltería Oriental S.A.')
             ->maltas()->create([
-                'nombre' => 'Malta tipo pilsen'
+                'nombre' => 'Malta tipo pilsen (MOSA)'
             ]);
 
         Malteria::byNombre('Weyermann')

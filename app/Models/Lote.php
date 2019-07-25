@@ -15,12 +15,16 @@ class Lote extends Model
 
     public function maltas()
     {
-        return $this->belongsToMany(Malta::class);
+        return $this->belongsToMany(Malta::class)
+		    ->using(LoteMaltaPivot::class)
+		    ->withPivot(['cantidad']);
     }
 
     public function lupulos()
     {
-        return $this->belongsToMany(Lupulo::class);
+        return $this->belongsToMany(Lupulo::class)
+	        ->using(LupuloRecetaPivot::class)
+	        ->withPivot(['cantidad']);
     }
 
     public function getFechaAttribute()

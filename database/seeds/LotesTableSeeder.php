@@ -32,7 +32,7 @@ class LotesTableSeeder extends Seeder
             'macerado' => [
                 'maltas' => [
                     [
-                        'nombre' => 'Château Pilsen 2RS',
+                        'nombre' => 'Malta tipo pilsen (MOSA)',
                         'cantidad' => new Weight('3.5 kg'),
                     ], [
                         'nombre' => 'Château Cara Ruby',
@@ -83,7 +83,7 @@ class LotesTableSeeder extends Seeder
             'macerado' => [
                 'maltas' => [
                     [
-                        'nombre' => 'Château Pilsen 2RS',
+                        'nombre' => 'Malta tipo pilsen (MOSA)',
                         'cantidad' => new Weight('5.7 kg'),
                     ], [
                         'nombre' => 'Château Cara Gold',
@@ -153,7 +153,7 @@ class LotesTableSeeder extends Seeder
             'receta' => 'Cerveza de Trigo Belga',
             'macerado' => [
                 'maltas' => [[
-                    'nombre' => 'Pale 2-Row',
+                    'nombre' => 'Malta tipo pilsen (MOSA)',
                     'cantidad' => 6100
                 ], [
                     'nombre' => 'Castle Crystal',
@@ -197,7 +197,7 @@ class LotesTableSeeder extends Seeder
             'macerado' => [
                 'maltas' => [
                     [
-                        'nombre' => 'Pale 2-Row',
+                        'nombre' => 'Malta tipo pilsen (MOSA)',
                         'cantidad' => 6100
                     ], [
                         'nombre' => 'Castle Crystal',
