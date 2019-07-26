@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Types\Config\Density as ConfigDensity;
 use App\Types\Type\Density;
+use JBZoo\SimpleTypes\Type\Volume;
+use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
 use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
@@ -29,7 +31,7 @@ class Receta extends Model
     {
         return $this->belongsToMany(Lupulo::class)
             ->using(LupuloRecetaPivot::class)
-            ->withPivot(['cantidad', 'uso']);
+            ->withPivot(['cantidad', 'uso', 'tiempo_de_hervido']);
     }
 
     public function getGravedadOriginalAttribute()
@@ -41,4 +43,14 @@ class Receta extends Model
 
         return $gravedad->convert('sg');
     }
+
+	public function getTamañoAttribute()
+	{
+		static $tamano;
+
+		if (!$tamano)
+			$tamano = new Volume($this->attributes['tamano'], new ConfigVolume());
+
+		return $tamano->convert('lit');
+	}
 }

@@ -1,11 +1,11 @@
 <div class="table-responsive">
     <table class="table table-hover table-striped">
         <tr>
-            <td>#</td>
-            <td>Variedad</td>
-            <td>AA%</td>
-            <td>Uso</td>
-            <td>Cantidad</td>
+            <th>#</th>
+            <th>Variedad</th>
+            <th>AA%</th>
+            <th>Uso</th>
+            <th>Cantidad</th>
         </tr>
         <tbody>
         @foreach($lote->lupulos as $lupulo)

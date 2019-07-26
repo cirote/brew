@@ -5,7 +5,7 @@ use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use JBZoo\SimpleTypes\Config\Config;
 use JBZoo\SimpleTypes\Type\Weight;
-use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
+use App\Types\Config\Weight as ConfigWeight;
 use JBZoo\SimpleTypes\Type\Volume;
 use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
 use App\Types\Type\Density;
@@ -21,9 +21,40 @@ class RecetasTableSeeder extends Seeder
 
         Config::registerDefault('Density', new ConfigDensity());
 
-        $this->agregarReceta([
+	    $this->agregarReceta([
+		    'nombre' => 'Kolsh v0',
+		    'alias' => null,
+		    'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/434324/kolsh-v0',
+		    'tamano' => new Volume('6 gallons'),
+		    'gravedad_original' => new Density('1.044 sg'),
+		    'gravedad_final' => new Density('1.010 sg'),
+		    'alcohol' => 4.44,
+		    'amargor' => 25.08,
+		    'hervido' =>  CarbonInterval::create(0,0,0,0,0,60),
+		    'maltas' => [
+			    [
+				    'nombre' => 'Pilsner',
+				    'cantidad' => new Weight('10 lb'),
+			    ]
+		    ],
+		    'lupulos' => [
+			    [
+				    'nombre' => 'Liberty',
+				    'cantidad' => new Weight('1 oz'),
+				    'uso' => 'amargor',
+				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,60)
+			    ], [
+				    'nombre' => 'Hallertau Hersbrucker',
+				    'cantidad' => new Weight('1 oz'),
+				    'uso' => 'amargor',
+				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,30)
+			    ]
+		    ],
+	    ]);
+
+	    $this->agregarReceta([
             'nombre' => 'Sahti',
-            'alias' => '',
+            'alias' => null,
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=249',
             'tamano' => new Volume('100 l'),
             'gravedad_original' => new Density('17 P'),
@@ -49,7 +80,7 @@ class RecetasTableSeeder extends Seeder
                     'nombre' => 'Brewers Gold',
                     'cantidad' => new Weight('110 g'),
                     'uso' => 'amargor',
-                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
                 ]
             ],
         ]);
@@ -85,12 +116,12 @@ class RecetasTableSeeder extends Seeder
                     'nombre' => 'Saaz',
                     'cantidad' => new Weight('25 g'),
                     'uso' => 'amargor',
-                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,15)
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,15)
                 ], [
                     'nombre' => 'Magnum',
                     'cantidad' => new Weight('50 g'),
                     'uso' => 'aroma',
-                    'minutos_desdpues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105)
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105)
                 ]
             ],
         ]);
@@ -220,7 +251,18 @@ class RecetasTableSeeder extends Seeder
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'uso' => $lupulo['uso'] ?? 'hervido',
                     'cantidad' => $lupulo['cantidad'],
-                    'momento' => $lupulo['momento'] ?? $lupulo['minutos_desdpues_de_iniciar_el_hervor']
+                    'tiempo_de_hervido' => $this->tiempoDeHervido($receta)
                 ]);
+    }
+
+    private function tiempoDeHervido($receta) {
+
+    	if (isset($receta['lupulos']['minutos_de_hervido']))
+    		return $receta['lupulos']['minutos_de_hervido'];
+
+	    if (isset($receta['lupulos']['minutos_despues_de_iniciar_el_hervor']))
+		    return $receta['lupulos']['minutos_despues_de_iniciar_el_hervor'];
+
+	    return '';
     }
 }

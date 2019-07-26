@@ -11,7 +11,7 @@
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $malta->nombre }}</td>
-            <td>{{ $malta->pivot->cantidad->division(100)->multiply(29.5) }}</td>
+            <td>{{ $malta->pivot->cantidadAjustada }}</td>
         </tr>
     @endforeach
     </tbody>

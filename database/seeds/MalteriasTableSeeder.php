@@ -30,5 +30,9 @@ class MalteriasTableSeeder extends Seeder
         Malteria::create([
             'nombre' => 'American'
         ]);
+
+	    Malteria::create([
+		    'nombre' => 'German'
+	    ]);
     }
 }

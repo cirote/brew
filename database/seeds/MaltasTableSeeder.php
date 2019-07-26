@@ -48,5 +48,10 @@ class MaltasTableSeeder extends Seeder
             ->maltas()->create([
                 'nombre' => 'Pale 2-Row'
             ]);
+
+	    Malteria::byNombre('German')
+		    ->maltas()->create([
+			    'nombre' => 'Pilsner'
+		    ]);
     }
 }

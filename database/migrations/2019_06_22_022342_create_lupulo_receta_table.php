@@ -14,7 +14,7 @@ class CreateLupuloRecetaTable extends Migration
             $table->unsignedBigInteger('receta_id')->index()->foreign();
             $table->string('cantidad');
             $table->string('uso')->default('hervido');
-            $table->string('momento');
+            $table->string('tiempo_de_hervido');
         });
     }
 

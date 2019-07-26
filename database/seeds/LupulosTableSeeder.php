@@ -87,7 +87,62 @@ class LupulosTableSeeder extends Seeder
             'aa' => 8.2
         ]);
 
-        $br->sustitutos()->save($ca);
+	    Lupulo::create([
+		    'variedad' => 'Liberty',
+		    'aa' => 0
+	    ]);
+
+	    Lupulo::create([
+		    'variedad' => 'Hallertau Hersbrucker',
+//		    'country' => 'Germany',
+//		    'aroma_profile' => ['Hay', 'Tobacco', 'Orange'],
+//		    'styles' => ['Lager', 'Pilsner', 'Bock', 'Wheat', 'Kolsch', 'Helles'],
+		    'aa' => 4,
+//		    'alpha_acids' => [
+//			    'min' => 1.5,
+//			    'max' => 4
+//		    ],
+//		    'beta_acids' => [
+//			    'min' => 2.5,
+//			    'max' => 6
+//		    ],
+//		    'total_oil' => [
+//			    'min' => 0.5,
+//			    'max' => 1,
+//			    'B-Pinene' => [
+//				    'min' => 15,
+//				    'max' => 30
+//			    ],
+//			    'Myrcene' => [
+//				    'min' => 0.5,
+//				    'max' => 1
+//			    ],
+//			    'Linalool' => [
+//				    'min' => 8,
+//				    'max' => 13
+//			    ],
+//			    'Caryophyllene' => [
+//				    'min' => 8,
+//				    'max' => 13
+//			    ],
+//			    'Farnesene' => [
+//				    'min' => 0,
+//				    'max' => 1
+//			    ],
+//			    'Humulene' => [
+//				    'min' => 20,
+//				    'max' => 30
+//			    ],
+//			    'Geraniol' => 0,
+//			    'Selinene' => 0,
+//			    'Other' => [
+//				    'min' => 25,
+//				    'max' => 56
+//			    ],
+//		    ],
+	    ]);
+
+	    $br->sustitutos()->save($ca);
         $br->sustitutos()->save($nd);
         $br->sustitutos()->save($nb);
         $br->sustitutos()->save($ga);
