@@ -9,7 +9,7 @@ use App\Types\Config\Weight as ConfigWeight;
 
 class MaltaRecetaPivot extends Pivot
 {
-	use MaltaPivot;
+	use RecetaPivot;
 
 	public function receta()
 	{

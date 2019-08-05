@@ -1,18 +1,18 @@
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <td>#</td>
-        <td>Nombre</td>
-        <td>Cantidad</td>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($receta->maltas as $malta)
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-condensed">
         <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $malta->nombre }}</td>
-            <td>{{ $malta->pivot->cantidadAjustada }}</td>
+            <th>#</th>
+            <th>Nombre</th>
+            <th width="20%">Cantidad</th>
         </tr>
-    @endforeach
-    </tbody>
-</table>
+        <tbody>
+        @foreach($receta->maltas as $malta)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $malta->nombre }}</td>
+                <td align="right">{{ $malta->pivot->cantidadAjustada }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</div>

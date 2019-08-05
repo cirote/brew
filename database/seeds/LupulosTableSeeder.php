@@ -14,7 +14,7 @@ class LupulosTableSeeder extends Seeder
 
         $ca = Lupulo::create([
             'variedad' => 'Cascade',
-            'aa' => 7
+            'aa' => 6.4
         ]);
 
         $br = Lupulo::create([
@@ -78,7 +78,7 @@ class LupulosTableSeeder extends Seeder
         ]);
 
         Lupulo::create([
-            'variedad' => 'Hallertau',
+            'variedad' => 'Hallertauer',
             'aa' => 4.1
         ]);
 
@@ -89,11 +89,16 @@ class LupulosTableSeeder extends Seeder
 
 	    Lupulo::create([
 		    'variedad' => 'Liberty',
-		    'aa' => 0
+		    'aa' => 4.5
 	    ]);
 
-	    Lupulo::create([
-		    'variedad' => 'Hallertau Hersbrucker',
+        Lupulo::create([
+            'variedad' => 'Hallertauer Mittelfruh',
+            'aa' => 4.2
+        ]);
+
+        Lupulo::create([
+		    'variedad' => 'Hallertauer Hersbrucker',
 //		    'country' => 'Germany',
 //		    'aroma_profile' => ['Hay', 'Tobacco', 'Orange'],
 //		    'styles' => ['Lager', 'Pilsner', 'Bock', 'Wheat', 'Kolsch', 'Helles'],

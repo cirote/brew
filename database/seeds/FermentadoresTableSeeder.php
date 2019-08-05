@@ -19,5 +19,11 @@ class FermentadoresTableSeeder extends Seeder
             'muerto' => new Volume('1.5 l')
         ]);
 
+        fermentador::create([
+            'nombre' => 'Damajuana',
+            'volume' => new Volume('10 l'),
+            'maximo' => new Volume('8 l'),
+            'muerto' => new Volume('1.5 l')
+        ]);
     }
 }

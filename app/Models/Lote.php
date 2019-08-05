@@ -13,6 +13,16 @@ class Lote extends Model
         return $this->belongsTo(Receta::class);
     }
 
+    public function macerado()
+    {
+        return $this->hasOne(Macerado::class);
+    }
+
+    public function macerar()
+    {
+        return $this->macerado()->create();
+    }
+
     public function maltas()
     {
         return $this->belongsToMany(Malta::class)
@@ -23,7 +33,7 @@ class Lote extends Model
     public function lupulos()
     {
         return $this->belongsToMany(Lupulo::class)
-	        ->using(LupuloRecetaPivot::class)
+	        ->using(LoteLupuloPivot::class)
 	        ->withPivot(['cantidad']);
     }
 

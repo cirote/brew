@@ -41,11 +41,13 @@ class RecetasTableSeeder extends Seeder
 			    [
 				    'nombre' => 'Liberty',
 				    'cantidad' => new Weight('1 oz'),
+                    'aa' => 4,
 				    'uso' => 'amargor',
 				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,60)
 			    ], [
-				    'nombre' => 'Hallertau Hersbrucker',
+				    'nombre' => 'Hallertauer Hersbrucker',
 				    'cantidad' => new Weight('1 oz'),
+                    'aa' => 4,
 				    'uso' => 'amargor',
 				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,30)
 			    ]
@@ -251,6 +253,7 @@ class RecetasTableSeeder extends Seeder
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'uso' => $lupulo['uso'] ?? 'hervido',
                     'cantidad' => $lupulo['cantidad'],
+                    'aa' => $lupulo['aa'] ?? null,
                     'tiempo_de_hervido' => $this->tiempoDeHervido($receta)
                 ]);
     }

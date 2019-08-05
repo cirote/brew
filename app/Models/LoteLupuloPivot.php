@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class LupuloRecetaPivot extends Pivot
+class LoteLupuloPivot extends Pivot
 {
-    use RecetaPivot;
+    use LotePivot;
 
     public function getEquivalenteAmargorAttribute()
     {

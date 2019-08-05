@@ -12,6 +12,7 @@ class CreateLoteLupuloTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('lupulo_id')->index()->foreign();
             $table->unsignedBigInteger('lote_id')->index()->foreign();
+            $table->decimal('aa')->unsigned()->nullable();
             $table->string('cantidad');
             $table->integer('momento');
         });

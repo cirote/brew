@@ -1,22 +1,22 @@
 <div class="table-responsive">
-    <table class="table table-hover table-striped">
+    <table class="table table-hover table-striped table-condensed">
         <tr>
-            <td>#</td>
-            <td>Variedad</td>
-            <td>AA%</td>
-            <td>Uso</td>
-            <td>Cantidad</td>
-            <td>Eq. Columbus</td>
+            <th width="5%">#</th>
+            <th width="40%">Variedad</th>
+            <th width="5%">AA%</th>
+            <th width="15%">Uso</th>
+            <th width="15%">Cantidad</th>
+{{--            <th width="20%">Eq. Columbus</th>--}}
         </tr>
         <tbody>
         @foreach($receta->lupulos as $lupulo)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $lupulo->variedad }}</td>
-                <td>{{ $lupulo->aa }}</td>
+                <td align="right">{{ $lupulo->pivot->aa }}</td>
                 <td>{{ $lupulo->pivot->uso }}</td>
-                <td>{{ $lupulo->pivot->cantidadAjustada }}</td>
-                <td>{{ $lupulo->pivot->equivalenteAmargor }}</td>
+                <td align="right">{{ $lupulo->pivot->cantidadAjustada }}</td>
+{{--                <td align="right">{{ $lupulo->pivot->equivalenteAmargor }}</td>--}}
             </tr>
         @endforeach
         </tbody>

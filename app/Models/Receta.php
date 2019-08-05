@@ -31,7 +31,7 @@ class Receta extends Model
     {
         return $this->belongsToMany(Lupulo::class)
             ->using(LupuloRecetaPivot::class)
-            ->withPivot(['cantidad', 'uso', 'tiempo_de_hervido']);
+            ->withPivot(['cantidad', 'uso', 'aa', 'tiempo_de_hervido']);
     }
 
     public function getGravedadOriginalAttribute()

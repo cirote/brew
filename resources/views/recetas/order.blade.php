@@ -3,16 +3,67 @@
 @section('colapsado', 'sidebar-collapse')
 
 @section('contenido')
-<br>
 
 <div class="row">
     <div class="col-md-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h1 class="display-3">Receta de {{ $receta->nombre }}</h1>
+                <h1 class="display-4">Receta: {{ $receta->nombre }}</h1>
             </div>
             <div class="box-body">
-                <h2>Densidad Inicial: {{ $receta->gravedadOriginal }}</h2>
+
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>{{ $receta->gravedadOriginal }}</h3>
+
+                            <p>Densidad Inicial</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>{{ $receta->gravedadOriginal }}</h3>
+
+                            <p>Densidad Inicials</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>{{ $receta->gravedadOriginal }}</h3>
+
+                            <p>Densidad Inicials</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>{{ $receta->gravedadOriginal }}</h3>
+
+                            <p>Densidad Inicials</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

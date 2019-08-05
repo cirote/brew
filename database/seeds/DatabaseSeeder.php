@@ -8,6 +8,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(OllasTableSeeder::class);
         $this->call(FermentadoresTableSeeder::class);
+        $this->call(TipoEnvasesTableSeeder::class);
 
         $this->call(LupulosTableSeeder::class);
 

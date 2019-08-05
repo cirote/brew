@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\{Lupulo, Malta, Receta};
+use App\Models\{Lupulo, Malta, Receta, TipoEnvase};
 use App\Types\Config\Density as ConfigDensity;
 use App\Types\Type\Density;
 use Carbon\CarbonInterval;
@@ -25,6 +25,107 @@ class LotesTableSeeder extends Seeder
         Config::registerDefault('density', new ConfigDensity());
 
         Config::registerDefault('temp', new ConfigTemperature());
+
+        $lote = $this->agregarLote([
+            'brewed_at' => Carbon::create(2019, 7, 27),
+            'receta' => 'Kolsh v0',
+            'macerado' => [
+                'maltas' => [
+                    [
+                        'nombre' => 'Malta tipo pilsen (MOSA)',
+                        'cantidad' => new Weight('6 kg'),
+                    ]
+                ],
+
+                //  Datos al finalizar el macerado, previo a la dilusion de ajuste
+                'agua' => [
+                    'inicial' => new Volume('22 l'),
+                    'lavado' => new Volume('10 l'),
+                    'final' => new Volume('25.5 l'),
+                ],
+                'densidad' => new Density('1.053 sg'),
+                'temperatura' => new Temperature('77.7 C'),
+
+                'volumen_post_hervido_calculado' => new Volume('30.7 l'),
+                'volumen_post_hervido_olla' => new Volume('31 l'),
+                'gravedad_inicial_calculada' => new Density('1.057 sg'),
+            ],
+            'hervido' => [
+                'lupulos' => [[
+                    'nombre' => 'Cascade',
+                    'cantidad' => new Weight('30.77 g'),
+                    'aa' => 6.4,
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,0),
+                ], [
+                    'nombre' => 'Hallertauer Mittelfruh',
+                    'cantidad' => new Weight('40.07 g'),
+                    'aa' => 4.2,
+                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,29),
+                ]],
+                'volumen' => new Volume('30 l'),
+
+            ],
+            'fermentado' => [
+                [
+                    'fermentador' => 'Anvil 7.5 gl',
+                    'volumen' => new Volume('25 l'),
+                    'levadura' => [
+                        'nombre' => 'Safbrew S-33',
+                        'estado' => 'lavada'
+                    ]
+                ], [
+                    'fermentador' => 'Damajuana',
+                    'volumen' => new Volume('5 l'),
+                    'levadura' => [
+                        'nombre' => 'Safbrew S-33',
+                        'estado' => 'lavada'
+                    ]
+                ]
+            ],
+            'envasado' => [
+                [
+                    'fecha' => Carbon::create(2019, 7, 27),
+                    'resultado' => [
+                        [
+                            'envase' => 'mosto',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 2
+                        ]
+                    ]
+                ], [
+                    'fecha' => Carbon::create(2019, 7, 26),
+                    'resultado' => [
+                        [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.330 l'),
+                            'cantidad' => 4
+                        ], [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 33
+                        ], [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.710 l'),
+                            'cantidad' => 5
+                        ], [
+                            'envase' => 'growler',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 5
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+
+        $lote->macerar()
+            ->envasar('2019-7-27', 'b500', 2)
+            ->fermentar();
+
+        $lote->macerado->fermentar()
+            ->envasar('2019-7-27', 'b710', 10)
+            ->envasar('b500', 21)
+            ->envasar('g500', 4)
+            ->envasar('b330', 13);
 
         $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 7, 21),
@@ -69,6 +170,27 @@ class LotesTableSeeder extends Seeder
                     'resultado' => [
                         [
                             'envase' => 'mosto',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 1
+                        ]
+                    ]
+                ], [
+                    'fecha' => Carbon::create(2019, 7, 26),
+                    'resultado' => [
+                        [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.330 l'),
+                            'cantidad' => 4
+                        ], [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.5 l'),
+                            'cantidad' => 33
+                        ], [
+                            'envase' => 'botella',
+                            'volumen' => new Volume('0.710 l'),
+                            'cantidad' => 5
+                        ], [
+                            'envase' => 'growler',
                             'volumen' => new Volume('0.5 l'),
                             'cantidad' => 5
                         ]
@@ -302,7 +424,10 @@ class LotesTableSeeder extends Seeder
             $r->lupulos()
                 ->save(Lupulo::byNombre($lupulo['nombre']), [
                     'cantidad' => $lupulo['cantidad'],
+                    'aa' => $lupulo['aa'] ?? null,
                     'momento' => $lupulo['momento'] ?? 10
                 ]);
+
+        return $r;
     }
 }
