@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Types\Config\Density as ConfigDensity;
 use App\Types\Type\Density;
+use Illuminate\Support\Carbon;
 use JBZoo\SimpleTypes\Type\Volume;
 use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
 use Illuminate\Database\Eloquent\Model;
@@ -25,6 +26,12 @@ class Receta extends Model
     public function lotes()
     {
         return $this->hasMany(Lote::class);
+    }
+
+    public function cocinar($fecha) {
+        return $this->lotes()->create([
+            'brewed_at' => Carbon::create($fecha)
+        ]);
     }
 
     public function lupulos()

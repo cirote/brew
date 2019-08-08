@@ -2,46 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a09c937e-f8b9-41d6-8613-e4ceb99fde24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EnvaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FermentadoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MaceradoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Envasable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Envase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fermentable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Fermentado.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/LoteLupuloPivot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/LotePivot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Macerado.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/RecetaPivot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/TipoEnvase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/EnvaseFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/FermentadoFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/MaceradoFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_000543_create_tipo_envases_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_003504_create_envases_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_004555_create_macerados_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_004608_create_fermentados_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/TipoEnvasesTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/create_envases_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6dc8e5c2-a383-4d6c-9132-73c8f5137184.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6dc8e5c2-a383-4d6c-9132-73c8f5137184.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lote.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LoteMaltaPivot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LoteMaltaPivot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/LupuloRecetaPivot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/LupuloRecetaPivot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MaltaPivot.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/MaltaRecetaPivot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MaltaRecetaPivot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Receta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Receta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_22_022342_create_lupulo_receta_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_22_022342_create_lupulo_receta_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_22_170500_create_lote_lupulo_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_22_170500_create_lote_lupulo_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FermentadoresTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FermentadoresTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/LotesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LotesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/LupulosTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LupulosTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/RecetasTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/RecetasTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recetas/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recetas/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recetas/order/lupulos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recetas/order/lupulos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recetas/order/maltas.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recetas/order/maltas.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +223,7 @@
       <workItem from="1563546744585" duration="5844000" />
       <workItem from="1563734510884" duration="14734000" />
       <workItem from="1563832333889" duration="18682000" />
-      <workItem from="1564963460785" duration="7948000" />
+      <workItem from="1564963460785" duration="10584000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de varias tablas y seeders">
       <created>1561242217654</created>

@@ -26,6 +26,36 @@ class LotesTableSeeder extends Seeder
 
         Config::registerDefault('temp', new ConfigTemperature());
 
+        $macerado = Receta::byNombre('Kolsh v0')
+            ->cocinar('2019-07-27')
+            ->macerar()
+            ->envasar('2019-7-27', 'b500', 2)
+            ->hervir();
+
+        $macerado->fermentar([
+                'fermentador' => 'Anvil 7.5 gl',
+                'volumen' => new Volume('25 l'),
+                'levadura' => [
+                    'nombre' => 'Safbrew S-33',
+                    'estado' => 'lavada'
+                ]
+            ])
+            ->envasar('2019-8-4', 'b710', 10)
+            ->envasar('b500', 21)
+            ->envasar('g500', 4)
+            ->envasar('b330', 13);
+
+        $macerado->fermentar([
+                'fermentador' => 'Damajuana',
+                'volumen' => new Volume('5 l'),
+                'levadura' => [
+                    'nombre' => 'Safbrew S-33',
+                    'estado' => 'lavada'
+                ]
+            ])
+            ->envasar('2019-8-8', 'b330', 12);
+
+
         $lote = $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 7, 27),
             'receta' => 'Kolsh v0',
@@ -65,67 +95,7 @@ class LotesTableSeeder extends Seeder
                 'volumen' => new Volume('30 l'),
 
             ],
-            'fermentado' => [
-                [
-                    'fermentador' => 'Anvil 7.5 gl',
-                    'volumen' => new Volume('25 l'),
-                    'levadura' => [
-                        'nombre' => 'Safbrew S-33',
-                        'estado' => 'lavada'
-                    ]
-                ], [
-                    'fermentador' => 'Damajuana',
-                    'volumen' => new Volume('5 l'),
-                    'levadura' => [
-                        'nombre' => 'Safbrew S-33',
-                        'estado' => 'lavada'
-                    ]
-                ]
-            ],
-            'envasado' => [
-                [
-                    'fecha' => Carbon::create(2019, 7, 27),
-                    'resultado' => [
-                        [
-                            'envase' => 'mosto',
-                            'volumen' => new Volume('0.5 l'),
-                            'cantidad' => 2
-                        ]
-                    ]
-                ], [
-                    'fecha' => Carbon::create(2019, 7, 26),
-                    'resultado' => [
-                        [
-                            'envase' => 'botella',
-                            'volumen' => new Volume('0.330 l'),
-                            'cantidad' => 4
-                        ], [
-                            'envase' => 'botella',
-                            'volumen' => new Volume('0.5 l'),
-                            'cantidad' => 33
-                        ], [
-                            'envase' => 'botella',
-                            'volumen' => new Volume('0.710 l'),
-                            'cantidad' => 5
-                        ], [
-                            'envase' => 'growler',
-                            'volumen' => new Volume('0.5 l'),
-                            'cantidad' => 5
-                        ]
-                    ]
-                ]
-            ]
         ]);
-
-        $lote->macerar()
-            ->envasar('2019-7-27', 'b500', 2)
-            ->fermentar();
-
-        $lote->macerado->fermentar()
-            ->envasar('2019-7-27', 'b710', 10)
-            ->envasar('b500', 21)
-            ->envasar('g500', 4)
-            ->envasar('b330', 13);
 
         $this->agregarLote([
             'brewed_at' => Carbon::create(2019, 7, 21),
