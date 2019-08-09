@@ -11,6 +11,11 @@ class CreateMaceradosTable extends Migration
         Schema::create('macerados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('lote_id')->unsigned()->referTo('id')->on('lotes');
+            $table->string('agua')->nullable();
+            $table->string('lavado')->nullable();
+            $table->string('final')->nullable();
+            $table->string('densidad')->nullable();
+            $table->string('temperatura')->nullable();
             $table->timestamps();
         });
     }

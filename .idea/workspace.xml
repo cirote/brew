@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a09c937e-f8b9-41d6-8613-e4ceb99fde24" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EscalonController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Escalon.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Escalonable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/EscalonFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_09_000119_create_escalones_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Receta.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Receta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Hervido.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Hervido.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lote.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lote.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/LoteMaltaPivot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MaceradoMaltaPivot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Macerado.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Macerado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_22_164119_create_lote_malta_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_22_164119_create_macerado_malta_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_05_004555_create_macerados_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_004555_create_macerados_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_08_002802_create_hervidos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_08_002802_create_hervidos_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/LotesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/LotesTableSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -167,12 +178,12 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/recetas" />
       <recent name="$PROJECT_DIR$/app/Types/Config" />
+      <recent name="$PROJECT_DIR$/app/Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Models" />
     </key>
   </component>
@@ -223,7 +234,8 @@
       <workItem from="1563546744585" duration="5844000" />
       <workItem from="1563734510884" duration="14734000" />
       <workItem from="1563832333889" duration="18682000" />
-      <workItem from="1564963460785" duration="10584000" />
+      <workItem from="1564963460785" duration="11350000" />
+      <workItem from="1565303756086" duration="7125000" />
     </task>
     <task id="LOCAL-00001" summary="Creacion de varias tablas y seeders">
       <created>1561242217654</created>
@@ -252,7 +264,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

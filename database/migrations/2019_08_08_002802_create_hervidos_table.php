@@ -6,24 +6,15 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHervidosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('hervidos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('macerado_id')->unsigned()->referTo('id')->on('macerados');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('hervidos');

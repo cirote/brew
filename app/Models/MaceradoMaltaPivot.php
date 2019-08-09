@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class LoteMaltaPivot extends Pivot
+class MaceradoMaltaPivot extends Pivot
 {
 	use RecetaPivot;
 }
