@@ -23,7 +23,7 @@ class FermentadoresTableSeeder extends Seeder
             'nombre' => 'Damajuana',
             'volume' => new Volume('10 l'),
             'maximo' => new Volume('8 l'),
-            'muerto' => new Volume('1.5 l')
+            'muerto' => new Volume('0.7 l')
         ]);
     }
 }

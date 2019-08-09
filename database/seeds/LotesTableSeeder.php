@@ -26,13 +26,22 @@ class LotesTableSeeder extends Seeder
 
         Config::registerDefault('temp', new ConfigTemperature());
 
-        $macerado = Receta::byNombre('Kolsh v0')
+        $hervido = Receta::byNombre('Kolsh v0')
             ->cocinar('2019-07-27')
             ->macerar()
+                ->malta(Malta::byNombre('Malta tipo pilsen (MOSA)'), new Weight('6 kg'))
+                    ->escalon(new Temperature('122 °F'), CarbonInterval::create(0,0,0,0,0,20))
+                    ->escalon(new Temperature('149 °F'), CarbonInterval::create(0,0,0,0,0,30))
+                    ->escalon(new Temperature('158 °F'), CarbonInterval::create(0,0,0,0,0,30))
+                    ->mashOut()
+                ->agua(new Volume('22 l'))
+                    ->lavado(new Volume('10 l'))
+                    ->final(new Volume('25.5 l'))
+                    ->densidad(new Density('1.053 sg'), new Temperature('77.7 C'))
             ->envasar('2019-7-27', 'b500', 2)
             ->hervir();
 
-        $macerado->fermentar([
+        $hervido->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
                 'volumen' => new Volume('25 l'),
                 'levadura' => [
@@ -45,7 +54,7 @@ class LotesTableSeeder extends Seeder
             ->envasar('g500', 4)
             ->envasar('b330', 13);
 
-        $macerado->fermentar([
+        $hervido->fermentar([
                 'fermentador' => 'Damajuana',
                 'volumen' => new Volume('5 l'),
                 'levadura' => [
@@ -53,7 +62,10 @@ class LotesTableSeeder extends Seeder
                     'estado' => 'lavada'
                 ]
             ])
-            ->envasar('2019-8-8', 'b330', 12);
+            // Pulpa de frutilla 80 gr 31/7/2019
+            // Gelatina 1.2 gr 4/8/2019
+            ->envasar('2019-8-8', 'b330', 11);
+        // Mugre 700 cc
 
 
         $lote = $this->agregarLote([
@@ -386,9 +398,9 @@ class LotesTableSeeder extends Seeder
                 'brewed_at' => $receta['brewed_at']
             ]);
 
-        foreach ($receta['macerado']['maltas'] as $malta)
-            $r->maltas()
-                ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
+//        foreach ($receta['macerado']['maltas'] as $malta)
+//            $r->maltas()
+//                ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
 
         foreach ($receta['hervido']['lupulos'] as $lupulo)
             $r->lupulos()

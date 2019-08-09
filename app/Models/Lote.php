@@ -23,13 +23,6 @@ class Lote extends Model
         return $this->macerado()->create();
     }
 
-    public function maltas()
-    {
-        return $this->belongsToMany(Malta::class)
-		    ->using(LoteMaltaPivot::class)
-		    ->withPivot(['cantidad']);
-    }
-
     public function lupulos()
     {
         return $this->belongsToMany(Lupulo::class)
