@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('recetas/prueba', 'RecetaController@prueba')->name('recetas.prueba');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::resource('recetas', 'RecetaController');
 Route::get('recetas/{receta}/order', 'RecetaController@order')->name('recetas.order');

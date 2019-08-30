@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Lote;
 use App\Models\Receta;
+use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 class RecetaController extends Controller
 {
@@ -104,5 +107,21 @@ class RecetaController extends Controller
         return view('recetas.lotes')
             ->with('receta', $receta)
             ->with('lote', $lote);
+    }
+
+    public function prueba()
+    {
+//        if (App::bound('scalar'))
+//            dump('La clase esta registrada.');
+
+        if (App::getProvider('DB'))
+            dump('La clase DB esta registrada.');
+
+        if (App::getProvider('Scalar'))
+            dump('La clase esta registrada.');
+
+        Scalar::kk();
+          //$scalar = App::make('scalar');
+        //dd($scalar->Density());
     }
 }
