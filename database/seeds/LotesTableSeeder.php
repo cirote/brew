@@ -1,49 +1,33 @@
 <?php
 
+use Cirote\Scalar\Facade\Scalar;
 use App\Models\{Lupulo, Malta, Receta, TipoEnvase};
-use App\Types\Config\Density as ConfigDensity;
-use App\Types\Type\Density;
 use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
-use JBZoo\SimpleTypes\Config\Config;
-use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
-use JBZoo\SimpleTypes\Type\Volume;
-use JBZoo\SimpleTypes\Config\Weight as ConfigWeight;
-use JBZoo\SimpleTypes\Type\Weight;
-use JBZoo\SimpleTypes\Config\Temp as ConfigTemperature;
-use JBZoo\SimpleTypes\Type\Temp as Temperature;
 
 class LotesTableSeeder extends Seeder
 {
     public function run()
     {
-        Config::registerDefault('weight', new ConfigWeight());
-
-        Config::registerDefault('volume', new ConfigVolume());
-
-        Config::registerDefault('density', new ConfigDensity());
-
-        Config::registerDefault('temp', new ConfigTemperature());
-
         $hervido = Receta::byNombre('Kolsh v0')
             ->cocinar('2019-07-27')
             ->macerar()
-                ->malta(Malta::byNombre('Malta tipo pilsen (MOSA)'), new Weight('6 kg'))
-                    ->escalon(new Temperature('122 °F'), CarbonInterval::create(0,0,0,0,0,20))
-                    ->escalon(new Temperature('149 °F'), CarbonInterval::create(0,0,0,0,0,30))
-                    ->escalon(new Temperature('158 °F'), CarbonInterval::create(0,0,0,0,0,30))
+                ->malta(Malta::byNombre('Malta tipo pilsen (MOSA)'), Scalar::Weight('6 kg'))
+                    ->escalon(Scalar::Temperature('122 °F'), CarbonInterval::create(0,0,0,0,0,20))
+                    ->escalon(Scalar::Temperature('149 °F'), CarbonInterval::create(0,0,0,0,0,30))
+                    ->escalon(Scalar::Temperature('158 °F'), CarbonInterval::create(0,0,0,0,0,30))
                     ->mashOut()
-                ->agua(new Volume('22 l'))
-                    ->lavado(new Volume('10 l'))
-                    ->final(new Volume('25.5 l'))
-                    ->densidad(new Density('1.053 sg'), new Temperature('77.7 C'))
+                ->agua(Scalar::Volume('22 l'))
+                    ->lavado(Scalar::Volume('10 l'))
+                    ->final(Scalar::Volume('25.5 l'))
+                    ->densidad(Scalar::Density('1.053 sg'), Scalar::Temperature('77.7 C'))
             ->envasar('2019-7-27', 'b500', 2)
             ->hervir();
 
         $hervido->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => new Volume('25 l'),
+                'volumen' => Scalar::Volume('25 l'),
                 'levadura' => [
                     'nombre' => 'Safbrew S-33',
                     'estado' => 'lavada'
@@ -56,7 +40,7 @@ class LotesTableSeeder extends Seeder
 
         $hervido->fermentar([
                 'fermentador' => 'Damajuana',
-                'volumen' => new Volume('5 l'),
+                'volumen' => Scalar::Volume('5 l'),
                 'levadura' => [
                     'nombre' => 'Safbrew S-33',
                     'estado' => 'lavada'
@@ -75,36 +59,36 @@ class LotesTableSeeder extends Seeder
                 'maltas' => [
                     [
                         'nombre' => 'Malta tipo pilsen (MOSA)',
-                        'cantidad' => new Weight('6 kg'),
+                        'cantidad' => Scalar::Weight('6 kg'),
                     ]
                 ],
 
                 //  Datos al finalizar el macerado, previo a la dilusion de ajuste
                 'agua' => [
-                    'inicial' => new Volume('22 l'),
-                    'lavado' => new Volume('10 l'),
-                    'final' => new Volume('25.5 l'),
+                    'inicial' => Scalar::Volume('22 l'),
+                    'lavado' => Scalar::Volume('10 l'),
+                    'final' => Scalar::Volume('25.5 l'),
                 ],
-                'densidad' => new Density('1.053 sg'),
-                'temperatura' => new Temperature('77.7 C'),
+                'densidad' => Scalar::Density('1.053 sg'),
+                'temperatura' => Scalar::Temperature('77.7 C'),
 
-                'volumen_post_hervido_calculado' => new Volume('30.7 l'),
-                'volumen_post_hervido_olla' => new Volume('31 l'),
-                'gravedad_inicial_calculada' => new Density('1.057 sg'),
+                'volumen_post_hervido_calculado' => Scalar::Volume('30.7 l'),
+                'volumen_post_hervido_olla' => Scalar::Volume('31 l'),
+                'gravedad_inicial_calculada' => Scalar::Density('1.057 sg'),
             ],
             'hervido' => [
                 'lupulos' => [[
                     'nombre' => 'Cascade',
-                    'cantidad' => new Weight('30.77 g'),
+                    'cantidad' => Scalar::Weight('30.77 g'),
                     'aa' => 6.4,
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,0),
                 ], [
                     'nombre' => 'Hallertauer Mittelfruh',
-                    'cantidad' => new Weight('40.07 g'),
+                    'cantidad' => Scalar::Weight('40.07 g'),
                     'aa' => 4.2,
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,29),
                 ]],
-                'volumen' => new Volume('30 l'),
+                'volumen' => Scalar::Volume('30 l'),
 
             ],
         ]);
@@ -116,35 +100,35 @@ class LotesTableSeeder extends Seeder
                 'maltas' => [
                     [
                         'nombre' => 'Malta tipo pilsen (MOSA)',
-                        'cantidad' => new Weight('3.5 kg'),
+                        'cantidad' => Scalar::Weight('3.5 kg'),
                     ], [
                         'nombre' => 'Château Cara Ruby',
-                        'cantidad' => new Weight('2.6 kg'),
+                        'cantidad' => Scalar::Weight('2.6 kg'),
                     ], [
                         'nombre' => 'Château Biscuit',
-                        'cantidad' => new Weight('599 g'),
+                        'cantidad' => Scalar::Weight('599 g'),
                     ], [
                         'nombre' => 'CaraAmber',
-                        'cantidad' => new Weight('285 g'),
+                        'cantidad' => Scalar::Weight('285 g'),
                     ]
                 ],
-                'volumen_vivo' => new Volume('34 l'),
-                'volumen_post_hervido_calculado' => new Volume('25.57 l'),
-                'gravedad_pre_hervido' => new Density('1.043 sg'),
-                'temperatura_medicion' => new Temperature('78.5 C'),
-                'gravedad_inicial_calculada' => new Density('1.057 sg'),
+                'volumen_vivo' => Scalar::Volume('34 l'),
+                'volumen_post_hervido_calculado' => Scalar::Volume('25.57 l'),
+                'gravedad_pre_hervido' => Scalar::Density('1.043 sg'),
+                'temperatura_medicion' => Scalar::Temperature('78.5 C'),
+                'gravedad_inicial_calculada' => Scalar::Density('1.057 sg'),
             ],
             'hervido' => [
                 'lupulos' => [[
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('7.28 g'),
+                    'cantidad' => Scalar::Weight('7.28 g'),
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,20),
                 ], [
                     'nombre' => 'Columbus',
-                    'cantidad' => new Weight('14.69'),
+                    'cantidad' => Scalar::Weight('14.69'),
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105),
                 ]],
-                'volumen_en_el_fermentador' => new Volume('25 l'),
+                'volumen_en_el_fermentador' => Scalar::Volume('25 l'),
             ],
             'envasado' => [
                 [
@@ -152,7 +136,7 @@ class LotesTableSeeder extends Seeder
                     'resultado' => [
                         [
                             'envase' => 'mosto',
-                            'volumen' => new Volume('0.5 l'),
+                            'volumen' => Scalar::Volume('0.5 l'),
                             'cantidad' => 1
                         ]
                     ]
@@ -161,19 +145,19 @@ class LotesTableSeeder extends Seeder
                     'resultado' => [
                         [
                             'envase' => 'botella',
-                            'volumen' => new Volume('0.330 l'),
+                            'volumen' => Scalar::Volume('0.330 l'),
                             'cantidad' => 4
                         ], [
                             'envase' => 'botella',
-                            'volumen' => new Volume('0.5 l'),
+                            'volumen' => Scalar::Volume('0.5 l'),
                             'cantidad' => 33
                         ], [
                             'envase' => 'botella',
-                            'volumen' => new Volume('0.710 l'),
+                            'volumen' => Scalar::Volume('0.710 l'),
                             'cantidad' => 5
                         ], [
                             'envase' => 'growler',
-                            'volumen' => new Volume('0.5 l'),
+                            'volumen' => Scalar::Volume('0.5 l'),
                             'cantidad' => 5
                         ]
                     ]
@@ -188,24 +172,24 @@ class LotesTableSeeder extends Seeder
                 'maltas' => [
                     [
                         'nombre' => 'Malta tipo pilsen (MOSA)',
-                        'cantidad' => new Weight('5.7 kg'),
+                        'cantidad' => Scalar::Weight('5.7 kg'),
                     ], [
                         'nombre' => 'Château Cara Gold',
-                        'cantidad' => new Weight('450 g'),
+                        'cantidad' => Scalar::Weight('450 g'),
                     ], [
                         'nombre' => 'Château Chocolat',
-                        'cantidad' => new Weight('740 g'),
+                        'cantidad' => Scalar::Weight('740 g'),
                     ], [
                         'nombre' => 'Château Black',
-                        'cantidad' => new Weight('150 g'),
+                        'cantidad' => Scalar::Weight('150 g'),
                     ], [
                         'nombre' => 'Château Special B',
-                        'cantidad' => new Weight('90 g'),
+                        'cantidad' => Scalar::Weight('90 g'),
                     ]
                 ],
-                'volumen_vivo' => new Volume('31 l'),
-                'volumen_total' => new Volume('34 l'),
-                'volumen_post_hervido_calculado' => new Volume('28.07 l'),
+                'volumen_vivo' => Scalar::Volume('31 l'),
+                'volumen_total' => Scalar::Volume('34 l'),
+                'volumen_post_hervido_calculado' => Scalar::Volume('28.07 l'),
                 'gravedad_pre_hervido' => 1.050,
                 'temperatura_medicion' => 78.5,
                 'gravedad_inicial_calculada' => 1.061
@@ -214,38 +198,38 @@ class LotesTableSeeder extends Seeder
             'hervido' => [
                 'lupulos' => [[
                     'nombre' => 'Columbus',
-                    'cantidad' => new Weight('27.73 g'),
+                    'cantidad' => Scalar::Weight('27.73 g'),
                     'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,70),
                 ], [
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('6.86'),
+                    'cantidad' => Scalar::Weight('6.86'),
                     'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,10),
                 ]],
-                'volumen_en_el_fermentador' => new Volume('26 l'),
-                'volumen_total' => new Volume('27.5 l'),
+                'volumen_en_el_fermentador' => Scalar::Volume('26 l'),
+                'volumen_total' => Scalar::Volume('27.5 l'),
             ],
             'envasado' => [
                 'fecha' => Carbon::create(2019, 7, 21),
                 'resultado' => [
                     [
                         'envase' => 'botella',
-                        'volumen' => new Volume('0.330 l'),
+                        'volumen' => Scalar::Volume('0.330 l'),
                         'cantidad' => 1
                     ], [
                         'envase' => 'botella',
-                        'volumen' => new Volume('0.5 l'),
+                        'volumen' => Scalar::Volume('0.5 l'),
                         'cantidad' => 25
                     ], [
                         'envase' => 'botella',
-                        'volumen' => new Volume('0.6 l'),
+                        'volumen' => Scalar::Volume('0.6 l'),
                         'cantidad' => 8
                     ], [
                         'envase' => 'botella',
-                        'volumen' => new Volume('0.710 l'),
+                        'volumen' => Scalar::Volume('0.710 l'),
                         'cantidad' => 5
                     ], [
                         'envase' => 'growler',
-                        'volumen' => new Volume('4.25 l'),
+                        'volumen' => Scalar::Volume('4.25 l'),
                         'cantidad' => 1
                     ]
                 ]
@@ -267,11 +251,11 @@ class LotesTableSeeder extends Seeder
             'hervido' => [
                 'lupulos' => [[
                     'nombre' => 'Magnum',
-                    'cantidad' => new Weight('23.6 kg'),
+                    'cantidad' => Scalar::Weight('23.6 kg'),
                     'momento' => -75
                 ], [
                     'nombre' => 'Styrian Golding',
-                    'cantidad' => new Weight('23.6 lb'),
+                    'cantidad' => Scalar::Weight('23.6 lb'),
                     'momento' => -5
                 ]],
             ],
@@ -340,19 +324,19 @@ class LotesTableSeeder extends Seeder
                 'lupulos' => [
                     [
                         'nombre' => 'Magnum',
-                        'cantidad' => new Weight('14.88 gr'),
+                        'cantidad' => Scalar::Weight('14.88 gr'),
                         'momento' => -60
                     ], [
                         'nombre' => 'Perle',
-                        'cantidad' => new Weight('14.90 gr'),
+                        'cantidad' => Scalar::Weight('14.90 gr'),
                         'momento' => -30
                     ], [
                         'nombre' => 'Cascade',
-                        'cantidad' => new Weight('14.72 gr'),
+                        'cantidad' => Scalar::Weight('14.72 gr'),
                         'momento' => -10
                     ], [
                         'nombre' => 'Cascade',
-                        'cantidad' => new Weight('29.48 gr'),
+                        'cantidad' => Scalar::Weight('29.48 gr'),
                         'unidad' => 'oz',
                         'momento' => 0
                     ]

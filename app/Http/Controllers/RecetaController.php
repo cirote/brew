@@ -120,7 +120,9 @@ class RecetaController extends Controller
         if (App::getProvider('Scalar'))
             dump('La clase esta registrada.');
 
-        Scalar::kk();
+        $r = Scalar::Density('1.053 sg');
+
+        dd($r);
           //$scalar = App::make('scalar');
         //dd($scalar->Density());
     }
