@@ -11,6 +11,8 @@ class CreateHervidosTable extends Migration
         Schema::create('hervidos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('macerado_id')->unsigned()->referTo('id')->on('macerados');
+            $table->string('duracion');
+            $table->string('final')->nullable();
             $table->timestamps();
         });
     }

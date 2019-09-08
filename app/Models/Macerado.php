@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\CarbonInterval;
+use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Database\Eloquent\Model;
 use JBZoo\SimpleTypes\Type\Temp as Temperature;
 use JBZoo\SimpleTypes\Type\Volume;
@@ -19,9 +21,16 @@ class Macerado extends Model
         return $this->hasOne(Hervido::class);
     }
 
-    public function hervir()
+    public function hervir(CarbonInterval $tiempo)
     {
-        return $this->hervido()->create();
+        return $this->hervido()->create([
+                'duracion' => $tiempo
+            ]);
+    }
+
+    public function lote()
+    {
+        return $this->belongsTo(Lote::class);
     }
 
     public function maltas()
@@ -78,4 +87,13 @@ class Macerado extends Model
         return $this;
     }
 
+    public function getDensidadAttribute($value)
+    {
+        return Scalar::Density($value);
+    }
+
+    public function getFinalAttribute($value)
+    {
+        return Scalar::Volume($value);
+    }
 }

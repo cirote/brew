@@ -2,18 +2,15 @@
 
 namespace App\Models;
 
+use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Support\Facades\Input;
-use JBZoo\SimpleTypes\Config\Config;
-use JBZoo\SimpleTypes\Type\Weight;
-use App\Types\Config\Weight as ConfigWeight;
+use JBZoo\SimpleTypes\Type\Volume;
 
 trait RecetaPivot
 {
 	public function getCantidadAttribute($valor)
 	{
-		Config::registerDefault('weight', new ConfigWeight());
-
-		return new Weight($valor);
+		return Scalar::Weight($valor);
 	}
 
     public function receta()
@@ -21,7 +18,7 @@ trait RecetaPivot
         return $this->belongsTo(Receta::class);
     }
 
-    public function getCantidadAjustadaAttribute()
+    public function cantidadAjustada(string $volumen = null)
     {
         $volumenMuertoOlla = 3;
 
@@ -29,10 +26,22 @@ trait RecetaPivot
 
         $cantidadEnGranos = $this->cantidad->convert('g')->val();
 
-        $volumenEnFermentador = Input::get('volumen', 25);
+        if ($volumen)
+        {
+            $volumen = Scalar::Volume($volumen);
+
+            $volumenEnFermentador = $volumen->val();
+        }
+        else
+            $volumenEnFermentador = Input::get('volumen', 25);
 
         $volumenTotal = $volumenEnFermentador + $volumenMuertoOlla;
 
-        return new Weight($cantidadEnGranos / $volumenReceta * $volumenTotal, new ConfigWeight());
+        return Scalar::Weight($cantidadEnGranos / $volumenReceta * $volumenTotal);
+    }
+
+    public function getCantidadAjustadaAttribute()
+    {
+        return $this->cantidadAjustada();
     }
 }

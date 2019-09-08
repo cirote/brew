@@ -18,7 +18,6 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        dd(JeJe::Density());
         return view('recetas.index')
             ->with('recetas', Receta::orderBy('nombre')->get());
     }

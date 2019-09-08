@@ -10,6 +10,38 @@ class LotesTableSeeder extends Seeder
 {
     public function run()
     {
+        $hervido = Receta::byNombre('Cerveza de marzo')
+            ->cocinar('2019-9-7')
+            ->macerar()
+                ->malta(Malta::byNombre('Malta Pilsen'), Scalar::Weight('6 kg'))
+                    ->malta(Malta::byNombre("Château Cara Ruby"), Scalar::Weight('3.3 kg'))
+                    ->malta(Malta::byNombre('Château Biscuit'), Scalar::Weight('0.66 kg'))
+                ->escalon(Scalar::Temperature('62 °C'), CarbonInterval::minutes(40))
+                    ->escalon(Scalar::Temperature('72 °C'), CarbonInterval::minutes(20))
+                    ->mashOut()
+                ->agua(Scalar::Volume('20 l'))
+                    ->lavado(Scalar::Volume('13.5 l'))
+                    ->final(Scalar::Volume('26 l'))
+                ->densidad(Scalar::Density('1.055 sg'), Scalar::Temperature('78 C'))
+            ->hervir(CarbonInterval::minutes(130))
+                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('5.95 g'), CarbonInterval::minutes(19))
+                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('0.92 g'), CarbonInterval::minutes(77))
+                ->lupulo(Lupulo::byNombre('Magnum'), Scalar::Weight('13.26 g'), CarbonInterval::minutes(115))
+                ->final(Scalar::Volume('23 l'))
+            ->fermentar([
+                'fermentador' => 'Anvil 7.5 gl',
+                'volumen' => Scalar::Volume('23 l'),
+                'levadura' => [
+                    'nombre' => 'Safbrew S-33',
+                    'estado' => 'lavada'
+                ],
+                'densidad_inicial' => Scalar::Density('1.063 sg')
+            ])
+                ->envasar('2019-8-4', 'b710', 10)
+                ->envasar('b500', 21)
+                ->envasar('g500', 4)
+                ->envasar('b330', 13);
+
         $hervido = Receta::byNombre('Kolsh v0')
             ->cocinar('2019-07-27')
             ->macerar()
@@ -23,7 +55,7 @@ class LotesTableSeeder extends Seeder
                     ->final(Scalar::Volume('25.5 l'))
                     ->densidad(Scalar::Density('1.053 sg'), Scalar::Temperature('77.7 C'))
             ->envasar('2019-7-27', 'b500', 2)
-            ->hervir();
+            ->hervir(CarbonInterval::create(0,0,0,0,2,10));
 
         $hervido->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',

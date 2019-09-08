@@ -53,5 +53,10 @@ class MaltasTableSeeder extends Seeder
 		    ->maltas()->create([
 			    'nombre' => 'Pilsner'
 		    ]);
+
+        Malteria::byNombre('Cargill S.A.')
+            ->maltas()->create([
+                'nombre' => 'Malta Pilsen'
+            ]);
     }
 }

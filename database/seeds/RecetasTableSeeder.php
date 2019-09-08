@@ -1,5 +1,6 @@
 <?php
 
+use Cirote\Scalar\Facade\Scalar;
 use App\Models\{Lupulo, Malta, Receta};
 use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
@@ -21,7 +22,41 @@ class RecetasTableSeeder extends Seeder
 
         Config::registerDefault('Density', new ConfigDensity());
 
-	    $this->agregarReceta([
+        $this->agregarReceta([
+            'nombre' => 'Northern NH Brown',
+            'alias' => 'Faltan cargar los datos',
+            'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/564492/northern-nh-brown',
+            'tamano' => Scalar::Volume('5 gallons'),
+            'gravedad_original' => Scalar::Density('1.053 sg'),
+            'gravedad_final' => Scalar::Density('1.012 sg'),
+
+            'alcohol' => 4.44,
+            'amargor' => 25.08,
+            'hervido' =>  CarbonInterval::create(0,0,0,0,0,60),
+            'maltas' => [
+                [
+                    'nombre' => 'Pilsner',
+                    'cantidad' => new Weight('10 lb'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre' => 'Liberty',
+                    'cantidad' => new Weight('1 oz'),
+                    'aa' => 4,
+                    'uso' => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,60)
+                ], [
+                    'nombre' => 'Hallertauer Hersbrucker',
+                    'cantidad' => new Weight('1 oz'),
+                    'aa' => 4,
+                    'uso' => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,30)
+                ]
+            ],
+        ]);
+
+        $this->agregarReceta([
 		    'nombre' => 'Kolsh v0',
 		    'alias' => null,
 		    'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/434324/kolsh-v0',

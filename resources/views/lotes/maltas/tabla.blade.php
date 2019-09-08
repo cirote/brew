@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($lote->maltas as $malta)
+    @foreach($lote->macerado->maltas as $malta)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $malta->nombre }}</td>

@@ -10,7 +10,18 @@
                     <h1 class="display-3">Lotes de la receta de {{ $receta->nombre }}</h1>
                 </div>
                 <div class="box-body">
+                    <div class="col-lg-3 col-xs-6">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>{{ $receta->gravedadOriginal }}</h3>
 
+                                <p>Densidad Inicial</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-bag"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
