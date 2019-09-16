@@ -6,11 +6,11 @@
             <th width="20%">Cantidad</th>
         </tr>
         <tbody>
-        @foreach($lote->macerado->maltas as $malta)
+        @foreach($receta->maltas as $malta)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $malta->nombre }}</td>
-                <td align="right">{{ $malta->pivot->cantidad->convert('g') }}</td>
+                <td align="right">{{ $malta->pivot->cantidadAjustada }}</td>
             </tr>
         @endforeach
         </tbody>

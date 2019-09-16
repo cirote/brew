@@ -5,13 +5,28 @@
         </div>
         <div class="box-body">
             <row>
+                @include('lotes.recetas.maltas')
                 @include('lotes.maltas')
-                @include('lotes.lupulos')
             </row>
 
-            @include('lotes.volumen')
-            @include('lotes.hervido')
-            @include('lotes.lupulosAjustados')
+            <row>
+                @include('lotes.recetas.escalones')
+                @include('lotes.escalones')
+            </row>
+
+            <row>
+                @include('lotes.volumen')
+            </row>
+
+            <row>
+                <div class="col-md-6"></div>
+                @include('lotes.hervido')
+            </row>
+
+            <row>
+                @include('lotes.lupulosAjustados')
+                @include('lotes.lupulos')
+            </row>
         </div>
     </div>
 </div>

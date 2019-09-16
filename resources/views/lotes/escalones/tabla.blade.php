@@ -2,15 +2,15 @@
     <table class="table table-hover table-striped table-condensed">
         <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th width="20%">Cantidad</th>
+            <th>Temperatura</th>
+            <th>Minutos</th>
         </tr>
         <tbody>
-        @foreach($lote->macerado->maltas as $malta)
+        @foreach($lote->macerado->escalones as $escalon)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $malta->nombre }}</td>
-                <td align="right">{{ $malta->pivot->cantidad->convert('g') }}</td>
+                <td>{{ $escalon->temperatura}}</td>
+                <td>{{ $escalon->minutos }} minutos</td>
             </tr>
         @endforeach
         </tbody>

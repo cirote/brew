@@ -12,7 +12,7 @@
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $lupulo->variedad }}</td>
-                <td align="right">{{ $lupulo->pivot->aa }}</td>
+                <td align="right">{{ $lupulo->aa }}</td>
                 <td>{{ $lupulo->pivot->uso }}</td>
                 <td align="right">{{ $lupulo->pivot->cantidadAjustada($volumen) }}</td>
             </tr>

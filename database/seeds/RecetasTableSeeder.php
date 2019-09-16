@@ -168,7 +168,7 @@ class RecetasTableSeeder extends Seeder
             'alias' => 'Lucaku',
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=265',
             'tamano' => new Volume('100 l'),
-            'gravedad_original' => 1.061,
+            'gravedad_original' => new Density('15 P'),
             'maltas' => [
                 [
                     'nombre' => 'Château Pilsen 2RS',
@@ -200,7 +200,10 @@ class RecetasTableSeeder extends Seeder
                     'momento' => 10
                 ]
             ],
-        ]);
+        ])
+            ->escalon(Scalar::Temperature('62 °C'), CarbonInterval::minutes(70))
+            ->escalon(Scalar::Temperature('72 °C'), CarbonInterval::minutes(10))
+            ->mashOut();
 
         $this->agregarReceta([
             'nombre' => 'Cerveza de Trigo Belga',
@@ -291,6 +294,8 @@ class RecetasTableSeeder extends Seeder
                     'aa' => $lupulo['aa'] ?? null,
                     'tiempo_de_hervido' => $this->tiempoDeHervido($receta)
                 ]);
+
+        return $r;
     }
 
     private function tiempoDeHervido($receta) {

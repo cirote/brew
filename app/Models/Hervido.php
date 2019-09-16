@@ -65,8 +65,22 @@ class Hervido extends Model
         return static::TASA_DE_EVAPORACION;
     }
 
-    public function lupulo(Lupulo $lupulo, Weight $peso, CarbonInterval $minutosDespuesDelHervor)
+    public function lupulos()
     {
+        return $this->belongsToMany(Lupulo::class)
+            ->using(HervidoLupuloPivot::class)
+            ->withPivot(['cantidad', 'momento', 'aa']);
+    }
+
+    public function lupulo(Lupulo $lupulo, Weight $cantidad, CarbonInterval $minutosDespuesDelHervor, $aa = null)
+    {
+        $this->lupulos()
+            ->save($lupulo, [
+                'cantidad' => $cantidad,
+                'momento' => $minutosDespuesDelHervor,
+                'aa' => $aa
+            ]);
+
         return $this;
     }
 

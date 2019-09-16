@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
 {
+    use Escalonable;
+
     public static function byNombre($nombre)
     {
         return static::where('nombre', $nombre)->first();

@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(LevadurasTableSeeder::class);
 
         $this->call(RecetasTableSeeder::class);
-        $this->call(LotesTableSeeder::class);
+
+//        $this->call(LotesTableSeeder::class);
+        $this->call(stout::class);
     }
 }
