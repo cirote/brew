@@ -19,13 +19,17 @@
             </row>
 
             <row>
-                <div class="col-md-6"></div>
                 @include('lotes.hervido')
             </row>
 
             <row>
                 @include('lotes.lupulosAjustados')
                 @include('lotes.lupulos')
+            </row>
+
+            <row>
+                @include('lotes.fermentado')
+                @include('lotes.envasado')
             </row>
         </div>
     </div>

@@ -10,7 +10,8 @@ use JBZoo\SimpleTypes\Type\Weight;
 
 class Hervido extends Model
 {
-    const TASA_DE_EVAPORACION = 10;
+    const TASA_DE_EVAPORACION = 12;
+    const TASA_DE_EVAPORACION_LARGA = 10;
 
     use Fermentable;
 
@@ -45,7 +46,7 @@ class Hervido extends Model
     {
         $volumenFinal = $this->volumenEstimado->val();
 
-        $volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * (130 / 60)));
+        $volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * ($this->minutos / 60)));
 
         return Scalar::Volume($volumenEstimado);
     }
@@ -62,7 +63,9 @@ class Hervido extends Model
 
     public function getTasaDeEvaporacionAttribute()
     {
-        return static::TASA_DE_EVAPORACION;
+        return $this->minutos > 90
+            ? static::TASA_DE_EVAPORACION_LARGA
+            : static::TASA_DE_EVAPORACION;
     }
 
     public function lupulos()

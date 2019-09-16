@@ -32,23 +32,23 @@ class RecetasTableSeeder extends Seeder
 
             'alcohol' => 4.44,
             'amargor' => 25.08,
-            'hervido' =>  CarbonInterval::create(0,0,0,0,0,60),
+            'hervido' =>  CarbonInterval::minutes(60),
             'maltas' => [
                 [
                     'nombre' => 'Pilsner',
-                    'cantidad' => new Weight('10 lb'),
+                    'cantidad' => Scalar::Weight('10 lb'),
                 ]
             ],
             'lupulos' => [
                 [
                     'nombre' => 'Liberty',
-                    'cantidad' => new Weight('1 oz'),
+                    'cantidad' => Scalar::Weight('1 oz'),
                     'aa' => 4,
                     'uso' => 'amargor',
                     'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,60)
                 ], [
                     'nombre' => 'Hallertauer Hersbrucker',
-                    'cantidad' => new Weight('1 oz'),
+                    'cantidad' => Scalar::Weight('1 oz'),
                     'aa' => 4,
                     'uso' => 'amargor',
                     'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,30)
@@ -60,28 +60,28 @@ class RecetasTableSeeder extends Seeder
 		    'nombre' => 'Kolsh v0',
 		    'alias' => null,
 		    'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/434324/kolsh-v0',
-		    'tamano' => new Volume('6 gallons'),
-		    'gravedad_original' => new Density('1.044 sg'),
-		    'gravedad_final' => new Density('1.010 sg'),
+		    'tamano' => Scalar::Volume('6 gallons'),
+		    'gravedad_original' => Scalar::Density('1.044 sg'),
+		    'gravedad_final' => Scalar::Density('1.010 sg'),
 		    'alcohol' => 4.44,
 		    'amargor' => 25.08,
 		    'hervido' =>  CarbonInterval::create(0,0,0,0,0,60),
 		    'maltas' => [
 			    [
 				    'nombre' => 'Pilsner',
-				    'cantidad' => new Weight('10 lb'),
+				    'cantidad' => Scalar::Weight('10 lb'),
 			    ]
 		    ],
 		    'lupulos' => [
 			    [
 				    'nombre' => 'Liberty',
-				    'cantidad' => new Weight('1 oz'),
+				    'cantidad' => Scalar::Weight('1 oz'),
                     'aa' => 4,
 				    'uso' => 'amargor',
-				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,60)
+				    'minutos_de_hervido' => CarbonInterval::minutes(60)
 			    ], [
 				    'nombre' => 'Hallertauer Hersbrucker',
-				    'cantidad' => new Weight('1 oz'),
+				    'cantidad' => Scalar::Weight('1 oz'),
                     'aa' => 4,
 				    'uso' => 'amargor',
 				    'minutos_de_hervido' => CarbonInterval::create(0,0,0,0,0,30)
@@ -93,23 +93,23 @@ class RecetasTableSeeder extends Seeder
             'nombre' => 'Sahti',
             'alias' => null,
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=249',
-            'tamano' => new Volume('100 l'),
-            'gravedad_original' => new Density('17 P'),
+            'tamano' => Scalar::Volume('100 l'),
+            'gravedad_original' => Scalar::Density('17 P'),
             'alcohol' => 7.5,
             'amargor' => 13,
             'maltas' => [
                 [
                     'nombre' => 'Château Pilsen 2RS',
-                    'cantidad' => new Weight('17 kg'),
+                    'cantidad' => Scalar::Weight('17 kg'),
                 ], [
                     'nombre' => 'Château Rye Malt',
-                    'cantidad' => new Weight('4 kg'),
+                    'cantidad' => Scalar::Weight('4 kg'),
                 ], [
                     'nombre' => 'Château Peated',
-                    'cantidad' => new Weight('1 kg'),
+                    'cantidad' => Scalar::Weight('1 kg'),
                 ], [
                     'nombre' => 'Château Cara Blond',
-                    'cantidad' => new Weight('1 kg'),
+                    'cantidad' => Scalar::Weight('1 kg'),
                 ]
             ],
             'lupulos' => [
@@ -126,8 +126,8 @@ class RecetasTableSeeder extends Seeder
             'nombre' => 'Cerveza de marzo',
             'alias' => 'Cerveza de primavera',
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=273',
-            'tamano' => new Volume('100 l'),
-            'gravedad_original' => new Density('14 P'),
+            'tamano' => Scalar::Volume('100 l'),
+            'gravedad_original' => Scalar::Density('14 P'),
             'alcohol' => [
                 'max' => 6,
                 'min' => 5.5
@@ -139,24 +139,24 @@ class RecetasTableSeeder extends Seeder
             'maltas' => [
                 [
                     'nombre' => 'Château Pilsen 2RS',
-                    'cantidad' => new Weight('12 kg'),
+                    'cantidad' => Scalar::Weight('12 kg'),
                 ], [
                     'nombre' => 'Château Cara Ruby',
-                    'cantidad' => new Weight('10 kg'),
+                    'cantidad' => Scalar::Weight('10 kg'),
                 ], [
                     'nombre' => 'Château Biscuit',
-                    'cantidad' => new Weight('2 kg'),
+                    'cantidad' => Scalar::Weight('2 kg'),
                 ]
             ],
             'lupulos' => [
                 [
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('25 g'),
+                    'cantidad' => Scalar::Weight('25 g'),
                     'uso' => 'amargor',
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,15)
                 ], [
                     'nombre' => 'Magnum',
-                    'cantidad' => new Weight('50 g'),
+                    'cantidad' => Scalar::Weight('50 g'),
                     'uso' => 'aroma',
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105)
                 ]
@@ -167,47 +167,48 @@ class RecetasTableSeeder extends Seeder
             'nombre' => 'Cerveza Belga Stout',
             'alias' => 'Lucaku',
             'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=265',
-            'tamano' => new Volume('100 l'),
-            'gravedad_original' => new Density('15 P'),
+            'tamano' => Scalar::Volume('100 l'),
+            'gravedad_original' => Scalar::Density('15 P'),
             'maltas' => [
                 [
                     'nombre' => 'Château Pilsen 2RS',
-                    'cantidad' => new Weight('19.2 kg'),
+                    'cantidad' => Scalar::Weight('19.2 kg'),
                 ], [
                     'nombre' => 'Château Cara Gold',
-                    'cantidad' => new Weight('1.5 kg'),
+                    'cantidad' => Scalar::Weight('1.5 kg'),
                 ], [
                     'nombre' => 'Château Chocolat',
-                    'cantidad' => new Weight('2.5 kg'),
+                    'cantidad' => Scalar::Weight('2.5 kg'),
                 ], [
                     'nombre' => 'Château Black',
-                    'cantidad' => new Weight('0.5 kg'),
+                    'cantidad' => Scalar::Weight('0.5 kg'),
                 ], [
                     'nombre' => 'Château Special B',
-                    'cantidad' => new Weight('0.3 kg'),
+                    'cantidad' => Scalar::Weight('0.3 kg'),
                 ]
             ],
             'lupulos' => [
                 [
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('420 g'),
+                    'cantidad' => Scalar::Weight('420 g'),
                     'uso' => 'amargor',
-                    'momento' => 0
+                    'minutos_de_hervido' => CarbonInterval::minutes(70)
                 ], [
                     'nombre' => 'Saaz',
-                    'cantidad' => new Weight('100 g'),
+                    'cantidad' => Scalar::Weight('100 g'),
                     'uso' => 'aroma',
-                    'momento' => 10
+                    'minutos_de_hervido' => CarbonInterval::minutes(10)
                 ]
             ],
         ])
             ->escalon(Scalar::Temperature('62 °C'), CarbonInterval::minutes(70))
             ->escalon(Scalar::Temperature('72 °C'), CarbonInterval::minutes(10))
-            ->mashOut();
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(70));
 
         $this->agregarReceta([
             'nombre' => 'Cerveza de Trigo Belga',
-            'tamano' =>  new Volume('100 l'),
+            'tamano' =>  Scalar::Volume('100 l'),
             'maltas' => [[
                 'nombre' => 'Château Pilsen 2RS',
                 'cantidad' => 19
@@ -228,7 +229,7 @@ class RecetasTableSeeder extends Seeder
 
         $this->agregarReceta([
             'nombre' => 'Sierra Nevada',
-            'tamano' =>  new Volume('100 l'),
+            'tamano' =>  Scalar::Volume('100 l'),
             'maltas' => [[
                 'nombre' => 'Pale 2-Row',
                 'cantidad' => 11.5,
@@ -292,19 +293,19 @@ class RecetasTableSeeder extends Seeder
                     'uso' => $lupulo['uso'] ?? 'hervido',
                     'cantidad' => $lupulo['cantidad'],
                     'aa' => $lupulo['aa'] ?? null,
-                    'tiempo_de_hervido' => $this->tiempoDeHervido($receta)
+                    'tiempo_de_hervido' => $this->tiempoDeHervido($lupulo)
                 ]);
 
         return $r;
     }
 
-    private function tiempoDeHervido($receta) {
+    private function tiempoDeHervido($lupulo)
+    {
+    	if (isset($lupulo['minutos_de_hervido']))
+    		return $lupulo['minutos_de_hervido'];
 
-    	if (isset($receta['lupulos']['minutos_de_hervido']))
-    		return $receta['lupulos']['minutos_de_hervido'];
-
-	    if (isset($receta['lupulos']['minutos_despues_de_iniciar_el_hervor']))
-		    return $receta['lupulos']['minutos_despues_de_iniciar_el_hervor'];
+	    if (isset($lupulo['minutos_despues_de_iniciar_el_hervor']))
+		    return $lupulo['minutos_despues_de_iniciar_el_hervor'];
 
 	    return '';
     }

@@ -2,19 +2,15 @@
     <table class="table table-hover table-striped table-condensed">
         <tr>
             <th>#</th>
-            <th>Temperatura</th>
-            <th>Minutos</th>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Envase</th>
+            <th>Cantidad</th>
         </tr>
         <tbody>
         @foreach($lote->macerado->escalones as $escalon)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                @if($escalon->temperatura->val() == 100)
-                    <td>Hervido</td>
-                @else
-                    <td>{{ $escalon->temperatura }}</td>
-                @endif
-                <td>{{ $escalon->minutos }} minutos</td>
             </tr>
         @endforeach
         </tbody>

@@ -5,7 +5,7 @@
             <th>Variedad</th>
             <th>AA%</th>
             <th>Cantidad</th>
-            <th>Minutos</th>
+            <th>Hervido</th>
         </tr>
         <tbody>
         @foreach($lote->macerado->hervido->lupulos as $lupulo)

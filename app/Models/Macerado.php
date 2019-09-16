@@ -23,6 +23,8 @@ class Macerado extends Model
 
     public function hervir(CarbonInterval $tiempo)
     {
+        $this->escalon(Scalar::Temperature('100 °C'), $tiempo);
+
         return $this->hervido()->create([
                 'duracion' => $tiempo
             ]);

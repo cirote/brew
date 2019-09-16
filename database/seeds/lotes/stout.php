@@ -27,9 +27,9 @@ class stout extends Seeder
                     ->final(Scalar::Volume('28 l'))
                 ->densidad(Scalar::Density('1.052 sg'), Scalar::Temperature('78 C'))
             ->hervir(CarbonInterval::minutes(70))
-                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('25.37 g'), CarbonInterval::minutes(5), 17.3)
-                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('10.6 g'), CarbonInterval::minutes(60))
-                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('26.82 g'), CarbonInterval::minutes(60), 6.4)
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('25.37 g'), CarbonInterval::minutes(65), 17.3)
+                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('10.6 g'), CarbonInterval::minutes(10))
+                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('16.56 g'), CarbonInterval::minutes(10), 6.4)
             ->final(Scalar::Volume('26 l'))
 //                ->envasar('b330', 1)
             ->fermentar([
@@ -61,9 +61,9 @@ class stout extends Seeder
                     ->final(Scalar::Volume('31 l'))
                 ->densidad(Scalar::Density('1.050 sg'), Scalar::Temperature('78.5 C'))
             ->hervir(CarbonInterval::minutes(70))
-                ->lupulo(Lupulo::byNombre('Magnum'), Scalar::Weight('25.37 g'), CarbonInterval::minutes(5))
-                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('0.92 g'), CarbonInterval::minutes(60))
-            ->final(Scalar::Volume('23 l'))
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('27.73 g'), CarbonInterval::minutes(70))
+                ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('6.86 g'), CarbonInterval::minutes(10))
+            ->final(Scalar::Volume('27.5 l'))
             ->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
                 'volumen' => Scalar::Volume('23 l'),

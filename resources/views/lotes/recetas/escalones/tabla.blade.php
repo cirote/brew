@@ -9,7 +9,11 @@
         @foreach($lote->receta->escalones as $escalon)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $escalon->temperatura}}</td>
+                @if($escalon->temperatura->val() == 100)
+                    <td>Hervido</td>
+                @else
+                    <td>{{ $escalon->temperatura }}</td>
+                @endif
                 <td>{{ $escalon->minutos }} minutos</td>
             </tr>
         @endforeach

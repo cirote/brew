@@ -28,4 +28,9 @@ trait Escalonable
     {
         return $this->escalon(Scalar::Temperature($temperature ?? '78 °C'), CarbonInterval::minutes(2));
     }
+
+    public function hervido(CarbonInterval $duracion)
+    {
+        return $this->escalon(Scalar::Temperature('100 °C'), $duracion);
+    }
 }

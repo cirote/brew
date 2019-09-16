@@ -9,10 +9,6 @@
                     <table class="table table-hover table-striped table-condensed">
                         <tbody>
                             <tr>
-                                <td>Tiempo de hervido</td>
-                                <td>{{ $lote->macerado->hervido->minutos }} minutos</td>
-                            </tr>
-                            <tr>
                                 <td>Volumen de agua previo al hervido</td>
                                 <td>{{ $lote->macerado->hervido->volumenPrevio }}</td>
                             </tr>
@@ -28,10 +24,6 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped table-condensed">
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td>.</td>
-                            </tr>
                             <tr>
                                 <td>Volumen estimado en el fermentador</td>
                                 <td>{{ $lote->macerado->hervido->volumenEstimado }}</td>
