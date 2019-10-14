@@ -4,24 +4,11 @@ use Cirote\Scalar\Facade\Scalar;
 use App\Models\{Lupulo, Malta, Receta};
 use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
-use JBZoo\SimpleTypes\Config\Config;
-use JBZoo\SimpleTypes\Type\Weight;
-use App\Types\Config\Weight as ConfigWeight;
-use JBZoo\SimpleTypes\Type\Volume;
-use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
-use App\Types\Type\Density;
-use App\Types\Config\Density as ConfigDensity;
 
 class RecetasTableSeeder extends Seeder
 {
     public function run()
     {
-        Config::registerDefault('weight', new ConfigWeight());
-
-        Config::registerDefault('volume', new ConfigVolume());
-
-        Config::registerDefault('Density', new ConfigDensity());
-
         $this->agregarReceta([
             'nombre' => 'Northern NH Brown',
             'alias' => 'Faltan cargar los datos',
@@ -115,7 +102,7 @@ class RecetasTableSeeder extends Seeder
             'lupulos' => [
                 [
                     'nombre' => 'Brewers Gold',
-                    'cantidad' => new Weight('110 g'),
+                    'cantidad' => Scalar::Weight('110 g'),
                     'uso' => 'amargor',
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
                 ]

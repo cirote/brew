@@ -6,7 +6,7 @@ use Illuminate\Support\Carbon;
 
 trait Envasable
 {
-    public function envasado()
+    public function envases()
     {
         return $this->morphMany(Envase::class, 'contenido');
     }
@@ -38,9 +38,12 @@ trait Envasable
             $cantidad = (int) $datos[2];
         }
 
-        $this->envasado()->create([
+        if (! $ultima_fecha)
+            $ultima_fecha = $this->fecha();
+
+        $this->envases()->create([
             'bottled_at' => $ultima_fecha,
-            'tipo' => $tipo->id,
+            'tipo_id' => $tipo->id,
             'cantidad' => $cantidad
         ]);
 

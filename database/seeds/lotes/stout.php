@@ -31,7 +31,7 @@ class stout extends Seeder
                 ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('10.6 g'), CarbonInterval::minutes(10))
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('16.56 g'), CarbonInterval::minutes(10), 6.4)
             ->final(Scalar::Volume('26 l'))
-//                ->envasar('b330', 1)
+                ->envasar('b330', 1)
             ->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
                 'volumen' => Scalar::Volume('23 l'),
@@ -40,11 +40,10 @@ class stout extends Seeder
                     'estado' => 'lavada'
                 ],
                 'densidad_inicial' => Scalar::Density('1.063 sg')
-            ]);
-//            ->envasar('2019-8-4', 'b710', 10)
-//            ->envasar('b500', 21)
-//            ->envasar('g500', 4)
-//            ->envasar('b330', 13);
+            ])
+                ->envasar('2019-9-29', 'b710', 11)
+                ->envasar('b500', 32)
+                ->envasar('b330', 3);
 
         $receta->cocinar('2019-7-13')
             ->macerar()
@@ -72,82 +71,83 @@ class stout extends Seeder
                     'estado' => 'lavada'
                 ],
                 'densidad_inicial' => Scalar::Density('1.063 sg')
-            ]);
-//            ->envasar('2019-8-4', 'b710', 10)
-//            ->envasar('b500', 21)
-//            ->envasar('g500', 4)
-//            ->envasar('b330', 13);
+            ])
+                ->envasar('2019-7-21', 'g4200', 1)
+                ->envasar('b710', 5)
+                ->envasar('b600', 8)
+                ->envasar('b500', 25)
+                ->envasar('b330', 1);
 
-        $this->agregarLote([
-            'brewed_at' => Carbon::create(2019, 7, 13),
-            'receta' => 'Cerveza Belga Stout',
-            'macerado' => [
-                'maltas' => [
-                    [
-                        'nombre' => 'Malta tipo pilsen (MOSA)',
-                        'cantidad' => Scalar::Weight('5.7 kg'),
-                    ], [
-                        'nombre' => 'Château Cara Gold',
-                        'cantidad' => Scalar::Weight('450 g'),
-                    ], [
-                        'nombre' => 'Château Chocolat',
-                        'cantidad' => Scalar::Weight('740 g'),
-                    ], [
-                        'nombre' => 'Château Black',
-                        'cantidad' => Scalar::Weight('150 g'),
-                    ], [
-                        'nombre' => 'Château Special B',
-                        'cantidad' => Scalar::Weight('90 g'),
-                    ]
-                ],
-                'volumen_vivo' => Scalar::Volume('31 l'),
-                'volumen_total' => Scalar::Volume('34 l'),
-                'volumen_post_hervido_calculado' => Scalar::Volume('28.07 l'),
-                'gravedad_pre_hervido' => 1.050,
-                'temperatura_medicion' => 78.5,
-                'gravedad_inicial_calculada' => 1.061
-
-            ],
-            'hervido' => [
-                'lupulos' => [[
-                    'nombre' => 'Columbus',
-                    'cantidad' => Scalar::Weight('27.73 g'),
-                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,70),
-                ], [
-                    'nombre' => 'Saaz',
-                    'cantidad' => Scalar::Weight('6.86'),
-                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,10),
-                ]],
-                'volumen_en_el_fermentador' => Scalar::Volume('26 l'),
-                'volumen_total' => Scalar::Volume('27.5 l'),
-            ],
-            'envasado' => [
-                'fecha' => Carbon::create(2019, 7, 21),
-                'resultado' => [
-                    [
-                        'envase' => 'botella',
-                        'volumen' => Scalar::Volume('0.330 l'),
-                        'cantidad' => 1
-                    ], [
-                        'envase' => 'botella',
-                        'volumen' => Scalar::Volume('0.5 l'),
-                        'cantidad' => 25
-                    ], [
-                        'envase' => 'botella',
-                        'volumen' => Scalar::Volume('0.6 l'),
-                        'cantidad' => 8
-                    ], [
-                        'envase' => 'botella',
-                        'volumen' => Scalar::Volume('0.710 l'),
-                        'cantidad' => 5
-                    ], [
-                        'envase' => 'growler',
-                        'volumen' => Scalar::Volume('4.25 l'),
-                        'cantidad' => 1
-                    ]
-                ]
-            ]
-        ]);
+//        $this->agregarLote([
+//            'brewed_at' => Carbon::create(2019, 7, 13),
+//            'receta' => 'Cerveza Belga Stout',
+//            'macerado' => [
+//                'maltas' => [
+//                    [
+//                        'nombre' => 'Malta tipo pilsen (MOSA)',
+//                        'cantidad' => Scalar::Weight('5.7 kg'),
+//                    ], [
+//                        'nombre' => 'Château Cara Gold',
+//                        'cantidad' => Scalar::Weight('450 g'),
+//                    ], [
+//                        'nombre' => 'Château Chocolat',
+//                        'cantidad' => Scalar::Weight('740 g'),
+//                    ], [
+//                        'nombre' => 'Château Black',
+//                        'cantidad' => Scalar::Weight('150 g'),
+//                    ], [
+//                        'nombre' => 'Château Special B',
+//                        'cantidad' => Scalar::Weight('90 g'),
+//                    ]
+//                ],
+//                'volumen_vivo' => Scalar::Volume('31 l'),
+//                'volumen_total' => Scalar::Volume('34 l'),
+//                'volumen_post_hervido_calculado' => Scalar::Volume('28.07 l'),
+//                'gravedad_pre_hervido' => 1.050,
+//                'temperatura_medicion' => 78.5,
+//                'gravedad_inicial_calculada' => 1.061
+//
+//            ],
+//            'hervido' => [
+//                'lupulos' => [[
+//                    'nombre' => 'Columbus',
+//                    'cantidad' => Scalar::Weight('27.73 g'),
+//                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,70),
+//                ], [
+//                    'nombre' => 'Saaz',
+//                    'cantidad' => Scalar::Weight('6.86'),
+//                    'minutos_antes_de_finalizar_hervor' => CarbonInterval::create(0,0,0,0,0,10),
+//                ]],
+//                'volumen_en_el_fermentador' => Scalar::Volume('26 l'),
+//                'volumen_total' => Scalar::Volume('27.5 l'),
+//            ],
+//            'envasado' => [
+//                'fecha' => Carbon::create(2019, 7, 21),
+//                'resultado' => [
+//                    [
+//                        'envase' => 'botella',
+//                        'volumen' => Scalar::Volume('0.330 l'),
+//                        'cantidad' => 1
+//                    ], [
+//                        'envase' => 'botella',
+//                        'volumen' => Scalar::Volume('0.5 l'),
+//                        'cantidad' => 25
+//                    ], [
+//                        'envase' => 'botella',
+//                        'volumen' => Scalar::Volume('0.6 l'),
+//                        'cantidad' => 8
+//                    ], [
+//                        'envase' => 'botella',
+//                        'volumen' => Scalar::Volume('0.710 l'),
+//                        'cantidad' => 5
+//                    ], [
+//                        'envase' => 'growler',
+//                        'volumen' => Scalar::Volume('4.25 l'),
+//                        'cantidad' => 1
+//                    ]
+//                ]
+//            ]
+//        ]);
 
     }
 
@@ -157,10 +157,6 @@ class stout extends Seeder
             ->lotes()->create([
                 'brewed_at' => $receta['brewed_at']
             ]);
-
-//        foreach ($receta['macerado']['maltas'] as $malta)
-//            $r->maltas()
-//                ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
 
         foreach ($receta['hervido']['lupulos'] as $lupulo)
             $r->lupulos()

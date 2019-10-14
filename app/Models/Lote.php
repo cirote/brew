@@ -30,8 +30,24 @@ class Lote extends Model
 	        ->withPivot(['cantidad']);
     }
 
+    public function envases()
+    {
+        return $this->macerado->hervido->envases()->union($this->macerado->hervido->fermentados()->first()->envases());
+    }
+
     public function getFechaAttribute()
     {
         return $this->brewed_at->format('d/m/Y');
     }
+
+    public function getLitrosAttribute()
+    {
+        $litros = 0;
+
+        foreach ($this->envases as $envase)
+            $litros += $envase->litros;
+
+        return $litros;
+    }
+
 }
