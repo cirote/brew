@@ -32,7 +32,8 @@ class Lote extends Model
 
     public function envases()
     {
-        return $this->macerado->hervido->envases()->union($this->macerado->hervido->fermentados()->first()->envases());
+        return $this->macerado->hervido->envases()
+            ->union($this->macerado->hervido->fermentados()->first()->envases());
     }
 
     public function getFechaAttribute()

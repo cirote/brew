@@ -7,21 +7,21 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
+    "repositories": {
+        "ejemplo": {
             "type": "path",
-            "url": "../scalar"
+            "url": "/var/packages/cirote/scalar"
         }
-    ],
+    },
     "require": {
         "php": "^7.1.3",
+        "cirote/scalar": "9999999-dev",
         "fideloper/proxy": "^4.0",
         "jbzoo/simpletypes": "^1.4",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-blade-x": "^2.2",
-        "spatie/laravel-translatable": "^4.1",
-        "cirote/scalar": "dev-master"
+        "spatie/laravel-translatable": "^4.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

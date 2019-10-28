@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Types\Config\Weight as ConfigWeight;
-use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Database\Eloquent\Model;
 
 class Envase extends Model

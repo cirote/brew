@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Cirote\Scalar\Facade\Scalar;
+//use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Database\Eloquent\Model;
 
 class TipoEnvase extends Model

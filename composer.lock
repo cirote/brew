@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "50609ecf8a06cd8624ab7098c28fcd7b",
+    "content-hash": "e6a16ef8dfcd21d3935ea87bd81e1b36",
     "packages": [
         {
             "name": "cirote/scalar",
             "version": "9999999-dev",
             "dist": {
                 "type": "path",
-                "url": "../scalar",
-                "reference": "91ca7596ad869576fd591f3c105a3cb8c2023422",
+                "url": "/var/packages/cirote/scalar",
+                "reference": "1504fe9074c976730be833fbc5ca6471f685cf79",
                 "shasum": null
             },
             "require": {
