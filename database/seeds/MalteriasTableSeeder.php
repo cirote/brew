@@ -38,5 +38,9 @@ class MalteriasTableSeeder extends Seeder
         Malteria::create([
             'nombre' => 'Cargill S.A.'
         ]);
+
+	    Malteria::create([
+		    'nombre' => 'Genérica'
+	    ]);
     }
 }

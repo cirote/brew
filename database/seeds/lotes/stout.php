@@ -14,7 +14,7 @@ class stout extends Seeder
 
         $receta->cocinar('2019-9-14')
             ->macerar()
-                ->malta(Malta::byNombre('Malta Pilsen'), Scalar::Weight('5.4 kg'))
+                ->malta(Malta::byNombre('Malta Pilsen Cargill'), Scalar::Weight('5.4 kg'))
                     ->malta(Malta::byNombre('Château Cara Gold'), Scalar::Weight('0.42 kg'))
                     ->malta(Malta::byNombre('Château Chocolat'), Scalar::Weight('0.7 kg'))
                     ->malta(Malta::byNombre('Château Black'), Scalar::Weight('0.14 kg'))

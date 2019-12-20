@@ -7,7 +7,15 @@ class LupulosTableSeeder extends Seeder
 {
     public function run()
     {
-        Lupulo::create([
+    	foreach ($this->lupulos() as $lupulo)
+	    {
+		    Lupulo::create([
+			    'variedad' => $lupulo[0],
+			    'aa' => ($lupulo[1] + $lupulo[2]) / 2
+		    ]);
+	    }
+
+	    Lupulo::create([
         	'variedad' => 'Magnum',
 	        'aa' => 15
         ]);
@@ -53,11 +61,6 @@ class LupulosTableSeeder extends Seeder
         ]);
 
         Lupulo::create([
-            'variedad' => 'Saaz',
-            'aa' => 3.5
-        ]);
-
-        Lupulo::create([
             'variedad' => 'Styrian Golding',
             'aa' => 5.25
         ]);
@@ -80,11 +83,6 @@ class LupulosTableSeeder extends Seeder
         Lupulo::create([
             'variedad' => 'Hallertauer',
             'aa' => 4.1
-        ]);
-
-        Lupulo::create([
-            'variedad' => 'Perle',
-            'aa' => 8.2
         ]);
 
 	    Lupulo::create([
@@ -152,5 +150,16 @@ class LupulosTableSeeder extends Seeder
         $br->sustitutos()->save($nb);
         $br->sustitutos()->save($ga);
         $br->sustitutos()->save($ch);
+    }
+
+    protected function lupulos()
+    {
+    	return [
+//    		[Nombre, Alfa Acidos Minimo, maximo]
+    	    ['Aramis', 7.9, 8.3, ['Green', 'Herbal', 'Spicy', 'Citrus'], ['Trappist', 'Ale', 'Pale Ale', 'Porter']],
+		    ['Perle', 4, 9, ['Mint', 'Tea', 'Pepper'], ['Wheat', 'Lager', 'Kolsch', 'Pilsner']],
+		    ['Polaris', 18, 23, ['Mint', 'Pineapple', 'Menthol'], ['Stout', 'IPA', 'Double IPA']],
+		    ['Saaz', 3, 4.5, ['Earthy', 'Spicy', 'Pleasant', 'Mild'], ['Lager', 'Pilsner', 'Ale', 'Wheat']]
+	    ];
     }
 }

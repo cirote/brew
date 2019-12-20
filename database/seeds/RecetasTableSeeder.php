@@ -4,25 +4,63 @@ use Cirote\Scalar\Facade\Scalar;
 use App\Models\{Lupulo, Malta, Receta};
 use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
-use JBZoo\SimpleTypes\Config\Config;
-use JBZoo\SimpleTypes\Type\Weight;
-use App\Types\Config\Weight as ConfigWeight;
-use JBZoo\SimpleTypes\Type\Volume;
-use JBZoo\SimpleTypes\Config\Volume as ConfigVolume;
-use App\Types\Type\Density;
-use App\Types\Config\Density as ConfigDensity;
 
 class RecetasTableSeeder extends Seeder
 {
     public function run()
     {
-        Config::registerDefault('weight', new ConfigWeight());
+	    $this->agregarReceta([
+		    'nombre' => 'Cerveza Lager',
+		    'alias'  => 'Lager de Castlemalting',
+		    'link'   => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=286&Language=Spanish',
+		    'tamano' => Scalar::Volume('100 litres'),
+		    'gravedad_original' => Scalar::Density('11 P'),
+		    'maltas' => [
+			    [
+				    'nombre'   => 'Château Pilsen 2RS',
+				    'cantidad' => Scalar::Weight('14 kg'),
+			    ], [
+				    'nombre'   => 'Château Cara Clair',
+				    'cantidad' => Scalar::Weight('2 kg'),
+			    ], [
+				    'nombre'   => 'Corn',
+				    'cantidad' => Scalar::Weight('4 kg'),
+			    ]
+		    ],
+		    'lupulos' => [
+			    [
+				    'nombre'    => 'Polaris',
+				    'cantidad'  => Scalar::Weight('25 g'),
+				    'aa'        => 20.5,
+				    'uso'       => 'amargor',
+				    'minutos_de_hervido' => CarbonInterval::minutes(45)
+			    ], [
+				    'nombre'    => 'Perle',
+				    'cantidad'  => Scalar::Weight('100 g'),
+				    'aa'        => 4,
+				    'uso'       => 'amargor',
+				    'minutos_de_hervido' => CarbonInterval::minutes(45)
+			    ], [
+				    'nombre'    => 'Aramis',
+				    'cantidad'  => Scalar::Weight('100 g'),
+				    'aa'        => 4,
+				    'uso'       => 'aroma',
+				    'minutos_de_hervido' => CarbonInterval::minutes(5)
+			    ], [
+				    'nombre'    => 'Saaz',
+				    'cantidad'  => Scalar::Weight('80 g'),
+				    'aa'        => 3.5,
+				    'uso'       => 'aroma',
+				    'minutos_de_hervido' => CarbonInterval::minutes(5)
+			    ]
+		    ],
+	    ])
+		    ->escalon(Scalar::Temperature('63 °C'), CarbonInterval::minutes(50))
+		    ->escalon(Scalar::Temperature('72 °C'), CarbonInterval::minutes(10))
+		    ->mashOut()
+		    ->hervido(CarbonInterval::minutes(60));
 
-        Config::registerDefault('volume', new ConfigVolume());
-
-        Config::registerDefault('Density', new ConfigDensity());
-
-        $this->agregarReceta([
+	    $this->agregarReceta([
             'nombre' => 'Northern NH Brown',
             'alias' => 'Faltan cargar los datos',
             'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/564492/northern-nh-brown',
@@ -115,7 +153,7 @@ class RecetasTableSeeder extends Seeder
             'lupulos' => [
                 [
                     'nombre' => 'Brewers Gold',
-                    'cantidad' => new Weight('110 g'),
+                    'cantidad' => Scalar::Weight('110 g'),
                     'uso' => 'amargor',
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
                 ]

@@ -28,6 +28,8 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Château Cara Ruby'
             ], [
                 'nombre' => 'Château Cara Blond'
+	        ], [
+		        'nombre' => 'Château Cara Clair'
             ], [
                 'nombre' => 'Château Biscuit'
             ], [
@@ -56,7 +58,17 @@ class MaltasTableSeeder extends Seeder
 
         Malteria::byNombre('Cargill S.A.')
             ->maltas()->create([
-                'nombre' => 'Malta Pilsen'
-            ]);
+                'nombre' => 'Malta Pilsen Cargill'
+	        ], [
+		        'nombre' => 'Pale Ale Cargill'
+	        ], [
+		        'nombre' => 'Munich Cargill'
+	        ]);
+
+	    Malteria::byNombre('Genérica')
+		    ->maltas()->create([
+			    'nombre' => 'Corn'
+		    ]);
+
     }
 }

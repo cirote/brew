@@ -27,10 +27,10 @@
                 @include('lotes.lupulos')
             </row>
 
-            <row>
-                @include('lotes.fermentado')
-                @include('lotes.envasado')
-            </row>
+{{--            <row>--}}
+{{--                @include('lotes.fermentado')--}}
+{{--                @include('lotes.envasado')--}}
+{{--            </row>--}}
         </div>
     </div>
 </div>
