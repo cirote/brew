@@ -2,10 +2,8 @@
 
 namespace App\Models;
 
+use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Support\Facades\Input;
-use JBZoo\SimpleTypes\Config\Config;
-use JBZoo\SimpleTypes\Type\Weight;
-use App\Types\Config\Weight as ConfigWeight;
 
 trait LotePivot
 {
@@ -21,9 +19,7 @@ trait LotePivot
 
     public function getCantidadAttribute($valor)
 	{
-		Config::registerDefault('weight', new ConfigWeight());
-
-		return new Weight($valor);
+		return Scalar::Weight($valor);
 	}
 
     public function getCantidadAjustadaAttribute()
@@ -38,6 +34,6 @@ trait LotePivot
 
         $volumenTotal = $volumenEnFermentador + $volumenMuertoOlla;
 
-        return new Weight($cantidadEnGranos / $volumenReceta * $volumenTotal, new ConfigWeight());
+        return Scalar::Weight($cantidadEnGranos / $volumenReceta * $volumenTotal);
     }
 }

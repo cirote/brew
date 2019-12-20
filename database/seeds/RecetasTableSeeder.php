@@ -9,6 +9,7 @@ class RecetasTableSeeder extends Seeder
 {
     public function run()
     {
+<<<<<<< HEAD
 	    $this->agregarReceta([
 		    'nombre' => 'Cerveza Lager',
 		    'alias'  => 'Lager de Castlemalting',
@@ -61,6 +62,9 @@ class RecetasTableSeeder extends Seeder
 		    ->hervido(CarbonInterval::minutes(60));
 
 	    $this->agregarReceta([
+=======
+        $this->agregarReceta([
+>>>>>>> 29eda06cf1a75a764ce0a48423600b9f9d9965d1
             'nombre' => 'Northern NH Brown',
             'alias' => 'Faltan cargar los datos',
             'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/564492/northern-nh-brown',

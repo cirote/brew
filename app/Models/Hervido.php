@@ -15,6 +15,8 @@ class Hervido extends Model
 
     use Fermentable;
 
+    use Envasable;
+
     public function getDuracionAttribute($value)
     {
         return CarbonInterval::createFromDateString($value);
@@ -54,6 +56,11 @@ class Hervido extends Model
     public function macerado()
     {
         return $this->belongsTo(Macerado::class);
+    }
+
+    public function fecha()
+    {
+        return $this->macerado->lote->brewed_at;
     }
 
     public function receta()
