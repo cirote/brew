@@ -48,12 +48,14 @@ class MaltasTableSeeder extends Seeder
 
         Malteria::byNombre('American')
             ->maltas()->create([
-                'nombre' => 'Pale 2-Row'
+                'nombre' => 'American Pale 2-Row'
+	        ], [
+		        'nombre' => 'American Carapils'
             ]);
 
 	    Malteria::byNombre('German')
 		    ->maltas()->create([
-			    'nombre' => 'Pilsner'
+			    'nombre' => 'German Pilsner'
 		    ]);
 
         Malteria::byNombre('Cargill S.A.')

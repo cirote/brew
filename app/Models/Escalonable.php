@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use Carbon\CarbonInterval;
-use Cirote\Scalar\Facade\Scalar;
 use JBZoo\SimpleTypes\Type\Temp as Temperature;
 
 trait Escalonable
 {
-
     public function escalones()
     {
         return $this->morphMany(Escalon::class, 'escalonable');
@@ -24,13 +22,28 @@ trait Escalonable
         return $this;
     }
 
-    public function mashOut(Temperature $temperature = null)
-    {
-        return $this->escalon(Scalar::Temperature($temperature ?? '78 °C'), CarbonInterval::minutes(2));
-    }
+	public function acidRest(CarbonInterval $duracion)
+	{
+		return $this->escalon(new Temperature('75 °C'), $duracion);
+	}
 
-    public function hervido(CarbonInterval $duracion)
+	public function proteinRest(CarbonInterval $duracion)
+	{
+		return $this->escalon(new Temperature('52 °C'), $duracion);
+	}
+
+	public function alfhaRest(CarbonInterval $duracion)
+	{
+		return $this->escalon(new Temperature('70 °C'), $duracion);
+	}
+
+	public function betaRest(CarbonInterval $duracion)
+	{
+		return $this->escalon(new Temperature('63 °C'), $duracion);
+	}
+
+	public function mashOut()
     {
-        return $this->escalon(Scalar::Temperature('100 °C'), $duracion);
+        return $this->escalon(new Temperature('75 °C'), CarbonInterval::create(0,0,0,0,0,10));
     }
 }

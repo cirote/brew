@@ -9,7 +9,55 @@ class RecetasTableSeeder extends Seeder
 {
     public function run()
     {
-<<<<<<< HEAD
+	    $this->agregarReceta([
+		    'nombre' => 'Pilsener czech',
+		    'alias'  => 'Bohemian Pilsener',
+		    'link'   => 'https://www.brewersfriend.com/homebrew/recipe/view/843056/pilsener-czech#a_aid=5c74134683a37',
+		    'tamano' => Scalar::Volume('26.5 litres'),
+		    'gravedad_original' => Scalar::Density('1053'),
+		    'maltas' => [
+			    [
+				    'nombre'   => 'German Pilsner',
+				    'cantidad' => Scalar::Weight('5.2 kg'),
+//			    ], [
+//				    'nombre'   => 'American Carapils',
+//				    'cantidad' => Scalar::Weight('4 kg'),
+			    ]
+		    ],
+		    'lupulos' => [
+			    [
+				    'nombre'    => 'Saaz',
+				    'cantidad'  => Scalar::Weight('80 g'),
+				    'aa'        => 3.5,
+				    'uso'       => 'amargor',
+				    'minutos_de_hervido' => CarbonInterval::minutes(90)
+			    ], [
+				    'nombre'    => 'Saaz',
+				    'cantidad'  => Scalar::Weight('80 g'),
+				    'aa'        => 3.5,
+				    'uso'       => 'mixto',
+				    'minutos_de_hervido' => CarbonInterval::minutes(20)
+			    ], [
+				    'nombre'    => 'Saaz',
+				    'cantidad'  => Scalar::Weight('80 g'),
+				    'aa'        => 3.5,
+				    'uso'       => 'sabor',
+				    'minutos_de_hervido' => CarbonInterval::minutes(10)
+			    ], [
+				    'nombre'    => 'Saaz',
+				    'cantidad'  => Scalar::Weight('80 g'),
+				    'aa'        => 3.5,
+				    'uso'       => 'aroma',
+				    'minutos_de_hervido' => CarbonInterval::minutes(0)
+			    ]
+		    ],
+	    ])
+		    ->proteinRest(CarbonInterval::minutes(15))
+		    ->betaRest(CarbonInterval::minutes(30))
+		    ->alphaRest(CarbonInterval::minutes(30))
+		    ->mashOut()
+		    ->hervido(CarbonInterval::minutes(90));
+
 	    $this->agregarReceta([
 		    'nombre' => 'Cerveza Lager',
 		    'alias'  => 'Lager de Castlemalting',
@@ -62,9 +110,6 @@ class RecetasTableSeeder extends Seeder
 		    ->hervido(CarbonInterval::minutes(60));
 
 	    $this->agregarReceta([
-=======
-        $this->agregarReceta([
->>>>>>> 29eda06cf1a75a764ce0a48423600b9f9d9965d1
             'nombre' => 'Northern NH Brown',
             'alias' => 'Faltan cargar los datos',
             'link' => 'https://www.brewersfriend.com/homebrew/recipe/view/564492/northern-nh-brown',
@@ -77,7 +122,7 @@ class RecetasTableSeeder extends Seeder
             'hervido' =>  CarbonInterval::minutes(60),
             'maltas' => [
                 [
-                    'nombre' => 'Pilsner',
+                    'nombre' => 'German Pilsner',
                     'cantidad' => Scalar::Weight('10 lb'),
                 ]
             ],
@@ -110,7 +155,7 @@ class RecetasTableSeeder extends Seeder
 		    'hervido' =>  CarbonInterval::create(0,0,0,0,0,60),
 		    'maltas' => [
 			    [
-				    'nombre' => 'Pilsner',
+				    'nombre' => 'German Pilsner',
 				    'cantidad' => Scalar::Weight('10 lb'),
 			    ]
 		    ],
@@ -325,9 +370,11 @@ class RecetasTableSeeder extends Seeder
             'gravedad_original' => $receta['gravedad_original'] ?? 0
         ]);
 
-        foreach ($receta['maltas'] as $malta)
-            $r->maltas()
-                ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
+        foreach ($receta['maltas'] as $malta) {
+	        dump($malta);
+	        $r->maltas()
+		        ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
+        }
 
         foreach ($receta['lupulos'] as $lupulo)
             $r->lupulos()
