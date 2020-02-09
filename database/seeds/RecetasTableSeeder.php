@@ -14,38 +14,38 @@ class RecetasTableSeeder extends Seeder
 		    'alias'  => 'Bohemian Pilsener',
 		    'link'   => 'https://www.brewersfriend.com/homebrew/recipe/view/843056/pilsener-czech#a_aid=5c74134683a37',
 		    'tamano' => Scalar::Volume('26.5 litres'),
-		    'gravedad_original' => Scalar::Density('1053'),
+		    'gravedad_original' => Scalar::Density('1.053 sg'),
 		    'maltas' => [
 			    [
 				    'nombre'   => 'German Pilsner',
 				    'cantidad' => Scalar::Weight('5.2 kg'),
-//			    ], [
-//				    'nombre'   => 'American Carapils',
-//				    'cantidad' => Scalar::Weight('4 kg'),
+			    ], [
+				    'nombre'   => 'American Carapils',
+				    'cantidad' => Scalar::Weight('0.2 kg'),
 			    ]
 		    ],
 		    'lupulos' => [
 			    [
 				    'nombre'    => 'Saaz',
-				    'cantidad'  => Scalar::Weight('80 g'),
+				    'cantidad'  => Scalar::Weight('48.1 g'),
 				    'aa'        => 3.5,
 				    'uso'       => 'amargor',
 				    'minutos_de_hervido' => CarbonInterval::minutes(90)
 			    ], [
 				    'nombre'    => 'Saaz',
-				    'cantidad'  => Scalar::Weight('80 g'),
+				    'cantidad'  => Scalar::Weight('65 g'),
 				    'aa'        => 3.5,
-				    'uso'       => 'mixto',
+				    'uso'       => 'sabor',
 				    'minutos_de_hervido' => CarbonInterval::minutes(20)
 			    ], [
 				    'nombre'    => 'Saaz',
-				    'cantidad'  => Scalar::Weight('80 g'),
+				    'cantidad'  => Scalar::Weight('32.5 g'),
 				    'aa'        => 3.5,
-				    'uso'       => 'sabor',
+				    'uso'       => 'aroma',
 				    'minutos_de_hervido' => CarbonInterval::minutes(10)
 			    ], [
 				    'nombre'    => 'Saaz',
-				    'cantidad'  => Scalar::Weight('80 g'),
+				    'cantidad'  => Scalar::Weight('32.5 g'),
 				    'aa'        => 3.5,
 				    'uso'       => 'aroma',
 				    'minutos_de_hervido' => CarbonInterval::minutes(0)
@@ -318,7 +318,7 @@ class RecetasTableSeeder extends Seeder
             'nombre' => 'Sierra Nevada',
             'tamano' =>  Scalar::Volume('100 l'),
             'maltas' => [[
-                'nombre' => 'Pale 2-Row',
+                'nombre' => 'American Pale 2-Row',
                 'cantidad' => 11.5,
                 'unidad' => 'lb'
             ], [
@@ -370,8 +370,13 @@ class RecetasTableSeeder extends Seeder
             'gravedad_original' => $receta['gravedad_original'] ?? 0
         ]);
 
-        foreach ($receta['maltas'] as $malta) {
-	        dump($malta);
+        if (!$r)
+        {
+            dd($receta);
+        }
+
+        foreach ($receta['maltas'] as $malta)
+        {
 	        $r->maltas()
 		        ->save(Malta::byNombre($malta['nombre']), ['cantidad' => $malta['cantidad']]);
         }

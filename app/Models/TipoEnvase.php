@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-//use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Database\Eloquent\Model;
 
 class TipoEnvase extends Model
@@ -19,6 +18,7 @@ class TipoEnvase extends Model
 
     public function getCapacidadAttribute($valor)
     {
-        return Scalar::volume($valor);
+        return \Scalar::Volume($valor);
     }
 }
+

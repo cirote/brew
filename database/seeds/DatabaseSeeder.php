@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
 //        $this->call(LotesTableSeeder::class);
         $this->call(stout::class);
-	    $this->call(lager::class);
+        $this->call(lager::class);
+	    $this->call(pilsener_czech::class);
     }
 }

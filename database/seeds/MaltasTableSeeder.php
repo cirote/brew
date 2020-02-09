@@ -47,11 +47,13 @@ class MaltasTableSeeder extends Seeder
             ]]);
 
         Malteria::byNombre('American')
-            ->maltas()->create([
+            ->maltas()->createMany([[
                 'nombre' => 'American Pale 2-Row'
-	        ], [
-		        'nombre' => 'American Carapils'
-            ]);
+            ], [
+                'nombre' => 'American Pale 6-Row'
+            ], [
+                'nombre' => 'American Carapils'
+            ]]);
 
 	    Malteria::byNombre('German')
 		    ->maltas()->create([
