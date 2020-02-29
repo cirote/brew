@@ -23,9 +23,19 @@ trait Escalonable
         return $this;
     }
 
+    public function inicial(CarbonInterval $duracion)
+    {
+        return $this->escalon(Scalar::Temperature('30 °C'), $duracion);
+    }
+
+    public function empaste(CarbonInterval $duracion)
+    {
+        return $this->escalon(Scalar::Temperature('35 °C'), $duracion);
+    }
+
 	public function acidRest(CarbonInterval $duracion)
 	{
-		return $this->escalon(Scalar::Temperature('75 °C'), $duracion);
+		return $this->escalon(Scalar::Temperature('35 °C'), $duracion);
 	}
 
 	public function proteinRest(CarbonInterval $duracion)

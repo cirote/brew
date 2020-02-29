@@ -179,7 +179,7 @@ class RecetasTableSeeder extends Seeder
 	    $this->agregarReceta([
             'nombre' => 'Sahti',
             'alias' => null,
-            'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=249',
+            'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=278',
             'tamano' => Scalar::Volume('100 l'),
             'gravedad_original' => Scalar::Density('17 P'),
             'alcohol' => 7.5,

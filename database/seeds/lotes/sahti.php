@@ -6,19 +6,22 @@ use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 
-class pilsener_czech extends Seeder
+class sahti extends Seeder
 {
     public function run()
     {
-        $receta = Receta::byNombre('Pilsener czech');
+        $receta = Receta::byNombre('Sahti');
 
-        $receta->cocinar('2020-2-9')
+        $receta->cocinar('2020-3-1')
             ->macerar()
-                ->malta(Malta::byNombre('German Pilsner'), Scalar::Weight('5.4 kg'))
-                    ->malta(Malta::byNombre('American Carapils'), Scalar::Weight('0.2 kg'))
-                ->proteinRest(CarbonInterval::minutes(15))
-                    ->betaRest(CarbonInterval::minutes(30))
-                    ->alphaRest(CarbonInterval::minutes(30))
+                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('4.760 kg'))
+                    ->malta(Malta::byNombre('Château Rye Malt'), Scalar::Weight('1.12 kg'))
+                    ->malta(Malta::byNombre('Château Peated'), Scalar::Weight('0.28 kg'))
+                    ->malta(Malta::byNombre('Château Cara Blond'), Scalar::Weight('0.28 kg'))
+                ->inicial(CarbonInterval::minutes(5))
+                    ->empaste(CarbonInterval::minutes(10))
+                    ->betaRest(CarbonInterval::minutes(60))
+                    ->alphaRest(CarbonInterval::minutes(15))
                     ->mashOut()
                 ->agua(Scalar::Volume('20 l'))
                     ->lavado(Scalar::Volume('10 l'))     // Son 6 litros que absorve el grano mas un estimado de evaporación
@@ -38,10 +41,12 @@ class pilsener_czech extends Seeder
                     'nombre' => 'W-34/70',
                     'estado' => 'seca'
                 ],
-                'densidad_inicial' => Scalar::Density('1.057 sg'),
-                'densidad_final' => Scalar::Density('1.026 sg')
+                'densidad_inicial' => Scalar::Density('1.057 sg')
             ]);
-//            ->envasar('2020-3-1', 'barril19', 1);
+//            ->envasar('2019-8-4', 'b710', 10)
+//            ->envasar('b500', 21)
+//            ->envasar('g500', 4)
+//            ->envasar('b330', 13);
 
     }
 }
