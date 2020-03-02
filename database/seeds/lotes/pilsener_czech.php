@@ -21,7 +21,7 @@ class pilsener_czech extends Seeder
                     ->alphaRest(CarbonInterval::minutes(30))
                     ->mashOut()
                 ->agua(Scalar::Volume('20 l'))
-                    ->lavado(Scalar::Volume('10 l'))     // Son 6 litros que absorve el grano mas un estimado de evaporación
+                    ->lavado(Scalar::Volume('10 l'))
                     ->final(Scalar::Volume('26 l'))
                 ->densidad(Scalar::Density('1.046 sg'), Scalar::Temperature('78 C'))
             ->hervir(CarbonInterval::minutes(90))
@@ -41,7 +41,7 @@ class pilsener_czech extends Seeder
                 'densidad_inicial' => Scalar::Density('1.057 sg'),
                 'densidad_final' => Scalar::Density('1.026 sg')
             ]);
-//            ->envasar('2020-3-1', 'barril19', 1);
+//            ->envasar('2020-2-29', 'barril19', 1);
 
     }
 }

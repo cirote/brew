@@ -14,7 +14,13 @@
                 @else
                     <td>{{ $escalon->temperatura }}</td>
                 @endif
-                <td>{{ $escalon->minutos }} minutos</td>
+                <td>{{ $escalon->minutos }}
+                @if($escalon->temperatura->val() == 100)
+                @if($lote->macerado->hervido->aguaAAgregar->val() < 0)
+                    ( {{ number_format($escalon->minutos + $lote->macerado->hervido->minutosAAgregar, 0) }} )
+                @endif  
+                @endif    
+                 minutos</td>
             </tr>
         @endforeach
         </tbody>

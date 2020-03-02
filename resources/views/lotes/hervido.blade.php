@@ -12,9 +12,20 @@
                                 <td>Volumen de agua previo al hervido</td>
                                 <td>{{ $lote->macerado->hervido->volumenPrevio }}</td>
                             </tr>
+                            @if($lote->macerado->hervido->aguaAAgregar->val() > 0)
+                            <tr>
+                                <td>Cantidad de agua a agregar</td>
+                                <td>{{ $lote->macerado->hervido->aguaAAgregar }}</td>
+                            </tr>
+                            @else
+                            <tr>
+                                <td>Minutos de hervor a agregar</td>
+                                <td>{{ number_format($lote->macerado->hervido->minutosAAgregar, 0) }} minutos</td>
+                            </tr>
+                            @endif
                             <tr>
                                 <td>Tasa de evaporacion</td>
-                                <td>{{ $lote->macerado->hervido->tasaDeEvaporacion }} %</td>
+                                <td>{{ number_format(1 / $lote->macerado->hervido->tasaDeEvaporacion, 3) }} minutos / litro</td>
                             </tr>
                         </tbody>
                     </table>

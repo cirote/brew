@@ -48,9 +48,22 @@ class Hervido extends Model
     {
         $volumenFinal = $this->volumenEstimado->val();
 
+        $volumenEstimado = $volumenFinal + $this->tasaDeEvaporacion * $this->minutos;        
+        return Scalar::Volume($volumenEstimado);
+
         $volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * ($this->minutos / 60)));
 
         return Scalar::Volume($volumenEstimado);
+    }
+
+    public function getAguaAAgregarAttribute()
+    {
+        return Scalar::Volume($this->volumenPrevio->val() - $this->macerado->final->val());
+    }
+
+    public function getMinutosAAgregarAttribute()
+    {
+        return (-$this->aguaAAgregar->val()) / $this->tasaDeEvaporacion;
     }
 
     public function macerado()
@@ -70,6 +83,8 @@ class Hervido extends Model
 
     public function getTasaDeEvaporacionAttribute()
     {
+        return 7.5 / 140;   // Tasa en litros por minuto
+
         return $this->minutos > 90
             ? static::TASA_DE_EVAPORACION_LARGA
             : static::TASA_DE_EVAPORACION;

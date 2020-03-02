@@ -204,7 +204,7 @@ class RecetasTableSeeder extends Seeder
                     'nombre' => 'Brewers Gold',
                     'cantidad' => Scalar::Weight('110 g'),
                     'uso' => 'amargor',
-                    'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,5)
+                    'minutos_de_hervido' => CarbonInterval::minutes(75)
                 ]
             ],
         ]);
