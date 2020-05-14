@@ -43,5 +43,11 @@ class TipoEnvasesTableSeeder extends Seeder
             'nombre' => 'growler',
             'capacidad' => Scalar::Volume('4.2 l')
         ]);
+
+        TipoEnvase::create([
+            'abreviatura' => 'b20',
+            'nombre' => 'barril',
+            'capacidad' => Scalar::Volume('19.5 l')
+        ]);
     }
 }
