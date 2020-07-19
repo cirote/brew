@@ -295,7 +295,9 @@ class RecetasTableSeeder extends Seeder
 
         $this->agregarReceta([
             'nombre' => 'Cerveza de Trigo Belga',
-            'tamano' =>  Scalar::Volume('100 l'),
+            'link' => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=12',
+            'tamano' => Scalar::Volume('100 l'),
+            'gravedad_original' => Scalar::Density('11.5 P'),
             'maltas' => [[
                 'nombre' => 'Château Pilsen 2RS',
                 'cantidad' => 19
