@@ -36,8 +36,8 @@ class trigo extends Seeder
                 'fermentador' => 'Anvil 7.5 gl',
                 'volumen' => Scalar::Volume('18 l'),
                 'levadura' => [
-                    'nombre' => 'Safbrew S-5',
-                    'estado' => 'Fondo'
+                    'nombre' => 'Safbrew US-5',
+                    'estado' => 'Seca'
                 ],
                 'densidad_inicial' => Scalar::Density('1.084 sg')
             ]);
