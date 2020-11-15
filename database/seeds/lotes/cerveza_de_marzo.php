@@ -33,14 +33,14 @@ class cerveza_de_marzo extends Seeder
             ->final(Scalar::Volume('19.0 l'))
             ->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => Scalar::Volume('19.5 l'),
+                'volumen' => Scalar::Volume('18.5 l'),
                 'levadura' => [
                     'nombre' => 'Safbrew S-33',
                     'estado' => 'Seca'
                 ],
                 'densidad_inicial' => Scalar::Density('1.059 sg')
             ])
-                ->envasar('2020-5-21', 'b20', 1);
-
+                ->envasar('2020-11-15', 'b20', 1);
+                // 18 litros
     }
 }
