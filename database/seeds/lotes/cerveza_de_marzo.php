@@ -22,22 +22,23 @@ class cerveza_de_marzo extends Seeder
                     ->betaRest(CarbonInterval::minutes(40))
                     ->alphaRest(CarbonInterval::minutes(20))
                     ->mashOut()
-                ->agua(Scalar::Volume('20 l'))
-                    ->lavado(Scalar::Volume('11 l'))
-                    ->final(Scalar::Volume('26 l'))
-                ->densidad(Scalar::Density('1.046 sg'))
+                ->agua(Scalar::Volume('22 l'))
+                    ->lavado(Scalar::Volume('8 l'))
+                    ->final(Scalar::Volume('22.7 l'))
+                ->densidad(Scalar::Density('1.049 sg'))
             ->hervir(CarbonInterval::minutes(130))
-                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('21.67 g'), CarbonInterval::minutes(70), 17.3)
-                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('23.64 g'), CarbonInterval::minutes(10), 6.4)
-            ->final(Scalar::Volume('20 l'))
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('2.17 g'), CarbonInterval::minutes(114), 17.3)
+                ->lupulo(Lupulo::byNombre('Magnum'), Scalar::Weight('1.63 g'), CarbonInterval::minutes(25), 12.1)
+                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('10.03 g'), CarbonInterval::minutes(25), 6.4)
+            ->final(Scalar::Volume('19.0 l'))
             ->fermentar([
                 'fermentador' => 'Anvil 7.5 gl',
                 'volumen' => Scalar::Volume('19.5 l'),
                 'levadura' => [
-                    'nombre' => 'Safbrew S-5',
+                    'nombre' => 'Safbrew S-33',
                     'estado' => 'Seca'
                 ],
-                'densidad_inicial' => Scalar::Density('1.061 sg')
+                'densidad_inicial' => Scalar::Density('1.059 sg')
             ])
                 ->envasar('2020-5-21', 'b20', 1);
 
