@@ -9,6 +9,60 @@ class RecetasTableSeeder extends Seeder
 {
     public function run()
     {
+        $this->agregarReceta([
+            'nombre' => 'Triple Blond',
+            'alias'  => '',
+            'link'   => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=276',
+            'tamano' => Scalar::Volume('100 litres'),
+            'gravedad_original' => Scalar::Density('19 P'),
+            'maltas' => [
+                [
+                    'nombre'   => 'Château Pilsen 2RS',
+                    'cantidad' => Scalar::Weight('19.5 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Blond',
+                    'cantidad' => Scalar::Weight('2.3 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Clair',
+                    'cantidad' => Scalar::Weight('1 kg'),
+                ], [
+                    'nombre'   => 'Château Wheat Blanc',
+                    'cantidad' => Scalar::Weight('1 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre'    => 'Polaris',
+                    'cantidad'  => Scalar::Weight('42 g'),
+                    'aa'        => 20.5,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(55)
+                ], [
+                    'nombre'    => 'Perle',
+                    'cantidad'  => Scalar::Weight('50 g'),
+                    'aa'        => 6.5,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(0)
+                ], [
+                    'nombre'    => 'Cascade',
+                    'cantidad'  => Scalar::Weight('50 g'),
+                    'aa'        => 6.4,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(0)
+                ], [
+                    'nombre'    => 'Mosaic',
+                    'cantidad'  => Scalar::Weight('50 g'),
+                    'aa'        => 12.5,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(0)
+                ]
+            ],
+        ])
+            ->betaRest(CarbonInterval::minutes(45))
+            ->alphaRest(CarbonInterval::minutes(10))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(60));
+
 	    $this->agregarReceta([
 		    'nombre' => 'Pilsener czech',
 		    'alias'  => 'Bohemian Pilsener',
