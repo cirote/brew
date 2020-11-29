@@ -41,7 +41,8 @@ class stout extends Seeder
                 ],
                 'densidad_inicial' => Scalar::Density('1.058 sg')
             ])
-                ->envasar('2020-5-21', 'b20', 1);
+                ->envasar('2020-11-29', 'b600', 7)
+                ->envasar('b500', 32);
 
         $receta->cocinar('2020-5-14')
             ->macerar()
