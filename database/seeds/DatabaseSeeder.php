@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RecetasTableSeeder::class);
 
 //        $this->call(LotesTableSeeder::class);
+        $this->call(ipa_ingles::class);
         $this->call(cerveza_de_marzo::class);
         $this->call(triple_blond::class);
         $this->call(trigo::class);

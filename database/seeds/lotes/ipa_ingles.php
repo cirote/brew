@@ -6,11 +6,11 @@ use Carbon\CarbonInterval;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
 
-class triple_blond extends Seeder
+class ipa_ingles extends Seeder
 {
     public function run()
     {
-        $receta = Receta::byNombre('Triple Blond');
+        $receta = Receta::byNombre('IPA Inglesa');
 
         $receta->cocinar('2020-11-29')
             ->macerar()
@@ -20,14 +20,12 @@ class triple_blond extends Seeder
                     ->malta(Malta::byNombre('Château Wheat Blanc'), Scalar::Weight('0.24 kg'))
                 ->inicial(CarbonInterval::minutes(5))
                     ->empaste(CarbonInterval::minutes(10))
-                    ->betaRest(CarbonInterval::minutes(45))
-                    ->alphaRest(CarbonInterval::minutes(10))
+					->escalon(Scalar::Temperature('66 °C'), CarbonInterval::minutes(60))
                     ->mashOut()
                 ->agua(Scalar::Volume('22 l'))
                     ->lavado(Scalar::Volume('8 l'))
                     ->final(Scalar::Volume('26 l'))
                 ->densidad(Scalar::Density('1.069 sg'))
-//                ->densidad(Scalar::Density('1.051 sg'))
             ->hervir(CarbonInterval::minutes(60))
                 ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('12.79 g'), CarbonInterval::minutes(114), 17.3)
                 ->lupulo(Lupulo::byNombre('Perle'), Scalar::Weight('12.42 g'), CarbonInterval::minutes(25), 12.1)

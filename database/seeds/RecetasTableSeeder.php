@@ -63,6 +63,53 @@ class RecetasTableSeeder extends Seeder
             ->mashOut()
             ->hervido(CarbonInterval::minutes(60));
 
+        $this->agregarReceta([
+            'nombre' => 'IPA Inglesa',
+            'alias'  => '',
+            'link'   => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=307',
+            'tamano' => Scalar::Volume('100 litres'),
+            'gravedad_original' => Scalar::Density('16.5 P'),
+            'maltas' => [
+                [
+                    'nombre'   => 'Château Pilsen 2RS',
+                    'cantidad' => Scalar::Weight('19.5 kg'),
+                ], [
+                    'nombre'   => 'Château Melano Light',
+                    'cantidad' => Scalar::Weight('0.5 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Ruby',
+                    'cantidad' => Scalar::Weight('0.5 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Blond',
+                    'cantidad' => Scalar::Weight('0.5 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre'    => 'Goldings',
+                    'cantidad'  => Scalar::Weight('210 g'),
+                    'aa'        => 4.1,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(60)
+                ], [
+                    'nombre'    => 'Fuggle',
+                    'cantidad'  => Scalar::Weight('100 g'),
+                    'aa'        => 4.2,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(5)
+                ], [
+                    'nombre'    => 'Aramis',
+                    'cantidad'  => Scalar::Weight('100 g'),
+                    'aa'        => 8.1,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(5)
+                ]
+            ],
+        ])
+            ->escalon(Scalar::Temperature('66 °C'), CarbonInterval::minutes(60))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(75));
+
 	    $this->agregarReceta([
 		    'nombre' => 'Pilsener czech',
 		    'alias'  => 'Bohemian Pilsener',

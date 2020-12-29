@@ -156,7 +156,8 @@ class LupulosTableSeeder extends Seeder
     {
     	return [
 //    		[Nombre, Alfa Acidos Minimo, maximo]
-    	    ['Aramis', 7.9, 8.3, ['Green', 'Herbal', 'Spicy', 'Citrus'], ['Trappist', 'Ale', 'Pale Ale', 'Porter']],
+    	    ['Aramis', 7.9, 8.3, ['Green', 'Herbal', 'Spicy', 'Citrus'], ['English Pale Ale', 'Pale Ale']],
+    	    ['Goldings', 4, 4.2, [], ['Trappist', 'Ale', 'Pale Ale', 'Porter']],
             ['Mosaic', 11.5, 13.5, ['Citrus', 'Lemon'], []],
 		    ['Perle', 4, 9, ['Mint', 'Tea', 'Pepper'], ['Wheat', 'Lager', 'Kolsch', 'Pilsner']],
 		    ['Polaris', 18, 23, ['Mint', 'Pineapple', 'Menthol'], ['Stout', 'IPA', 'Double IPA']],

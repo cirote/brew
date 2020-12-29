@@ -21,23 +21,25 @@ class MaltasTableSeeder extends Seeder
             ->maltas()->createMany([[
                 'nombre' => 'Château Pilsen 2RS'
             ], [
-                'nombre' => 'Château Wheat Blanc'
+                'nombre' => 'Château Biscuit'
             ], [
-                'nombre' => 'Château Cara Gold'
-            ], [
-                'nombre' => 'Château Cara Ruby'
+                'nombre' => 'Château Black'
             ], [
                 'nombre' => 'Château Cara Blond'
 	        ], [
 		        'nombre' => 'Château Cara Clair'
             ], [
-                'nombre' => 'Château Biscuit'
+                'nombre' => 'Château Cara Gold'
+            ], [
+                'nombre' => 'Château Cara Ruby'
+            ], [
+                'nombre' => 'Château Melano Light'
             ], [
                 'nombre' => 'Château Chocolat'
             ], [
-                'nombre' => 'Château Black'
-            ], [
                 'nombre' => 'Château Special B'
+            ], [
+                'nombre' => 'Château Wheat Blanc'
             ], [
                 'nombre' => 'Castle Crystal'
             ], [
