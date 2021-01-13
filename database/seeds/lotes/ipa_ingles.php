@@ -12,12 +12,12 @@ class ipa_ingles extends Seeder
     {
         $receta = Receta::byNombre('IPA Inglesa');
 
-        $receta->cocinar('2020-11-29')
+        $receta->cocinar('2021-01-13')
             ->macerar()
-                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('4.68 kg'))
-                    ->malta(Malta::byNombre('Château Cara Blond'), Scalar::Weight('0.552 kg'))
-                    ->malta(Malta::byNombre('Château Cara Clair'), Scalar::Weight('0.24 kg'))
-                    ->malta(Malta::byNombre('Château Wheat Blanc'), Scalar::Weight('0.24 kg'))
+                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('5.1 kg'))
+                    ->malta(Malta::byNombre('Château Melano'), Scalar::Weight('0.130 kg'))
+                    ->malta(Malta::byNombre('Château Cara Ruby'), Scalar::Weight('0.130 kg'))
+                    ->malta(Malta::byNombre('Château Cara Blond'), Scalar::Weight('0.130 kg'))
                 ->inicial(CarbonInterval::minutes(5))
                     ->empaste(CarbonInterval::minutes(10))
 					->escalon(Scalar::Temperature('66 °C'), CarbonInterval::minutes(60))

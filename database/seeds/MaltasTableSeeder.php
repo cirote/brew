@@ -33,6 +33,8 @@ class MaltasTableSeeder extends Seeder
             ], [
                 'nombre' => 'Château Cara Ruby'
             ], [
+                'nombre' => 'Château Melano'
+            ], [
                 'nombre' => 'Château Melano Light'
             ], [
                 'nombre' => 'Château Chocolat'
