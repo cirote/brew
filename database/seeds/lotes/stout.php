@@ -12,6 +12,38 @@ class stout extends Seeder
     {
         $receta = Receta::byNombre('Cerveza Belga Stout');
 
+        $receta->cocinar('2021-02-06')
+            ->macerar()
+                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('5.376 kg'))
+                    ->malta(Malta::byNombre('Château Cara Gold'), Scalar::Weight('0.42 kg'))
+                    ->malta(Malta::byNombre('Château Chocolat'), Scalar::Weight('0.7 kg'))
+                    ->malta(Malta::byNombre('Château Black'), Scalar::Weight('0.14 kg'))
+                    ->malta(Malta::byNombre('Château Special B'), Scalar::Weight('0.084 kg'))
+                ->inicial(CarbonInterval::minutes(5))
+                    ->empaste(CarbonInterval::minutes(10))
+                    ->betaRest(CarbonInterval::minutes(70))
+                    ->alphaRest(CarbonInterval::minutes(10))
+                    ->mashOut()
+                ->agua(Scalar::Volume('22 l'))
+                    ->lavado(Scalar::Volume('8 l'))
+                    ->final(Scalar::Volume('25 l'))
+                ->densidad(Scalar::Density('1.053 sg'))
+            ->hervir(CarbonInterval::minutes(70))
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('22.38 g'), CarbonInterval::minutes(52), 17.3)
+                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('25.47 g'), CarbonInterval::minutes(10), 6.4)
+            ->final(Scalar::Volume('21 l'))
+            ->fermentar([
+                'fermentador' => 'Anvil 7.5 gl',
+                'volumen' => Scalar::Volume('20 l'),
+                'levadura' => [
+                    'nombre' => 'Safbrew S-5',
+                    'estado' => 'Seca'
+                ],
+                'densidad_inicial' => Scalar::Density('1.058 sg')
+            ])
+                ->envasar('2020-11-29', 'b600', 7)
+                ->envasar('b500', 32);
+
         $receta->cocinar('2020-11-15')
             ->macerar()
                 ->malta(Malta::byNombre('Malta Pilsen Cargill'), Scalar::Weight('4.6 kg'))
