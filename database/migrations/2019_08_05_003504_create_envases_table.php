@@ -15,6 +15,7 @@ class CreateEnvasesTable extends Migration
             $table->integer('cantidad');
             $table->integer('contenido_id');
             $table->string('contenido_type');
+			$table->string('volumen')->nullable();
             $table->timestamps();
         });
     }

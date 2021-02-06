@@ -30,7 +30,8 @@ class LevadurasTableSeeder extends Seeder
                     'tolerancia' => 11
                 ], [
                     'nombre' => 'US 05',
-                    'descripcion' => 'Safbrew S-33',
+                    'descripcion' => 'Safbrew S-5',
+					// Datos a corregir
                     'atenuacion_maxima' => 85,
                     'atenuacion_minima' => 77,
                     'floculacion_maxima' => 5,
@@ -39,6 +40,7 @@ class LevadurasTableSeeder extends Seeder
                 ], [
                     'nombre' => 'W-34/70',
                     'descripcion' => 'SafLager W-34/70',
+					// Datos a corregir
                     'atenuacion_maxima' => 85,
                     'atenuacion_minima' => 77,
                     'floculacion_maxima' => 5,

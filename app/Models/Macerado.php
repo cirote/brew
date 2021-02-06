@@ -68,9 +68,12 @@ class Macerado extends Model
         return $this;
     }
 
-    public function final(Volume $volumen)
+    public function final(Volume $volumen, Density $densidad = null, Temperature $temperatura = null)
     {
         $this->final = $volumen;
+
+		if ($densidad)
+	        $this->densidad($densidad, $temperatura);
 
         $this->save();
 

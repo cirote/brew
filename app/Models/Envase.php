@@ -29,8 +29,16 @@ class Envase extends Model
         return $this->belongsTo(TipoEnvase::class, 'tipo_id');
     }
 
+    public function getVolumenAttribute($valor)
+    {
+        return \Scalar::Volume($valor);
+    }
+
     public function getLitrosAttribute()
     {
+		if (($vol = $this->volumen->val()) > 0)
+			return $vol;
+
         return $this->tipo->capacidad->val() * $this->cantidad;
     }
 }

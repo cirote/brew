@@ -18,6 +18,11 @@ class Lote extends Model
         return $this->hasOne(Macerado::class);
     }
 
+    public function getfermentadoAttribute()
+    {
+        return $this->macerado->hervido->fermentados()->first();
+    }
+
     public function macerar()
     {
         return $this->macerado()->create();
@@ -41,6 +46,11 @@ class Lote extends Model
         return $this->brewed_at->format('d/m/Y');
     }
 
+    public function getAxvAttribute()
+    {
+        return $this->fermentado->axv;
+    }
+
     public function getLitrosAttribute()
     {
         $litros = 0;
@@ -50,5 +60,4 @@ class Lote extends Model
 
         return $litros;
     }
-
 }

@@ -14,35 +14,28 @@ class stout extends Seeder
 
         $receta->cocinar('2021-02-06')
             ->macerar()
-                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('5.376 kg'))
-                    ->malta(Malta::byNombre('Château Cara Gold'), Scalar::Weight('0.42 kg'))
-                    ->malta(Malta::byNombre('Château Chocolat'), Scalar::Weight('0.7 kg'))
-                    ->malta(Malta::byNombre('Château Black'), Scalar::Weight('0.14 kg'))
-                    ->malta(Malta::byNombre('Château Special B'), Scalar::Weight('0.084 kg'))
+                ->malta(Malta::byNombre('Château Pilsen 2RS'), Scalar::Weight('5376 g'))
+                    ->malta(Malta::byNombre('Château Cara Gold'), Scalar::Weight('420 g'))
+                    ->malta(Malta::byNombre('Château Chocolat'), Scalar::Weight('700 g'))
+                    ->malta(Malta::byNombre('Château Black'), Scalar::Weight('140 g'))
+                    ->malta(Malta::byNombre('Château Special B'), Scalar::Weight('84 g'))
                 ->inicial(CarbonInterval::minutes(5))
                     ->empaste(CarbonInterval::minutes(10))
                     ->betaRest(CarbonInterval::minutes(70))
                     ->alphaRest(CarbonInterval::minutes(10))
                     ->mashOut()
                 ->agua(Scalar::Volume('22 l'))
-                    ->lavado(Scalar::Volume('8 l'))
-                    ->final(Scalar::Volume('25 l'))
-                ->densidad(Scalar::Density('1.053 sg'))
+                    ->lavado(Scalar::Volume('11.5 l'))
+                    ->final(Scalar::Volume('28 l'), Scalar::Density('1.053 sg'))
             ->hervir(CarbonInterval::minutes(70))
-                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('22.38 g'), CarbonInterval::minutes(52), 17.3)
-                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('25.47 g'), CarbonInterval::minutes(10), 6.4)
-            ->final(Scalar::Volume('21 l'))
-            ->fermentar([
-                'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => Scalar::Volume('20 l'),
-                'levadura' => [
-                    'nombre' => 'Safbrew S-5',
-                    'estado' => 'Seca'
-                ],
-                'densidad_inicial' => Scalar::Density('1.058 sg')
-            ])
-                ->envasar('2020-11-29', 'b600', 7)
-                ->envasar('b500', 32);
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('24.83 g'), CarbonInterval::minutes(70), 17.3)
+                ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('27.58 g'), CarbonInterval::minutes(10), 6.4)
+				->final(Scalar::Volume('6 gallons'))
+            ->fermentar('Anvil 7.5 gl')
+				->levadura('US 05', 'Lavada')
+				->inicio(Scalar::Volume('23 l'), Scalar::Density('1.060 sg'));
+//            ->envasar('2020-11-29', 'b600', 7)
+//                ->envasar('b500', 32);
 
         $receta->cocinar('2020-11-15')
             ->macerar()
@@ -58,8 +51,7 @@ class stout extends Seeder
                     ->mashOut()
                 ->agua(Scalar::Volume('22 l'))
                     ->lavado(Scalar::Volume('8 l'))
-                    ->final(Scalar::Volume('25 l'))
-                ->densidad(Scalar::Density('1.053 sg'))
+                    ->final(Scalar::Volume('25 l'), Scalar::Density('1.053 sg'))
             ->hervir(CarbonInterval::minutes(70))
                 ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('22.38 g'), CarbonInterval::minutes(52), 17.3)
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('25.47 g'), CarbonInterval::minutes(10), 6.4)
@@ -90,22 +82,15 @@ class stout extends Seeder
                     ->mashOut()
                 ->agua(Scalar::Volume('20 l'))
                     ->lavado(Scalar::Volume('11 l'))
-                    ->final(Scalar::Volume('26 l'))
-                ->densidad(Scalar::Density('1.046 sg'))
+                    ->final(Scalar::Volume('26 l'), Scalar::Density('1.046 sg'))
             ->hervir(CarbonInterval::minutes(70))
                 ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('21.67 g'), CarbonInterval::minutes(70), 17.3)
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('23.64 g'), CarbonInterval::minutes(10), 6.4)
-            ->final(Scalar::Volume('20 l'))
-            ->fermentar([
-                'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => Scalar::Volume('19.5 l'),
-                'levadura' => [
-                    'nombre' => 'Safbrew S-5',
-                    'estado' => 'Seca'
-                ],
-                'densidad_inicial' => Scalar::Density('1.061 sg')
-            ])
-                ->envasar('2020-5-21', 'b20', 1);
+				->final(Scalar::Volume('20 l'))
+            ->fermentar('Anvil 7.5 gl')
+				->levadura('US 05', 'Seca')
+				->inicio(Scalar::Volume('19.5 l'), Scalar::Density('1.061 sg'))
+            ->envasar('2020-5-21', 'b20', 1);
 
         $receta->cocinar('2019-9-14')
             ->macerar()
@@ -119,24 +104,17 @@ class stout extends Seeder
                     ->mashOut()
                 ->agua(Scalar::Volume('21 l'))
                     ->lavado(Scalar::Volume('13.5 l'))
-                    ->final(Scalar::Volume('28 l'))
-                ->densidad(Scalar::Density('1.052 sg'), Scalar::Temperature('78 C'))
+                    ->final(Scalar::Volume('28 l'), Scalar::Density('1.052 sg'), Scalar::Temperature('78 C'))
             ->hervir(CarbonInterval::minutes(70))
                 ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('25.37 g'), CarbonInterval::minutes(65), 17.3)
                 ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('10.6 g'), CarbonInterval::minutes(10))
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('16.56 g'), CarbonInterval::minutes(10), 6.4)
-            ->final(Scalar::Volume('26 l'))
-                ->envasar('b330', 1)
-            ->fermentar([
-                'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => Scalar::Volume('23 l'),
-                'levadura' => [
-                    'nombre' => 'Safbrew S-33',
-                    'estado' => 'lavada'
-                ],
-                'densidad_inicial' => Scalar::Density('1.063 sg')
-            ])
-                ->envasar('2019-9-29', 'b710', 11)
+				->final(Scalar::Volume('26 l'))
+					->envasar('b330', 1)
+            ->fermentar('Anvil 7.5 gl')
+				->levadura('US 05', 'Lavada')
+				->inicio(Scalar::Volume('23 l'), Scalar::Density('1.063 sg'))
+            ->envasar('2019-9-29', 'b710', 11)
                 ->envasar('b500', 32)
                 ->envasar('b330', 3);
 
@@ -152,22 +130,15 @@ class stout extends Seeder
                     ->mashOut()
                 ->agua(Scalar::Volume('22 l'))
                     ->lavado(Scalar::Volume('13.5 l'))
-                    ->final(Scalar::Volume('31 l'))
-                ->densidad(Scalar::Density('1.050 sg'), Scalar::Temperature('78.5 C'))
+                    ->final(Scalar::Volume('31 l'), Scalar::Density('1.050 sg'), Scalar::Temperature('78.5 C'))
             ->hervir(CarbonInterval::minutes(70))
                 ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('27.73 g'), CarbonInterval::minutes(70))
                 ->lupulo(Lupulo::byNombre('Saaz'), Scalar::Weight('6.86 g'), CarbonInterval::minutes(10))
-            ->final(Scalar::Volume('27.5 l'))
-            ->fermentar([
-                'fermentador' => 'Anvil 7.5 gl',
-                'volumen' => Scalar::Volume('23 l'),
-                'levadura' => [
-                    'nombre' => 'Safbrew S-33',
-                    'estado' => 'lavada'
-                ],
-                'densidad_inicial' => Scalar::Density('1.063 sg')
-            ])
-                ->envasar('2019-7-21', 'g4200', 1)
+				->final(Scalar::Volume('27.5 l'))
+            ->fermentar('Anvil 7.5 gl')
+				->levadura('S-33', 'Lavada')
+				->inicio(Scalar::Volume('23 l'), Scalar::Density('1.063 sg'))
+            ->envasar('2019-7-21', 'g4200', 1)
                 ->envasar('b710', 5)
                 ->envasar('b600', 8)
                 ->envasar('b500', 25)

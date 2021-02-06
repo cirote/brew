@@ -11,8 +11,15 @@ trait Fermentable
         return $this->morphMany(Fermentado::class, 'fermentable');
     }
 
-    public function fermentar()
+    public function fermentar($fermentador_nombre)
     {
-        return $this->fermentados()->create();
+		$fermentado = $this->fermentados()->create();
+
+		if (! is_array($fermentador_nombre))
+		{
+			$fermentado->fermentador($fermentador_nombre);
+		}
+
+		return $fermentado;
     }
 }

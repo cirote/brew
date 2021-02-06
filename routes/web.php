@@ -22,6 +22,7 @@ Route::get('recetas/{receta}/order', 'RecetaController@order')->name('recetas.or
 Route::get('recetas/{receta}/process', 'RecetaController@process')->name('recetas.process');
 Route::get('recetas/{receta}/volume', 'RecetaController@volume')->name('recetas.volume');
 Route::get('recetas/{receta}/lotes/{lote?}', 'RecetaController@lotes')->name('recetas.lotes');
+Route::get('recetas/{receta}/calculos/{lote?}', 'RecetaController@calculos')->name('recetas.calculos');
 
 Route::resource('lotes', 'RecetaController');
 

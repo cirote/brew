@@ -108,6 +108,13 @@ class RecetaController extends Controller
             ->with('lote', $lote);
     }
 
+    public function calculos(Receta $receta, Lote $lote = null)
+    {
+        return view('recetas.calculos')
+            ->with('receta', $receta)
+            ->with('lote', $lote);
+    }
+
     public function prueba()
     {
 //        if (App::bound('scalar'))

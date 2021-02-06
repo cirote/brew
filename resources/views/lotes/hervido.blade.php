@@ -8,6 +8,14 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-striped table-condensed">
                         <tbody>
+							<tr>
+								<td>Volumen final del macerado</td>
+								<td>{{ $lote->macerado->final }}</td>
+							</tr>
+	                        <tr>
+								<td>Densidad</td>
+								<td>{{ $lote->macerado->densidad }}</td>
+							</tr>
                             <tr>
                                 <td>Volumen de agua previo al hervido</td>
                                 <td>{{ $lote->macerado->hervido->volumenPrevio }}</td>
@@ -23,10 +31,6 @@
                                 <td>{{ number_format($lote->macerado->hervido->minutosAAgregar, 0) }} minutos</td>
                             </tr>
                             @endif
-                            <tr>
-                                <td>Tasa de evaporacion</td>
-                                <td>{{ number_format(1 / $lote->macerado->hervido->tasaDeEvaporacion, 3) }} minutos / litro</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -42,6 +46,10 @@
                             <tr>
                                 <td>Volumen real en el fermentador</td>
                                 <td>N/D</td>
+                            </tr>
+                            <tr>
+                                <td>Tasa de evaporacion</td>
+                                <td>{{ number_format(1 / $lote->macerado->hervido->tasaDeEvaporacion, 3) }} minutos / litro</td>
                             </tr>
                         </tbody>
                     </table>
