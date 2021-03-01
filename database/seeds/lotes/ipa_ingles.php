@@ -33,10 +33,13 @@ class ipa_ingles extends Seeder
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('25.07 g'), CarbonInterval::minutes(5), 6.4)
 				->final(Scalar::Volume('20.0 l'))
             ->fermentar('Anvil 7.5 gl')
-				->levadura('US 05', 'Lavada')
+				->levadura('US 05', 'Seca')
 				->inicio(Scalar::Volume('18.5 l'), Scalar::Density('1.064 sg'))
 				->final(Scalar::Density('1.032 sg'))
-            ->envasar('2020-02-06', 'b20', 1, Scalar::Volume('14 l'))
-                ->envasar('b330', 20);
+            ->envasar('2021-02-06', 'b20', 1, Scalar::Volume('14 l'))
+                ->envasar('b330', 20)
+			->opinion('Esteban', 6, 'Tenía gusto a banana. Además, no tiene el perfume ni el amargor de las IPAs')
+			->opinion('Emilia', 9, 'Suave, fresca, refrescante. No muy fuerte')
+			->opinion('Miguel', 9, 'Le gustaba por que estaba bien efervecente');
     }
 }

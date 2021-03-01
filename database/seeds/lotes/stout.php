@@ -33,9 +33,13 @@ class stout extends Seeder
 				->final(Scalar::Volume('6 gallons'))
             ->fermentar('Anvil 7.5 gl')
 				->levadura('US 05', 'Lavada')
-				->inicio(Scalar::Volume('23 l'), Scalar::Density('1.060 sg'));
-//            ->envasar('2020-11-29', 'b600', 7)
-//                ->envasar('b500', 32);
+				->inicio(Scalar::Volume('23 l'), Scalar::Density('1.060 sg'))
+				->final(Scalar::Density('1.030 sg'))
+            ->envasar('2021-02-24', 'b20', 1, Scalar::Volume('5 l'))
+                ->envasar('b710', 14)
+                ->envasar('b600', 7)
+                ->envasar('b500', 7)
+			->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar');
 
         $receta->cocinar('2020-11-15')
             ->macerar()

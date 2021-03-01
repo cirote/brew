@@ -2,6 +2,7 @@
 
 use App\Models\Laboratorio;
 use Illuminate\Database\Seeder;
+use Cirote\Scalar\Facade\Scalar;
 
 class LevadurasTableSeeder extends Seeder
 {
@@ -21,6 +22,12 @@ class LevadurasTableSeeder extends Seeder
         Laboratorio::byNombre("Fermentis, by Lesaffre")
             ->levaduras()->createMany([
                 [
+                    'nombre' => 'S-04',
+                    'descripcion' => 'Safale S-04',
+                    'atenuacion_maxima' => 75,
+                    'atenuacion_minima' => 72,
+					'temperatura' => Scalar::Temperature('20 C')
+                ], [
                     'nombre' => 'S-33',
                     'descripcion' => 'Safbrew S-33',
                     'atenuacion_maxima' => 85,

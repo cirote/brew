@@ -13,11 +13,12 @@ class CreateLevadurasTable extends Migration
             $table->string('nombre')->index();
             $table->unsignedBigInteger('laboratorio_id')->index()->foreing();
             $table->string('descripcion');
-            $table->decimal('atenuacion_maxima');
-            $table->decimal('atenuacion_minima');
-            $table->decimal('floculacion_maxima');
-            $table->decimal('floculacion_minima');
-            $table->decimal('tolerancia');
+            $table->decimal('atenuacion_maxima')->nullable()->default(Null);
+            $table->decimal('atenuacion_minima')->nullable()->default(Null);
+            $table->decimal('floculacion_maxima')->nullable()->default(Null);
+            $table->decimal('floculacion_minima')->nullable()->default(Null);
+            $table->decimal('tolerancia')->nullable()->default(Null);
+            $table->string('temperatura')->nullable()->default(Null);
             $table->timestamps();
         });
     }

@@ -15,6 +15,11 @@
             </row>
 
             <row>
+                @include('lotes.lupulosAjustados')
+                @include('lotes.lupulos')
+            </row>
+
+            <row>
                 @include('lotes.volumen')
             </row>
 
@@ -23,8 +28,11 @@
             </row>
 
             <row>
-                @include('lotes.lupulosAjustados')
-                @include('lotes.lupulos')
+                @include('lotes.fermentado')
+            </row>
+
+            <row>
+                @include('lotes.opiniones')
             </row>
 
 {{--            <row>--}}

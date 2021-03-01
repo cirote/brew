@@ -21,6 +21,11 @@ class Fermentado extends Model
         return $this->terminar();
     }
 
+    public function getFermentadorAttribute($value)
+    {
+        return Fermentador::find($this->fermentador_id);
+    }
+
     public function levadura($nombre, $estado = 'Seca')
     {
         $this->levadura_id = Levadura::where('nombre', $nombre)->first()->id;
@@ -28,6 +33,11 @@ class Fermentado extends Model
         $this->levadura_estado = $estado;
 
         return $this->terminar();
+    }
+
+    public function getLevaduraAttribute()
+    {
+        return Levadura::find($this->levadura_id);
     }
 
     public function inicio($volumen, $densidad)
@@ -44,6 +54,22 @@ class Fermentado extends Model
         $this->densidad_final = $densidad;
 
         return $this->terminar();
+    }
+
+    public function opiniones()
+    {
+        return $this->hasMany(Opinion::class);
+    }
+
+    public function opinion($opinante, $puntaje, $opinion)
+    {
+        $this->opiniones()->create([
+			'opinante' => $opinante,
+			'puntaje'  => $puntaje,
+			'opinion'  => $opinion
+		]);
+
+        return $this;
     }
 
     private function terminar()
@@ -65,9 +91,15 @@ class Fermentado extends Model
 
     public function getAxvAttribute()
     {
-		if ($this->densidad_final->val() > 0)
-			return ($this->densidad_inicial->val() - $this->densidad_final->val()) * 105 * 1.25;
-		
-		return 0;
+		return ($this->densidad_final->val() > 0)
+			? ($this->densidad_inicial->val() - $this->densidad_final->val()) * 105 * 1.25
+			: 0;
+    }
+
+    public function getAtenuacionAttribute()
+    {
+		return ($this->densidad_final->val() > 0)
+			? ($this->densidad_inicial->val() - $this->densidad_final->val()) * 100 / ($this->densidad_inicial->val() - 1)
+			: 0;
     }
 }

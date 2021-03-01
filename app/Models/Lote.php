@@ -46,18 +46,38 @@ class Lote extends Model
         return $this->brewed_at->format('d/m/Y');
     }
 
+    public function getFechaEnvasadoAttribute()
+    {
+        return $this->envases()->first()->bottled_at->format('d/m/Y');
+    }
+
+    public function getDiasDeFermentacionAttribute()
+    {
+        return $this->brewed_at->diffInDays($this->envases()->first()->bottled_at);
+    }
+
     public function getAxvAttribute()
     {
         return $this->fermentado->axv;
     }
 
+    public function getAtenuacionAttribute()
+    {
+        return $this->fermentado->atenuacion;
+    }
+	
     public function getLitrosAttribute()
     {
-        $litros = 0;
+		return $this->envases->sum('litros');
+    }
 
-        foreach ($this->envases as $envase)
-            $litros += $envase->litros;
+    public function opiniones()
+    {
+		return $this->fermentado->opiniones();
+    }
 
-        return $litros;
+    public function getPuntajeAttribute()
+    {
+		return $this->opiniones->avg('puntaje');
     }
 }
