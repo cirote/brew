@@ -33,6 +33,13 @@ class Hervido extends Model
 
     public function getVolumenEstimadoAttribute()
     {
+		if ($this->inicial)
+		{
+			return Scalar::Volume(
+				Scalar::Volume($this->inicial)->convert('lit')->val() - $this->tasaDeEvaporacion * $this->minutos
+			);
+		}
+
         $densidadReceta = ($this->receta->gravedad_original->convert('sg')->val() - 1) * 1000;
 
         $densidadMacerado = ($this->macerado->densidad->convert('sg')->val() - 1) * 1000;
@@ -44,14 +51,33 @@ class Hervido extends Model
         return Scalar::Volume($volumenEstimado);
     }
 
-    public function getVolumenPrevioAttribute()
+    public function getDensidadIdealAttribute()
     {
         $volumenFinal = $this->volumenEstimado->val();
 
-        $volumenEstimado = $volumenFinal + $this->tasaDeEvaporacion * $this->minutos;        
+        $volumenEstimado = $volumenFinal + $this->tasaDeEvaporacion * $this->minutos;
+
         return Scalar::Volume($volumenEstimado);
 
         $volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * ($this->minutos / 60)));
+
+        return Scalar::Volume($volumenEstimado);
+    }
+
+    public function getVolumenPrevioAttribute()
+    {
+		if ($this->inicial)
+		{
+			return Scalar::Volume($this->inicial)->convert('lit');
+		}
+
+        $volumenFinal = $this->volumenEstimado->val();
+
+        $volumenEstimado = $volumenFinal + $this->tasaDeEvaporacion * $this->minutos;
+
+        return Scalar::Volume($volumenEstimado);
+
+		$volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * ($this->minutos / 60)));
 
         return Scalar::Volume($volumenEstimado);
     }

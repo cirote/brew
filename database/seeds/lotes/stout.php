@@ -39,7 +39,8 @@ class stout extends Seeder
                 ->envasar('b710', 14)
                 ->envasar('b600', 7)
                 ->envasar('b500', 7)
-			->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar');
+			->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar')
+			->opinion('Miguel', 8, 'Bastante cuerpo. Buena espuma. Amargo ok y con sabor lupulado');
 
         $receta->cocinar('2020-11-15')
             ->macerar()

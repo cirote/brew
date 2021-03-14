@@ -5,6 +5,10 @@
         </div>
         <div class="box-body">
             <row>
+                @include('lotes.volumen')
+            </row>
+
+            <row>
                 @include('lotes.hervido')
             </row>
 

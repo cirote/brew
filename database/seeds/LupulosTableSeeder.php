@@ -20,6 +20,11 @@ class LupulosTableSeeder extends Seeder
 	        'aa' => 15
         ]);
 
+	    Lupulo::create([
+        	'variedad' => 'Citra',
+	        'aa' => 12
+        ]);
+
         $ca = Lupulo::create([
             'variedad' => 'Cascade',
             'aa' => 6.4

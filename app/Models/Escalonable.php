@@ -50,7 +50,7 @@ trait Escalonable
 
 	public function betaRest(CarbonInterval $duracion)
 	{
-		return $this->escalon(Scalar::Temperature('63 °C'), $duracion);
+		return $this->escalon(Scalar::Temperature('62 °C'), $duracion);
 	}
 
 	public function mashOut()

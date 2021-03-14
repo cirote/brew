@@ -34,9 +34,12 @@ class triple_blond extends Seeder
 				->final(Scalar::Volume('17.5 l'))
             ->fermentar('Anvil 7.5 gl')
 				->levadura('S-04', 'Seca')
-				->inicio(Scalar::Volume('17.5 l'), Scalar::Density('1.080 sg'))
-				->final(Scalar::Density('1.030 sg'))
-            ->envasar('2021-03-07', 'b20', 1, Scalar::Volume('17 l'));
+				->inicio(Scalar::Volume('16.5 l'), Scalar::Density('1.080 sg'))
+				->final(Scalar::Density('1.045 sg'))
+            ->envasar('2021-03-14', 'b20', 1, Scalar::Volume('9 l'))
+                ->envasar('b710', 3)
+                ->envasar('b500', 9)
+                ->envasar('b330', 5);
 
         $receta->cocinar('2020-11-29')
             ->macerar()

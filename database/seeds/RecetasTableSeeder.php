@@ -406,15 +406,24 @@ class RecetasTableSeeder extends Seeder
                 'nombre' => 'Château Wheat Blanc',
                 'cantidad' => 5
             ]],
-            'lupulos' => [[
-                'nombre' => 'Magnum',
-                'cantidad' => 80,
-                'momento' => 15
-            ], [
-                'nombre' => 'Styrian Golding',
-                'cantidad' => 80,
-                'momento' => 85
-            ]],
+            'lupulos' => [
+                [
+                    'nombre' => 'Magnum',
+                    'cantidad' => Scalar::Weight('70 g'),
+                    'uso' => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(70)
+                ], [
+                    'nombre' => 'Styrian Golding',
+                    'cantidad' => Scalar::Weight('70 g'),
+                    'uso' => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(10)
+                ], [
+                    'nombre' => 'Citra',
+                    'cantidad' => Scalar::Weight('70 g'),
+                    'uso' => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(5)
+                ]
+            ],
         ]);
 
         $this->agregarReceta([

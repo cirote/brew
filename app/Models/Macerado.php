@@ -21,12 +21,13 @@ class Macerado extends Model
         return $this->hasOne(Hervido::class);
     }
 
-    public function hervir(CarbonInterval $tiempo)
+    public function hervir(CarbonInterval $tiempo, Volume $volumen = null)
     {
         $this->escalon(Scalar::Temperature('100 °C'), $tiempo);
 
         return $this->hervido()->create([
-                'duracion' => $tiempo
+                'duracion' => $tiempo,
+				'inicial' => $volumen,
             ]);
     }
 
@@ -86,6 +87,15 @@ class Macerado extends Model
 
         if ($temperatura)
             $this->temperatura = $temperatura;
+
+        $this->save();
+
+        return $this;
+    }
+
+    public function densidadAntesDeLavar(Density $densidad)
+    {
+        $this->densidad_antes_de_lavar = $densidad;
 
         $this->save();
 

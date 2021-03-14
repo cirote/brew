@@ -12,6 +12,7 @@ class CreateHervidosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('macerado_id')->unsigned()->referTo('id')->on('macerados');
             $table->string('duracion');
+            $table->string('inicial')->nullable()->default(null);
             $table->string('final')->nullable();
             $table->timestamps();
         });

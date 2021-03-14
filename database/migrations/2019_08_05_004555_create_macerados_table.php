@@ -15,6 +15,7 @@ class CreateMaceradosTable extends Migration
             $table->string('lavado')->nullable();
             $table->string('final')->nullable();
             $table->string('densidad')->nullable();
+            $table->string('densidad_antes_de_lavar')->nullable()->default(null);
             $table->string('temperatura')->nullable();
             $table->timestamps();
         });
