@@ -28,7 +28,7 @@ class trigo extends Seeder
                     ->final(Scalar::Volume('27.3 l'))
                 ->densidad(Scalar::Density('1.056 sg'))
             ->hervir(CarbonInterval::minutes(90), Scalar::Volume('8 gallons'))
-                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('10.63 g'), CarbonInterval::minutes(58), 17.3)
+                ->lupulo(Lupulo::byNombre('Columbus'), Scalar::Weight('17.63 g'), CarbonInterval::minutes(58), 17.3)
                 ->lupulo(Lupulo::byNombre('Hallertauer'), Scalar::Weight('22.47 g'), CarbonInterval::minutes(10), 6.4)
                 ->lupulo(Lupulo::byNombre('Cascade'), Scalar::Weight('17.75 g'), CarbonInterval::minutes(5), 6.4)
 				->final(Scalar::Volume('17.5 l'))
