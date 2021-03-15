@@ -24,7 +24,7 @@ class trigo extends Seeder
 					->escalon(Scalar::Temperature('78 °C'), CarbonInterval::minutes(10))
                 ->agua(Scalar::Volume('21 l'))
 					->densidadAntesDeLavar(Scalar::Density('1.067 sg'))
-                    ->lavado(Scalar::Volume('11 l'))
+                    ->lavado(Scalar::Volume('10 l'))
                     ->final(Scalar::Volume('27.3 l'))
                 ->densidad(Scalar::Density('1.056 sg'))
             ->hervir(CarbonInterval::minutes(90), Scalar::Volume('8 gallons'))

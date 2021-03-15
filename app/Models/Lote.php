@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cirote\Scalar\Facade\Scalar;
 
 class Lote extends Model
 {
@@ -39,6 +40,18 @@ class Lote extends Model
     {
         return $this->macerado->hervido->envases()
             ->union($this->macerado->hervido->fermentados()->first()->envases());
+    }
+
+    public function getCantidadMaltaAttribute()
+    {
+		$cantidad = 0;
+
+		foreach($this->macerado->maltas as $malta)
+		{
+			$cantidad += $malta->pivot->cantidad->convert('g')->val();
+		}
+
+        return Scalar::Weight($cantidad . ' g')->convert('kg');
     }
 
     public function getFechaAttribute()

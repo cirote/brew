@@ -51,17 +51,17 @@ class Hervido extends Model
         return Scalar::Volume($volumenEstimado);
     }
 
-    public function getDensidadIdealAttribute()
+    public function getDensidadObjetivoMaceradoAttribute()
     {
-        $volumenFinal = $this->volumenEstimado->val();
+        $volumenFinal = 25;
 
         $volumenEstimado = $volumenFinal + $this->tasaDeEvaporacion * $this->minutos;
 
-        return Scalar::Volume($volumenEstimado);
+        $densidadReceta = ($this->receta->gravedad_original->convert('sg')->val() - 1) * 1000;
 
-        $volumenEstimado = $volumenFinal / (1 - (($this->tasaDeEvaporacion / 100) * ($this->minutos / 60)));
-
-        return Scalar::Volume($volumenEstimado);
+        return Scalar::Density(
+			(1 + ($densidadReceta * $volumenFinal / $volumenEstimado) / 1000) . ' sg'
+		)->convert('sg');
     }
 
     public function getVolumenPrevioAttribute()

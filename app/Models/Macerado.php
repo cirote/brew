@@ -60,6 +60,11 @@ class Macerado extends Model
         return $this;
     }
 
+    public function getAguaAttribute($value)
+    {
+        return Scalar::Volume($value);
+    }
+
     public function lavado(Volume $volumen)
     {
         $this->lavado = $volumen;
@@ -100,6 +105,33 @@ class Macerado extends Model
         $this->save();
 
         return $this;
+    }
+
+    public function getDensidadAntesDeLavarAttribute($value)
+    {
+        return Scalar::Density($value);
+    }
+
+    public function getEstimacionPerdidaAttribute()
+    {
+        return Scalar::Volume(
+			$this->lote->cantidad_malta->convert('kg')->val() * 0.85 
+		);
+    }
+
+    public function getEstimacionAguaAttribute($value)
+    {
+		$aguda_previo_al_lavado = $this->agua->val() - $this->estimacion_perdida->val();
+
+		$densidad_antes_de_lavar = $this->densidad_antes_de_lavar->convert('sg')->val() - 1;
+
+		$densidad_objetivo = $this->hervido->densidadObjetivoMacerado->convert('sg')->val() - 1;
+
+		$volumen_objetivo = ($aguda_previo_al_lavado * $densidad_antes_de_lavar) /  $densidad_objetivo;
+
+        return Scalar::Volume(
+			$volumen_objetivo - $aguda_previo_al_lavado
+		);
     }
 
     public function getDensidadAttribute($value)
