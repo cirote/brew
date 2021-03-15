@@ -411,7 +411,7 @@ class RecetasTableSeeder extends Seeder
                     'nombre' => 'Magnum',
                     'cantidad' => Scalar::Weight('70 g'),
                     'uso' => 'amargor',
-                    'minutos_de_hervido' => CarbonInterval::minutes(70)
+                    'minutos_de_hervido' => CarbonInterval::minutes(60)
                 ], [
                     'nombre' => 'Styrian Golding',
                     'cantidad' => Scalar::Weight('70 g'),
