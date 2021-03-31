@@ -39,6 +39,8 @@ class MaltasTableSeeder extends Seeder
             ], [
                 'nombre' => 'Château Chocolat'
             ], [
+                'nombre' => 'Château Chocolat Light'
+            ], [
                 'nombre' => 'Château Special B'
             ], [
                 'nombre' => 'Château Wheat Blanc'
@@ -46,6 +48,8 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Castle Crystal'
             ], [
                 'nombre' => 'Château Peated'
+            ], [
+                'nombre' => 'Château Oat'
             ], [
                 'nombre' => 'Château Rye Malt'
             ]]);

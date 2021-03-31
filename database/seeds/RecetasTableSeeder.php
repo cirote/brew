@@ -10,6 +10,57 @@ class RecetasTableSeeder extends Seeder
     public function run()
     {
         $this->agregarReceta([
+            'nombre' => 'Del Faraon',
+            'alias'  => '',
+            'link'   => '',
+            'tamano' => Scalar::Volume('100 litres'),
+            'gravedad_original' => Scalar::Density('13 P'),
+            'maltas' => [
+                [
+                    'nombre'   => 'Château Pilsen 2RS',
+                    'cantidad' => Scalar::Weight('9 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Gold',
+                    'cantidad' => Scalar::Weight('4.2 kg'),
+                ], [
+                    'nombre'   => 'Château Wheat Blanc',
+                    'cantidad' => Scalar::Weight('3.6 kg'),
+                ], [
+                    'nombre'   => 'Château Oat',
+                    'cantidad' => Scalar::Weight('0.9 kg'),
+                ], [
+                    'nombre'   => 'Château Cara Ruby',
+                    'cantidad' => Scalar::Weight('0.2 kg'),
+                ], [
+                    'nombre' => 'Château Black',
+                    'cantidad' => Scalar::Weight('0.2 kg'),
+                ], [
+                    'nombre' => 'Château Chocolat Light',
+                    'cantidad' => Scalar::Weight('0.2 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre'    => 'Saaz',
+                    'cantidad'  => Scalar::Weight('100 g'),
+                    'aa'        => 20.5,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(55)
+                ], [
+                    'nombre'    => 'Northern Brewer',
+                    'cantidad'  => Scalar::Weight('50 g'),
+                    'aa'        => 6.5,
+                    'uso'       => 'aroma',
+                    'minutos_de_hervido' => CarbonInterval::minutes(0)
+                ]
+            ],
+        ])
+            ->betaRest(CarbonInterval::minutes(45))
+            ->alphaRest(CarbonInterval::minutes(20))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(90));
+
+        $this->agregarReceta([
             'nombre' => 'Triple Blond',
             'alias'  => '',
             'link'   => 'https://www.castlemalting.com/CastleMaltingBeerRecipes.asp?Command=RecipeViewHtml&RecipeID=276',
