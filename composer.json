@@ -18,7 +18,7 @@
         "cirote/scalar": "9999999-dev",
         "fideloper/proxy": "^4.0",
         "jbzoo/simpletypes": "^1.4",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "6.20.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-blade-x": "^2.2",
         "spatie/laravel-translatable": "^4.1"
