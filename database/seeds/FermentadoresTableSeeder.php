@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\fermentador;
+use App\Models\Fermentador;
 use Cirote\Scalar\Facade\Scalar;
 use Illuminate\Database\Seeder;
 
