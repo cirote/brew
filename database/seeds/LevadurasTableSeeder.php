@@ -36,6 +36,16 @@ class LevadurasTableSeeder extends Seeder
                     'floculacion_minima' => 4,
                     'tolerancia' => 11
                 ], [
+                    'nombre' => 'BE-134',
+                    'descripcion' => 'SafAle BE-134',
+					'temperatura' => Scalar::Temperature('24 C'),
+                    'atenuacion_maxima' => 93,
+                    'atenuacion_minima' => 89,
+                    'tolerancia' => 10,
+					// Datos a corregir
+                    'floculacion_maxima' => 5,
+                    'floculacion_minima' => 4,
+                ], [
                     'nombre' => 'US 05',
                     'descripcion' => 'Safbrew S-5',
 					// Datos a corregir
