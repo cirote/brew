@@ -38,11 +38,10 @@ class del_faraon extends Seeder
             ->fermentar('Anvil 7.5 gl')
 				->levadura('BE-134', 'Seca')
 				->inicio(Scalar::Volume('22 l'), Scalar::Density('1.049 sg'))
-				->final(Scalar::Density('1.030 sg'));
-            // ->envasar('2021-02-24', 'b20', 1, Scalar::Volume('5 l'))
-            //     ->envasar('b710', 14)
-            //     ->envasar('b600', 7)
-            //     ->envasar('b500', 7)
+				->final(Scalar::Density('1.003 sg'))    // Ya corregida, la del refractometro fue 1.020
+            ->envasar('2021-08-29', 'b20', 1, Scalar::Volume('17 l'))
+                ->envasar('g500', 9)
+                ->envasar('b500', 3);
 			// ->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar')
 			// ->opinion('Miguel', 8, 'Bastante cuerpo. Buena espuma. Amargo ok y con sabor lupulado');
     }
