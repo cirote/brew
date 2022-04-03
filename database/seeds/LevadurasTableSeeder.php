@@ -67,6 +67,15 @@ class LevadurasTableSeeder extends Seeder
                     // rango optimo 12 a 15 grados
                     // sedimentacion alta
                     // Gravedad final media
+                ], [
+                    'nombre' => 'S-23',
+                    'descripcion' => 'SafLager German Lager Yeast S-23',
+					// Datos a corregir
+                    'atenuacion_maxima' => 82,
+                    'atenuacion_minima' => 82,
+                    'floculacion_maxima' => 5,
+                    'floculacion_minima' => 4,
+                    'tolerancia' => 11,
                 ]
             ]);
     }

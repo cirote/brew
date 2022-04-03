@@ -12,10 +12,17 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Malta tipo pilsen (MOSA)'
             ]);
 
+        Malteria::byNombre('UMA')
+        ->maltas()->create([
+            'nombre' => 'Pilsen UMA'
+        ]);
+
         Malteria::byNombre('Weyermann')
-            ->maltas()->create([
+            ->maltas()->createMany([[
                 'nombre' => 'CaraAmber'
-            ]);
+            ], [
+                'nombre' => 'CaraHell'
+            ]]);
 
         Malteria::byNombre('Castle Malting')
             ->maltas()->createMany([[

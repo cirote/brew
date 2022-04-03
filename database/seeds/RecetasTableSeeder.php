@@ -10,6 +10,60 @@ class RecetasTableSeeder extends Seeder
     public function run()
     {
         $this->agregarReceta([
+            'nombre' => 'Harp Irish Lager Clone',
+            'alias'  => '',
+            'link'   => 'https://www.brewersfriend.com/homebrew/recipe/view/209607/harp-irish-lager-clone',
+            'tamano' => Scalar::Volume('48 litres'),
+            'gravedad_original' => Scalar::Density('1.049 sg'),
+            'maltas' => [
+                [
+                    'nombre'   => 'Pilsen UMA',
+                    'cantidad' => Scalar::Weight('8.8 kg'),
+                ], [
+                    'nombre'   => 'CaraHell',
+                    'cantidad' => Scalar::Weight('0.5 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre'    => 'Hallertauer Hersbrucker',
+                    'cantidad'  => Scalar::Weight('65 g'),
+                    'aa'        => 4,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(90)
+                ], [
+                    'nombre'    => 'Hallertauer Hersbrucker',
+                    'cantidad'  => Scalar::Weight('35 g'),
+                    'aa'        => 4,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(15)
+                ], [
+                    'nombre'    => 'Saaz',
+                    'cantidad'  => Scalar::Weight('35 g'),
+                    'aa'        => 20.5,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(15)
+                ], [
+                    'nombre'    => 'Hallertauer Hersbrucker',
+                    'cantidad'  => Scalar::Weight('15 g'),
+                    'aa'        => 4,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(5)
+                ], [
+                    'nombre'    => 'Saaz',
+                    'cantidad'  => Scalar::Weight('15 g'),
+                    'aa'        => 20.5,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(5)
+                ]
+            ],
+        ])
+            ->betaRest(CarbonInterval::minutes(45))
+            ->alphaRest(CarbonInterval::minutes(45))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(90));
+
+        $this->agregarReceta([
             'nombre' => 'Del Faraon',
             'alias'  => '',
             'link'   => '',
