@@ -36,12 +36,11 @@ class harp_irish extends Seeder
             ->fermentar('Anvil 7.5 gl')
 				->levadura('W-34/70', 'Lavada')
 				->inicio(Scalar::Volume('22 l'), Scalar::Density('1.056 sg'))
-				->final(Scalar::Density('1.003 sg'))    // Ya corregida, la del refractometro fue 1.020
-            ->envasar('2022-05-01', 'b20', 1, Scalar::Volume('18 l'))
-                ->envasar('g500', 11)
-                ->envasar('b500', 9);
-			// ->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar')
-			// ->opinion('Miguel', 8, 'Bastante cuerpo. Buena espuma. Amargo ok y con sabor lupulado');
+				->final(Scalar::Density('1.013 sg'))    // Ya corregida, la del refractometro fue 1.027
+            ->envasar('2022-05-15', 'b20', 1, Scalar::Volume('18 l'))
+                ->envasar('b600', 10)
+                ->envasar('b500', 5);
+			// ->opinion('Nombre', 8, 'Opinion');
 
         $receta->cocinar('2022-04-10')
             ->macerar()
@@ -67,7 +66,7 @@ class harp_irish extends Seeder
             ->fermentar('Anvil 7.5 gl')
 				->levadura('W-34/70', 'Seca')
 				->inicio(Scalar::Volume('22 l'), Scalar::Density('1.049 sg'))
-				->final(Scalar::Density('1.999 sg'))    // Ya corregida, la del refractometro fue 1.030
+				->final(Scalar::Density('1.014 sg'))    // Ya corregida, la del refractometro fue 1.030
             ->envasar('2022-05-01', 'b20', 1, Scalar::Volume('18 l'))
                 ->envasar('g500', 11)
                 ->envasar('b500', 9)

@@ -454,7 +454,11 @@ class RecetasTableSeeder extends Seeder
                     'minutos_despues_de_iniciar_el_hervor' => CarbonInterval::create(0,0,0,0,0,105)
                 ]
             ],
-        ]);
+        ])
+            ->betaRest(CarbonInterval::minutes(40))
+            ->alphaRest(CarbonInterval::minutes(20))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(130));
 
         $this->agregarReceta([
             'nombre' => 'Cerveza Belga Stout',
