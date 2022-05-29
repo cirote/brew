@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
 	    $this->call(pilsener_czech::class);
         $this->call(sahti::class);
         $this->call(harp_irish::class);
+        $this->call(negra_dulce::class);
     }
 }

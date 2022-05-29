@@ -13,9 +13,11 @@ class MaltasTableSeeder extends Seeder
             ]);
 
         Malteria::byNombre('UMA')
-        ->maltas()->create([
-            'nombre' => 'Pilsen UMA'
-        ]);
+            ->maltas()->createMany([[
+                'nombre' => 'Pilsen UMA'
+            ], [
+                'nombre' => 'Vienna UMA'
+            ]]);
 
         Malteria::byNombre('Weyermann')
             ->maltas()->createMany([[
@@ -31,6 +33,8 @@ class MaltasTableSeeder extends Seeder
                 'nombre' => 'Château Biscuit'
             ], [
                 'nombre' => 'Château Black'
+            ], [
+                'nombre' => 'Château Cafe Light'
             ], [
                 'nombre' => 'Château Cara Blond'
 	        ], [

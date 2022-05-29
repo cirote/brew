@@ -10,6 +10,45 @@ class RecetasTableSeeder extends Seeder
     public function run()
     {
         $this->agregarReceta([
+            'nombre' => 'Negra Dulce (Almacen Cervecero)',
+            'alias'  => '',
+            'link'   => '',
+            'tamano' => Scalar::Volume('30 litres'),
+            'gravedad_original' => Scalar::Density('1.054 sg'),
+            'maltas' => [
+                [
+                    'nombre'   => 'Pilsen UMA',
+                    'cantidad' => Scalar::Weight('5.25 kg'),
+                ], [
+                    'nombre'   => 'Vienna UMA',
+                    'cantidad' => Scalar::Weight('0.6 kg'),
+                ], [
+                    'nombre' => 'Château Chocolat',
+                    'cantidad' => Scalar::Weight('0.75 kg'),
+                ], [
+                    'nombre' => 'Château Cafe Light',
+                    'cantidad' => Scalar::Weight('0.15 kg'),
+                ], [
+                    'nombre' => 'Château Special B',
+                    'cantidad' => Scalar::Weight('0.075 kg'),
+                ]
+            ],
+            'lupulos' => [
+                [
+                    'nombre'    => 'Magnum',
+                    'cantidad'  => Scalar::Weight('45 g'),
+                    'aa'        => 12,
+                    'uso'       => 'amargor',
+                    'minutos_de_hervido' => CarbonInterval::minutes(90)
+                ]
+            ],
+        ])
+            ->betaRest(CarbonInterval::minutes(55))
+            ->alphaRest(CarbonInterval::minutes(35))
+            ->mashOut()
+            ->hervido(CarbonInterval::minutes(90));
+
+        $this->agregarReceta([
             'nombre' => 'Harp Irish Lager Clone',
             'alias'  => '',
             'link'   => 'https://www.brewersfriend.com/homebrew/recipe/view/209607/harp-irish-lager-clone',

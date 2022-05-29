@@ -33,12 +33,11 @@ class cerveza_de_marzo extends Seeder
             ->fermentar('Anvil 7.5 gl')
 				->levadura('W-34/70', 'Lavada')
 				->inicio(Scalar::Volume('25 l'), Scalar::Density('1.054 sg'))
-				->final(Scalar::Density('1.003 sg'))    // Ya corregida, la del refractometro fue 1.020
-            ->envasar('2022-05-01', 'b20', 1, Scalar::Volume('18 l'))
-                ->envasar('g500', 11)
-                ->envasar('b500', 9);
-			// ->opinion('Emilia', 9, 'Suave, fresca y agradable de tomar')
-			// ->opinion('Miguel', 8, 'Bastante cuerpo. Buena espuma. Amargo ok y con sabor lupulado');
+				->final(Scalar::Density('1.013 sg'))    // Ya corregida, la del refractometro fue 1.027
+            ->envasar('2022-05-28', 'b20', 1, Scalar::Volume('18 l'))
+                ->envasar('g500', 6)
+                ->envasar('b500', 8);
+			// ->opinion('Miguel', 8, '');
 
         $receta->cocinar('2020-11-08')
             ->macerar()
